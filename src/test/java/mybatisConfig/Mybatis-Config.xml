@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<!-- aliaes - short name setting bvo, pvo-->
+    <typeAliases>
+         <typeAlias alias="hashMap" type="java.util.HashMap" />
+         <typeAlias alias="map" type="java.util.Map" />
+         <typeAlias alias="mdto" type="com.ecom4.custom.dto.MemberDTO" />
+         <typeAlias alias="bvo" type="com.ecom4.board.dto.BoardDTO" />
+         <typeAlias alias="pdto" type="com.ecom4.product.dto.ProductDTO" />
+         <typeAlias alias="odto" type="com.ecom4.order.dto.OrderDTO" />
+     </typeAliases>	
+</configuration>
