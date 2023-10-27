@@ -20,7 +20,7 @@
 				<th><a href="#">고객센터</a></th>
 			</tr>
 		</table>
-	</div>
+	</div> 
 	<img src="/images/logo.png" id="logo">
 	<div id="search">
 		<input type="text" name="">
