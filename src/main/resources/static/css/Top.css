@@ -1,0 +1,36 @@
+@charset "UTF-8";
+a:link{color: white; text-decoration: none; font-weight: bold;}
+a:visited{color: white; text-decoration: none; font-weight: bold;}
+a:active{color: white; text-decoration: none; font-weight: bold;}
+a:hover{color: white; text-decoration: none; font-weight: bold;}
+#TopMenuBox {
+	height: 40px;
+	width: 100%;
+	background-color: #237AF6;
+}
+#TopMenuBox table {
+	margin-left: 1100px;
+	height: 40px;
+	width: 400px;
+	font-size: 15px;
+}
+#logo {
+	position: absolute;
+	left: 300px;
+	top: 60px;
+	width: 250px;
+}
+#search {
+	position: absolute;
+	left: 600px;
+	top: 80px;
+	height: 40px;
+	width: 700px;
+	border: solid 3px #237AF6;
+}
+#search input{
+	margin-left: 100px;
+	height: 38px;
+	width: 500px;
+	border: none;
+}
