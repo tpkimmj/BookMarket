@@ -24,6 +24,7 @@
 	<img src="/images/logo.png" id="logo">
 	<div id="search">
 		<input type="text" name="">
+		<a href="#"><img src="/images/search.png" id="searchIcon"></a>
 	</div>
 	</header>
 </body>
