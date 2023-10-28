@@ -20,12 +20,26 @@
 				<th><a href="#">고객센터</a></th>
 			</tr>
 		</table>
-	</div> 
-	<img src="/images/logo.png" id="logo">
-	<div id="search">
-		<input type="text" name="">
-		<a href="#"><img src="/images/search.png" id="searchIcon"></a>
 	</div>
+	<div id="mid">
+		<a href="/"><img src="/images/logo.png" id="logo"></a>
+		<div id="search">
+			<input type="text" name="">
+			<a href="#"><img src="/images/search.png" id="searchIcon"></a>
+		</div>
+	<div id="MainMenu">
+		<table>
+			<tr>
+				<td><a href="#">베스트셀러</a></td>
+				<td><a href="#">소설</a></td>
+				<td><a href="#">만화</a></td>
+				<td><a href="#">시집</a></td>
+				<td><a href="#">참고서</a></td>
+				<td><a href="#">자기계발</a></td>
+			</tr>
+		</table>
+	</div>
+	</div> 
 	</header>
 </body>
 </html>
