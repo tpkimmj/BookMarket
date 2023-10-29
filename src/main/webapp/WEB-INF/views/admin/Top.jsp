@@ -17,13 +17,13 @@
 				<c:choose>
 		            <c:when test="${ssKey!=null}">
 			            <th><a href="/logoutProc">로그아웃</a></th>
+						<th><a href="/memberMgt">회원관리</a></th>
 		            </c:when>
 		            <c:when test="${ssKey==null}">
 			            <th><a href="/login">로그인</a></th>
 						<th><a href="/join">회원가입</a></th>
 		            </c:when>
 	            </c:choose>
-					<th><a href="/info">마이페이지</a></th>
 					<th><a href="#">장바구니</a></th>
 					<th><a href="#">고객센터</a></th>
 			</tr>
