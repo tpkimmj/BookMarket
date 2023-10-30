@@ -1,4 +1,4 @@
-package com.ecom4.controller;
+package com.book.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
