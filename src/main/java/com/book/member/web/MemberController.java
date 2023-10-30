@@ -38,8 +38,15 @@ public class MemberController {
 	
 	@RequestMapping("/login") //로그인 페이지
 	public String login(HttpServletRequest request, HttpServletResponse response, MemberDTO mdto, Model model) {
+		String page = null;
+		String contentsJsp = null;
 		
-		return "custom/login";
+		page = "Main";
+		contentsJsp = "custom/login";
+		
+		model.addAttribute("page", page);
+		model.addAttribute("contentsJsp", contentsJsp);
+		return page;
 	}
 	
 	@RequestMapping("/loginProc") //로그인 동작
