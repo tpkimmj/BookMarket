@@ -51,19 +51,19 @@
 				<td>
 					<ul>
 						<li class="col1"><a href="#"><img src="images/book2.png"></a></li>
-						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
+						<li class="col2">드래곤볼 슈퍼<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
 						<li class="col1"><a href="#"><img src="images/book3.png"></a></li>
-						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
+						<li class="col2">스튜디오 지브리 입체 건축<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
 						<li class="col1"><a href="#"><img src="images/book4.png"></a></li>
-						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
+						<li class="col2">스파이 패밀리<li>
 					</ul>
 				</td>
 			</tr>
@@ -71,25 +71,25 @@
 				<td>
 					<ul>
 						<li class="col1"><a href="#"><img src="images/book5.png"></a></li>
-						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
+						<li class="col2">원피스<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
 						<li class="col1"><a href="#"><img src="images/book6.png"></a></li>
-						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
+						<li class="col2">주술회전 0<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
 						<li class="col1"><a href="#"><img src="images/book7.png"></a></li>
-						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
+						<li class="col2">최애의 아이<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
 						<li class="col1"><a href="#"><img src="images/book8.png"></a></li>
-						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
+						<li class="col2">더 그레이트 비트코인<li>
 					</ul>
 				</td>
 			</tr>
