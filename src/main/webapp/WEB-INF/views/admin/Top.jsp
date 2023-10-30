@@ -18,6 +18,7 @@
 		            <c:when test="${ssKey!=null}">
 			            <th><a href="/logoutProc">로그아웃</a></th>
 						<th><a href="/memberMgt">회원관리</a></th>
+						<th><a href="/productMgt">상품관리</a></th>
 		            </c:when>
 		            <c:when test="${ssKey==null}">
 			            <th><a href="/login">로그인</a></th>

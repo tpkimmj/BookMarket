@@ -11,7 +11,7 @@
 	<c:if test="${msg!=null}">
 		<script type="text/javascript">
 			var msg = '${msg}';
-			alert('정상처리: '+msg);
+			alert(msg);
 		</script>
 	</c:if>
 	<script type="text/javascript">

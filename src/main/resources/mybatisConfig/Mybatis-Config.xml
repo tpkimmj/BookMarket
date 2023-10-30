@@ -12,8 +12,8 @@
          <typeAlias alias="hashMap" type="java.util.HashMap" />
          <typeAlias alias="map" type="java.util.Map" />
          <typeAlias alias="mdto" type="com.book.member.dto.MemberDTO" />
+         <typeAlias alias="pdto" type="com.book.product.dto.ProductDTO" />
          <!-- <typeAlias alias="bvo" type="com.ecom4.board.dto.BoardDTO" />
-         <typeAlias alias="pdto" type="com.ecom4.product.dto.ProductDTO" />
          <typeAlias alias="odto" type="com.ecom4.order.dto.OrderDTO" /> -->
      </typeAliases>	
 </configuration>

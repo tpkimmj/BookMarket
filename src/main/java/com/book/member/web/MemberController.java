@@ -1,11 +1,14 @@
 package com.book.member.web;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.book.common.dto.PageDTO;
 import com.book.member.dto.MemberDTO;
 import com.book.member.service.MemberService;
 
@@ -20,7 +23,13 @@ public class MemberController {
 	
 	@RequestMapping("/join") //회원가입
 	public String join(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
-		return "custom/JoinForm";
+		String page = null;
+		
+		page = "Main";
+		
+		model.addAttribute("page", page);
+		model.addAttribute("contentsJsp", "custom/JoinForm");
+		return page;
 	}
 
 	@RequestMapping("/joinProc") //회원가입동작
@@ -39,13 +48,11 @@ public class MemberController {
 	@RequestMapping("/login") //로그인 페이지
 	public String login(HttpServletRequest request, HttpServletResponse response, MemberDTO mdto, Model model) {
 		String page = null;
-		String contentsJsp = null;
 		
 		page = "Main";
-		contentsJsp = "custom/login";
 		
 		model.addAttribute("page", page);
-		model.addAttribute("contentsJsp", contentsJsp);
+		model.addAttribute("contentsJsp", "custom/login");
 		return page;
 	}
 	
@@ -115,4 +122,25 @@ public class MemberController {
 		return page;
 	}
 	
+	@RequestMapping("/memberMgt") //회원전체 목록 보기
+	public String memberMgt(HttpServletRequest req, HttpServletResponse res, MemberDTO mdto, Model model, PageDTO pageDto) {
+		MemberDTO ssKey = null;
+		String page = null;
+		HttpSession session = req.getSession();
+		if(session.getAttribute("ssKey")!=null) {
+			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			if(ssKey.getM_role().equals("admin"))
+			page = "admin/Main";
+			else page = "redirect:/";
+		}
+		else {
+			page = "redirect:/";
+		}
+		Map<String, Object> reSet = memberService.getMembers(mdto, pageDto);
+		model.addAttribute("memberTot", reSet.get("memberTot"));
+		model.addAttribute("members", reSet.get("members"));
+		model.addAttribute("PageDto", reSet.get("PageDto"));
+		model.addAttribute("contentsJsp", "/MemList");
+		return page;
+	}
 }

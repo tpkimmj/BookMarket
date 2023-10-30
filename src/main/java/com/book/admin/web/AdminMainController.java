@@ -38,25 +38,4 @@ public class AdminMainController {
 		return page;
 	}
 	
-	@RequestMapping("/memberMgt") //회원전체 목록 보기
-	public String memberMgt(HttpServletRequest req, HttpServletResponse res, MemberDTO mdto, Model model, PageDTO pageDto) {
-		MemberDTO ssKey = null;
-		String page = null;
-		HttpSession session = req.getSession();
-		if(session.getAttribute("ssKey")!=null) {
-			ssKey = (MemberDTO) session.getAttribute("ssKey");
-			if(ssKey.getM_role().equals("admin"))
-			page = "admin/Main";
-			else page = "redirect:/";
-		}
-		else {
-			page = "redirect:/";
-		}
-		Map<String, Object> reSet = memberService.getMembers(mdto, pageDto);
-		model.addAttribute("memberTot", reSet.get("memberTot"));
-		model.addAttribute("members", reSet.get("members"));
-		model.addAttribute("PageDto", reSet.get("PageDto"));
-		model.addAttribute("contentsJsp", "admin/MemList");
-		return page;
-	}
 }
