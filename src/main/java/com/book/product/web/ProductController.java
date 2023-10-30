@@ -129,4 +129,33 @@ public class ProductController {
 		session.setAttribute("ssKey", ssKey);
 		return "MsgPage";
 	}
+	
+	@RequestMapping("/productDetail")
+	public String productDetail(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
+		String contentsJsp = null;
+		String page = null;
+		HttpSession session = request.getSession();
+		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		if(mdto != null) {
+			if(mdto.getM_role().equals("mem")) { // 고객
+				contentsJsp = "custom/ProductDetail";
+				page = "Main";
+			} else if (mdto.getM_role().equals("admin")) {
+				contentsJsp = "./ProductDetail";
+				page = "admin/Main";
+			}
+		} else {
+			contentsJsp = "custom/ProductDetail";
+			page = "/Main";
+		}
+		
+		ProductDTO product = productServise.getProduct(pdto.getP_no());
+		
+		model.addAttribute("product", product);
+		model.addAttribute("contentsJsp", contentsJsp);
+		session.setAttribute("ssKey", mdto); 
+		return page;
+	}
+	
+	
 }

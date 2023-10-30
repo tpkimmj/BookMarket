@@ -18,4 +18,9 @@
 		VALUES(#{p_no}, #{stock}, #{price}, #{p_name}, #{detail}, SYSDATE, #{image}, #{path}, #{state})
 	</insert>
 	
+	<select id="getProduct" resultType="pdto">
+		SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE
+		FROM PRODUCT
+		WHERE P_NO=#{p_no}
+	</select>
 </mapper>

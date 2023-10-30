@@ -30,7 +30,7 @@
 				<c:forEach var="product" items="${pList}">
 					<tr>
 						<td class="co1">${product.p_no}</td>
-						<td class="co2"><a href="javascript:bookDetail('${product.p_no}')">${product.p_name}</a></td>
+						<td class="co2"><a href="/productDetail?p_no=${product.p_no}">${product.p_name}</a></td>
 						<td class="price">${product.price}</td>
 						<td class="price">${product.state}</td>
 						<td class="co4">${product.pr_date}</td>

@@ -15,4 +15,6 @@ public interface ProductService {
 
 	int updateProduct(ProductDTO pdto, MultipartFile file) throws Exception;
 
+	ProductDTO getProduct(int p_no);
+
 }
