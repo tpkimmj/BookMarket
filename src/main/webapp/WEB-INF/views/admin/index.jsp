@@ -50,19 +50,19 @@
 				</td>
 				<td>
 					<ul>
-						<li class="col1"><a href="#"><img src="images/book1.png"></a></li>
+						<li class="col1"><a href="#"><img src="images/book2.png"></a></li>
 						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
-						<li class="col1"><a href="#"><img src="images/book1.png"></a></li>
+						<li class="col1"><a href="#"><img src="images/book3.png"></a></li>
 						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
-						<li class="col1"><a href="#"><img src="images/book1.png"></a></li>
+						<li class="col1"><a href="#"><img src="images/book4.png"></a></li>
 						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
 					</ul>
 				</td>
@@ -70,25 +70,25 @@
 			<tr>
 				<td>
 					<ul>
-						<li class="col1"><a href="#"><img src="images/book1.png"></a></li>
+						<li class="col1"><a href="#"><img src="images/book5.png"></a></li>
 						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
-						<li class="col1"><a href="#"><img src="images/book1.png"></a></li>
+						<li class="col1"><a href="#"><img src="images/book6.png"></a></li>
 						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
-						<li class="col1"><a href="#"><img src="images/book1.png"></a></li>
+						<li class="col1"><a href="#"><img src="images/book7.png"></a></li>
 						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
 					</ul>
 				</td>
 				<td>
 					<ul>
-						<li class="col1"><a href="#"><img src="images/book1.png"></a></li>
+						<li class="col1"><a href="#"><img src="images/book8.png"></a></li>
 						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
 					</ul>
 				</td>
