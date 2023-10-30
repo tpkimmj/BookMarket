@@ -18,23 +18,23 @@ public class MemberServiceImpl implements MemberService {
 	MemberDAO memberDao;
 	
 	@Override
-	public int memberJoin(MemberDTO mdto) {
+	public int memberJoin(MemberDTO mdto) throws Exception {
 
 		return memberDao.memberJoin(mdto);
 	}
 
 	@Override //회원가입시 id중복 확인
-	public int idCheck(MemberDTO mdto) {
+	public int idCheck(MemberDTO mdto) throws Exception {
 		return memberDao.idCheck(mdto);
 	}
 
 	@Override //고객이 자신 정보 확인
-	public MemberDTO getMember(MemberDTO mdto) {
+	public MemberDTO getMember(MemberDTO mdto) throws Exception {
 		return memberDao.getMember(mdto);
 	}
 
 	@Override //관리자에서 회원리스트 보기
-	public Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto) {
+	public Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto) throws Exception {
 		Map<String, Object> reSet = new HashMap<String, Object>();
 		// 전체 카운트 갖고오기
 		int memberTot = memberDao.memberTot();

@@ -34,14 +34,25 @@ public class MemberController {
 
 	@RequestMapping("/joinProc") //회원가입동작
 	public String joinProc(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
-		int r = memberService.memberJoin(mdto);
+		try {
+			int r = memberService.memberJoin(mdto);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "admin/MemList";
 	}
 	
 	@RequestMapping("idCheck") //id확인
 	@ResponseBody
 	public int idCheck(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
-		int cnt = memberService.idCheck(mdto);
+		int cnt = 0;
+		try {
+			cnt = memberService.idCheck(mdto);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return cnt;
 	}
 	
@@ -60,26 +71,32 @@ public class MemberController {
 	public String loginProc(HttpServletRequest req, HttpServletResponse res, MemberDTO mdto, Model model) {
 		// 세션 정보 (ssKey) - 회원정보
 		HttpSession session = req.getSession();
-		MemberDTO sdto = memberService.getMember(mdto);
+		MemberDTO sdto;
 		String url="/";
-		String msg;
-		if(sdto!=null) {
-			// 회원 맞음
-			if(sdto.getM_role().equals("admin")) {
-				// 관리자용 페이지로 url
-				url="/admin/";
-			} else {
-				url="/";
+		String msg = null;
+		try {
+			sdto = memberService.getMember(mdto);
+			if(sdto!=null) {
+				// 회원 맞음
+				if(sdto.getM_role().equals("admin")) {
+					// 관리자용 페이지로 url
+					url="/admin/";
+				} else {
+					url="/";
+				}
+				MemberDTO ssKey = new MemberDTO();
+				ssKey.setMem_id(sdto.getMem_id());
+				ssKey.setM_passwd(sdto.getM_passwd());
+				ssKey.setM_name(sdto.getM_name());
+				ssKey.setM_role(sdto.getM_role());
+				msg = sdto.getM_name()+"님 반갑습니다!!";
+				session.setAttribute("ssKey", ssKey);
+			} else { 
+				msg = "아이디 또는 패스워드가 맞지 않습니다.";
 			}
-			MemberDTO ssKey = new MemberDTO();
-			ssKey.setMem_id(sdto.getMem_id());
-			ssKey.setM_passwd(sdto.getM_passwd());
-			ssKey.setM_name(sdto.getM_name());
-			ssKey.setM_role(sdto.getM_role());
-			msg = sdto.getM_name()+"님 반갑습니다!!";
-			session.setAttribute("ssKey", ssKey);
-		} else { 
-			msg = "아이디 또는 패스워드가 맞지 않습니다.";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		model.addAttribute("msg", msg);
 		model.addAttribute("url", url);
@@ -107,7 +124,13 @@ public class MemberController {
 		String msg = null;
 		String url = null;
 		if(custom!=null) {
-			MemberDTO mdto = memberService.getMember(custom);
+			MemberDTO mdto = null;
+			try {
+				mdto = memberService.getMember(custom);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			model.addAttribute("mdto", mdto);
 			model.addAttribute("contentsJsp", "custom/MemInfo");
 			page = "Main";
@@ -136,7 +159,13 @@ public class MemberController {
 		else {
 			page = "redirect:/";
 		}
-		Map<String, Object> reSet = memberService.getMembers(mdto, pageDto);
+		Map<String, Object> reSet = null;
+		try {
+			reSet = memberService.getMembers(mdto, pageDto);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		model.addAttribute("memberTot", reSet.get("memberTot"));
 		model.addAttribute("members", reSet.get("members"));
 		model.addAttribute("PageDto", reSet.get("PageDto"));

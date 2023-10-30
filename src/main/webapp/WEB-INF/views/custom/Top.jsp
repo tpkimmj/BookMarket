@@ -18,6 +18,7 @@
 			<tr>
 				<c:choose>
 		            <c:when test="${ssKey!=null}">
+			            <th>${ssKey.m_name}님 반갑습니다</th>
 			            <th><a href="/logoutProc">로그아웃</a></th>
 		            </c:when>
 		            <c:when test="${ssKey==null}">

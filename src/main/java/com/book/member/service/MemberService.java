@@ -7,12 +7,12 @@ import com.book.member.dto.MemberDTO;
 
 public interface MemberService {
 
-	int memberJoin(MemberDTO mdto);
+	int memberJoin(MemberDTO mdto) throws Exception ;
 
-	int idCheck(MemberDTO mvo);
+	int idCheck(MemberDTO mvo) throws Exception;
 
-	MemberDTO getMember(MemberDTO mdto);
+	MemberDTO getMember(MemberDTO mdto) throws Exception;
 
-	Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto);
+	Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto) throws Exception;
 
 }
