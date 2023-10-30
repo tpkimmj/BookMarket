@@ -88,7 +88,7 @@
 				</td>
 				<td>
 					<ul>
-						<li class="col1"><a href="#"><img src="images/book8.png"></a></li>
+						<li class="col1"><a href="#"><img src="images/book8.jpg"></a></li>
 						<li class="col2">더 그레이트 비트코인<li>
 					</ul>
 				</td>
