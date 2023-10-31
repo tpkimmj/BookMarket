@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>상품상세페이지</title>
-<link rel="stylesheet" type="text/css" href="/css/product.css">
-<script src="/script/productmgt.js"></script>
+<script src="/jquery/jquery-3.7.0.min.js"></script>
+<script src="/script/product.js"></script>
 </head>
 <body>
 <div class="clear"></div>

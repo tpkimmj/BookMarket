@@ -157,5 +157,26 @@ public class ProductController {
 		return page;
 	}
 	
+	@RequestMapping("/productUpForm")
+	public String productUpForm(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
+		String page = null;
+		MemberDTO ssKey = null;
+		HttpSession session = request.getSession();
+		if(session.getAttribute("ssKey")!=null) {
+			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			if(ssKey.getM_role().equals("admin")) {
+				ProductDTO pvo = productServise.getProduct(pdto.getP_no());
+				page = "admin/Main";
+				model.addAttribute("pdto", pvo);
+			}
+			else page = "redirect:/";
+		} else {
+			page = "redirect:/";
+		}
+		// 모든 상품 리스트를 갖고 오기 
+		session.setAttribute("ssKey", ssKey);
+		model.addAttribute("contentsJsp", "/ProductUpForm");
+		return page;
+	}
 	
 }

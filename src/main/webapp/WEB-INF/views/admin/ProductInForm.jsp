@@ -37,6 +37,7 @@
 					<th class="col1">상품분류</th>
 					<td class="col2">
 						<select name="state" title="상품분류">
+							<option value="">선택하세요</option>
 							<option value="소설">소설</option>
 							<option value="만화">만화</option>
 							<option value="시집">시집</option>
