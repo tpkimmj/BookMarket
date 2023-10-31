@@ -9,15 +9,20 @@
 <title>회원 전체 리스트</title>
 </head>
 <body>
-	<div style="text-align: right; margin-right: 30px;">
-	총 회원수: &nbsp;${memberTot}</div>
-	<div id="member">
+<div id="memlist">
+	<div>
 	<c:choose>
 		<c:when test="${memberTot==0}">
 			<table><tr><td>아직 회원이 없습니다.</td></tr></table>
 		</c:when>
 		<c:when test="${memberTot>0}">
-			<table >
+			<table>
+			<tr>
+				<th>회 원 목 록</th>
+			</tr>
+			<tr>
+				<td>총 회원수: &nbsp;${memberTot}</td>
+			</tr>
 			<tr>
 				<th>회원아이디</th>
 				<th>회원명</th>
@@ -36,5 +41,6 @@
 		</c:when>
 	</c:choose>
 	</div>
+</div>
 </body>
 </html>

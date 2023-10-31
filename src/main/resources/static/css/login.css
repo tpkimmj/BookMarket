@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.wrapper {
+	margin: 0 auto;
+	width: 1000px;
+	height: 351px;
+}
+.wrap {
+	background-color: #FAFAD2;
+	border-radius: 20px;
+	margin: 30px auto;
+	width: 500px;
+	height: 300px;
+	text-align: center;
+}
+.logo_wrap {
+	border-radius: 5px;
+	font-size: 35px;
+	height: 55px;
+	background-color: #00008B;
+	color: white;
+}
+.id_wrap input {
+	font-size: 18px;
+	margin: 20px auto;
+	width: 400px;
+	height: 45px;
+	border: 1px solid #dddddd;
+}
+.pw_wrap input {
+	border: 1px solid #dddddd;
+	font-size: 18px;
+	margin: 0 auto ;
+	width: 400px;
+	height: 45px;
+}
+.login_button_wrap #submitTop {
+	margin: 20px auto;
+	width: 100px;
+	font-weight: bold;
+	background-color: #237AF6;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 10px;
+}
+.login_button_wrap a:link{color: #237AF6; text-decoration: none; font-weight: bold;}
+.login_button_wrap a:visited{color: #237AF6; text-decoration: none; font-weight: bold;}
+.login_button_wrap a:active{color: #237AF6; text-decoration: none; font-weight: bold;}
+.login_button_wrap a:hover{color: #237AF6; text-decoration: none; font-weight: bold;}
