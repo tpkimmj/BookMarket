@@ -28,7 +28,7 @@
 	            </c:choose>
 					<th><a href="/info">마이페이지</a></th>
 					<th><a href="#">장바구니</a></th>
-					<th><a href="#">고객센터</a></th>
+					<th><a href="ClientCenter">고객센터</a></th>
 			</tr>
 		</table>
 	</div>
