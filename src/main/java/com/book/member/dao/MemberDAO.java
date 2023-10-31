@@ -19,4 +19,8 @@ public interface MemberDAO {
 
 	public MemberDTO getMember(MemberDTO mdto);
 
+	public int updatePasswd(MemberDTO mdto);
+
+	public String searchId(MemberDTO mdto);
+
 }

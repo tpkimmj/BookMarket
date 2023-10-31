@@ -1,0 +1,76 @@
+*{
+  margin:0 auto; 
+  padding:0;
+}
+a:link{color:  rgb(0, 128, 0); text-decoration: none;}
+a:visited{color:  rgb(0, 128, 0); text-decoration: none;}
+a:active{color:  rgb(0, 128, 0); text-decoration: none;}
+a:hover{color:  rgb(0, 128, 0);
+    text-decoration: none; font-weight: bold;}
+
+ul{list-style:none;}
+
+.tabmenu{ 
+  top:40px;
+  max-width:600px; 
+  margin: 0 auto; 
+  position:relative; 
+}
+.tabmenu ul li{
+  width:50%; 
+  float:left;  
+  text-align:center; 
+  background :#f9f9f9;
+}
+.tabmenu ul li a{
+  display:block;
+  line-height:40px;
+  height:40px;
+  text-decoration:none; 
+  color: #000;
+}
+.tabCon{
+  display:none; 
+  text-align:left; 
+  padding: 20px;
+  position:absolute; 
+  left:0; top:40px; 
+  box-sizing: border-box; 
+  border : 5px solid #f9f9f9;
+}
+.btnCon:target  {
+  background : #ccc;
+}
+.btnCon:target .tabCon{
+  display: block;
+}
+#lage_login_box{
+    text-align:center;
+	margin:20px auto;
+	padding:20px;
+	width: 510px;
+	height: 300px;
+	border: solid 1px #dddddd; 
+	border-radius: 10px;
+	background-color: #f3f3f3;
+}
+ #lage_login_input{
+	margin-top: 40px;
+}
+#lage_login_box input{
+    margin-top:20px;
+    width: 400px;  
+  	height: 40px; 
+  	border: solid 1px #dddddd;  
+	}
+
+ #lage_login_btn{
+    margin-top:30px;
+    width: 380px;
+    height: 40px;
+    padding:10px;
+    font-size:30px;
+    color:white;
+    background-color: #008000;
+}
+

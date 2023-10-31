@@ -15,4 +15,8 @@ public interface MemberService {
 
 	Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto) throws Exception;
 
+	int updatePasswd(MemberDTO mdto);
+
+	String searchId(MemberDTO mdto);
+
 }
