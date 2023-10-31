@@ -41,7 +41,7 @@
 			<tr>
 				<th id="Best" colspan="4">BEST</th>
 			</tr>
-		<tr>
+			<tr>
 				<td>
 					<ul>
 						<li class="col1"><a href="#"><img src="images/book1.png"></a></li>

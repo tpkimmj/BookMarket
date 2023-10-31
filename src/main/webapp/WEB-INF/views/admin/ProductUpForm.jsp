@@ -46,13 +46,16 @@
 				<tr>
 					<th class="col1">상품분류</th>
 					<td class="col2">
-						<select name="state" title="상품분류">
-							<option value="소설" ${pdto.state=="소설" ? "selected" : "" }>소설</option>
-							<option value="만화" ${pdto.state=="만화" ? "selected" : "" }>만화</option>
-							<option value="시집" ${pdto.state=="시집" ? "selected" : "" }>시집</option>
-							<option value="참고서" ${pdto.state=="참고서" ? "selected" : "" }>참고서</option>
-							<option value="자기계발" ${pdto.state=="자기계발" ? "selected" : "" }>자기계발</option>
+						<select id="state" name="state" title="상품분류">
+							<option value="소설">소설</option>
+							<option value="만화">만화</option>
+							<option value="시집">시집</option>
+							<option value="참고서">참고서</option>
+							<option value="자기계발">자기계발</option>
 						</select>
+						<script type="text/javascript">
+							$("#state").val('${pdto.state}')
+						</script>
 					</td>
 				</tr>
 				<tr>

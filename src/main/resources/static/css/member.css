@@ -3,3 +3,25 @@
 	margin: 0 auto;
 	width: 1000px;
 }
+#pwcheck {
+	font-weight: bold;
+	background-color: #dddddd;
+	text-align: center;
+	width: 340px;
+	height: 130px;
+	border-radius: 10px;
+}
+#pwinput input{
+	width: 230px;
+	height: 25px;
+	border-radius: 5px;
+}
+#pwcheck #pwbtn input {
+	font-weight: bold;
+	background-color: #237AF6;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 10px;
+}
