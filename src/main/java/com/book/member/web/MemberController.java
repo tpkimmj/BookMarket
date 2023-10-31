@@ -44,7 +44,7 @@ public class MemberController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "admin/MemList";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("idCheck") //id확인

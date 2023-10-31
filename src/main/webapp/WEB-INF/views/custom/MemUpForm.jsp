@@ -68,7 +68,7 @@
 				<tr>
 					<td class="col1">직업</td>
 					<td class="col2">
-						<select name="m_job" id="m_job>
+						<select name="m_job" id="m_job">
 							<option value="">선택하세요.</option>
 							<option value="회사원">회사원</option>
 							<option value="기술사">기술사</option>
@@ -81,7 +81,7 @@
 							<option value="전문직">전문직(법률,회계)</option>
 							<option value="종교,언론,예술인">종교,언론,예술인</option>
 							<option value="농,축,수산,광업인">농,축,수산,광업인</option>
-							<option valuepn="주부">주부</option>
+							<option value="주부">주부</option>
 							<option value="무직">무직</option>
 							<option value="기타">기타</option>
 						</select>

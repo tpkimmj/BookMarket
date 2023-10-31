@@ -61,5 +61,22 @@
 		SET M_PASSWD = #{m_passwd}
 		WHERE MEM_ID = #{mem_id}
 	</update>
+	
+	<update id="memUpProc" parameterType="mdto">
+		UPDATE MEMBER
+		SET M_PASSWD = #{m_passwd}
+		   ,M_EMAIL = #{m_email}
+		   ,M_PHONE = #{m_phone}
+		   ,ZIPCODE = #{zipcode}
+		   ,ADDRESS = #{address}
+		   ,ADDRESS2 = #{address2}
+		   ,M_JOB = M_JOB
+		WHERE MEM_ID = #{mem_id}
+	</update>
+	
+	<delete id="memDelete" parameterType="mdto">
+		DELETE FROM MEMBER
+		WHERE MEM_ID = #{mem_id}
+	</delete>
 
 </mapper>
