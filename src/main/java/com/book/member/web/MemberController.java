@@ -172,4 +172,5 @@ public class MemberController {
 		model.addAttribute("contentsJsp", "/MemList");
 		return page;
 	}
+	
 }
