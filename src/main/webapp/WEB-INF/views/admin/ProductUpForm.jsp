@@ -5,6 +5,8 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/css/product.css">
+<script src="/jquery/jquery-3.7.0.min.js"></script>
+<script src="/script/member.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -12,30 +14,30 @@
 <div class="clear"></div>
 	<div id="productmgt">
 		<h2 style="height: 40px; text-align: center;margin: 10px;">상품 수정</h2>
-		<form action="/productMgtProc?flag=update" method="post" name="topForm1" enctype="multipart/form-data">
+		<form action="/productMgtProc?flag=update" method="post" name="topForm" enctype="multipart/form-data">
 			<table class="product">
 				<tr>
 					<th class="col1">상품번호</th>
 					<td class="col2">
-						<input type="text" name="p_no" class="chk1 disable" title="상품명" readonly="readonly" value="${pdto.p_no}">
+						<input type="text" name="p_no" class="chkt disable" title="상품명" readonly="readonly" value="${pdto.p_no}">
 					</td>
 				</tr>
 				<tr>
 					<th class="col1">상품명</th>
 					<td class="col2">
-						<input type="text" name="p_name" class="chk1" title="상품명" value="${pdto.p_name}">
+						<input type="text" name="p_name" class="chkt" title="상품명" value="${pdto.p_name}">
 					</td>
 				</tr>
 				<tr>
 					<th class="col1">재고수량</th>
 					<td class="col2">
-						<input type="text" name="stock" class="chk1" title="재고수량" value="${pdto.stock}">&nbsp;개
+						<input type="text" name="stock" class="chkt" title="재고수량" value="${pdto.stock}">&nbsp;개
 					</td>
 				</tr>
 				<tr>
 					<th class="col1">단가</th>
 					<td class="col2">
-						<input type="text" name="price" class="chk1 inprice" title="상품가격" value="${pdto.price}">&nbsp;원
+						<input type="text" name="price" class="chkt inprice" title="상품가격" value="${pdto.price}">&nbsp;원
 					</td>
 				</tr>
 				<tr>
@@ -62,7 +64,7 @@
 						<img alt="이미지" src="upload/${pdto.image}" style="width: 150px; height: 180px;">
 						<c:choose>
 							<c:when test="${pdto.image==null or pdto.image==ready.gif}">
-								<input type="file" name="image2" class="chk1" title="이미지" value="${pdto.image}">
+								<input type="file" name="image2" class="chkt" title="이미지" value="${pdto.image}">
 							</c:when>
 							<c:when test="${pdto.image!=null and pdto.image!=ready.gif}">
 								<input type="file" name="image2" title="이미지" value="${pdto.image}">

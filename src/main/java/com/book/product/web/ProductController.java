@@ -179,4 +179,31 @@ public class ProductController {
 		return page;
 	}
 	
+	@RequestMapping("productDel")
+	public String productDel(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
+		// 세션
+		HttpSession session = request.getSession();
+		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		String url = null;
+		String msg = null;
+		// 맞으면 삭제하고 삭제결과 저장 
+		if(mdto != null) {
+			if(mdto.getM_role().equals("mem")) { // 고객
+				url = "/";
+			} else if (mdto.getM_role().equals("admin")) {
+				int r = productServise.productDel(pdto);
+				if(r>0) msg = pdto.getP_name() + "이/가 삭제되었습니다.";
+				else msg = pdto.getP_name() + "이/가 삭제되지 않았습니다.";
+				url = "/productMgt";
+			}
+		} else {
+			msg = "로그인이 필요합니다.";
+			url = "/login";
+		}
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		session.setAttribute("ssKey", mdto); 
+		return  "MsgPage";
+	}
+	
 }

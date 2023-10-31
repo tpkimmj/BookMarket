@@ -17,5 +17,9 @@ public interface ProductDAO {
 
 	ProductDTO getProduct(int p_no);
 
+	int updateProduct(ProductDTO pdto);
+
+	int productDel(ProductDTO pdto);
+
 
 }

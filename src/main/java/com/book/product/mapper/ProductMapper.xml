@@ -23,4 +23,23 @@
 		FROM PRODUCT
 		WHERE P_NO=#{p_no}
 	</select>
+	
+	<update id="updateProduct" parameterType="pdto">
+		UPDATE PRODUCT SET 
+		STOCK = #{stock}, 
+		PRICE = #{price}, 
+		P_NAME = #{p_name}, 
+		DETAIL = #{detail}, 
+		STATE = #{state}, 
+		PR_DATE = sysdate,
+		<if test="image!=null">
+		IMAGE = #{image}, 
+		</if>
+		PATH = #{path} 
+		WHERE P_NO = #{p_no}
+	</update>
+	
+	<delete id="productDel" parameterType="pdto">
+		DELETE FROM PRODUCT WHERE P_NO = #{p_no}
+	</delete>
 </mapper>
