@@ -129,4 +129,54 @@ public class ProductController {
 		session.setAttribute("ssKey", ssKey);
 		return "MsgPage";
 	}
+	
+	@RequestMapping("/productDetail")
+	public String productDetail(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
+		String contentsJsp = null;
+		String page = null;
+		HttpSession session = request.getSession();
+		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		if(mdto != null) {
+			if(mdto.getM_role().equals("mem")) { // 고객
+				contentsJsp = "custom/ProductDetail";
+				page = "Main";
+			} else if (mdto.getM_role().equals("admin")) {
+				contentsJsp = "./ProductDetail";
+				page = "admin/Main";
+			}
+		} else {
+			contentsJsp = "custom/ProductDetail";
+			page = "/Main";
+		}
+		
+		ProductDTO product = productServise.getProduct(pdto.getP_no());
+		
+		model.addAttribute("product", product);
+		model.addAttribute("contentsJsp", contentsJsp);
+		session.setAttribute("ssKey", mdto); 
+		return page;
+	}
+	
+	@RequestMapping("/productUpForm")
+	public String productUpForm(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
+		String page = null;
+		MemberDTO ssKey = null;
+		HttpSession session = request.getSession();
+		if(session.getAttribute("ssKey")!=null) {
+			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			if(ssKey.getM_role().equals("admin")) {
+				ProductDTO pvo = productServise.getProduct(pdto.getP_no());
+				page = "admin/Main";
+				model.addAttribute("pdto", pvo);
+			}
+			else page = "redirect:/";
+		} else {
+			page = "redirect:/";
+		}
+		// 모든 상품 리스트를 갖고 오기 
+		session.setAttribute("ssKey", ssKey);
+		model.addAttribute("contentsJsp", "/ProductUpForm");
+		return page;
+	}
+	
 }
