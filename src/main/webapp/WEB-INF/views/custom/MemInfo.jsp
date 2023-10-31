@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <head>
 	<link rel="stylesheet" type="text/css" href="/css/member.css">
-	<script src="/script/member.js"></script>
+	<script src="/script/memberup.js"></script>
 </head>
 <div id="member">
 	<table>

@@ -23,4 +23,8 @@ public interface MemberDAO {
 
 	public String searchId(MemberDTO mdto);
 
+	public int memDelete(MemberDTO mdto);
+
+	public int memUpProc(MemberDTO mdto);
+
 }

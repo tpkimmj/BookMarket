@@ -45,13 +45,23 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int updatePasswd(MemberDTO mdto) {
+	public int updatePasswd(MemberDTO mdto) throws Exception{
 		return memberDao.updatePasswd(mdto);
 	}
 
 	@Override
-	public String searchId(MemberDTO mdto) {
+	public String searchId(MemberDTO mdto) throws Exception{
 		return memberDao.searchId(mdto);
+	}
+
+	@Override
+	public int memDelete(MemberDTO mdto) throws Exception {
+		return memberDao.memDelete(mdto);
+	}
+
+	@Override
+	public int memUpProc(MemberDTO mdto) throws Exception {
+		return memberDao.memUpProc(mdto);
 	}
 
 }

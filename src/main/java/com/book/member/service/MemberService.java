@@ -15,8 +15,12 @@ public interface MemberService {
 
 	Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto) throws Exception;
 
-	int updatePasswd(MemberDTO mdto);
+	int updatePasswd(MemberDTO mdto)throws Exception;
 
-	String searchId(MemberDTO mdto);
+	String searchId(MemberDTO mdto)throws Exception;
+
+	int memDelete(MemberDTO custom)throws Exception;
+
+	int memUpProc(MemberDTO mdto)throws Exception;
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.book.common.dto.PageDTO;
 import com.book.member.dto.MemberDTO;
 import com.book.member.service.MemberService;
+import com.book.wrapper.MemberWrapper;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,6 +21,9 @@ import jakarta.servlet.http.HttpSession;
 public class MemberController {
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	MemberWrapper memberWrapper;
 	
 	@RequestMapping("/join") //회원가입
 	public String join(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
@@ -193,13 +197,23 @@ public class MemberController {
 		String url = "/";
 		if(mdto!=null) {
 			if(mdto.getMem_id()!=null) { // 비밀번호 설정
-				r = memberService.updatePasswd(mdto);
+				try {
+					r = memberService.updatePasswd(mdto);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				if(r>0) {
 					msg = "비밀번호가 변경되었습니다.";
 				}else { msg = "비밀번호 변경오류입니다. \\n 관리자에게 문의하세요.";
 					}
 			} else { // 아이디 찾아서 리턴
-				id = memberService.searchId(mdto);
+				try {
+					id = memberService.searchId(mdto);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println(mdto);
 				if(id!=null) msg = "회원아이디: "+id;
 				else msg = "회원정보가 없습니다.";
@@ -211,4 +225,109 @@ public class MemberController {
 		return "MsgPage";
 	}
 	
+	@RequestMapping("/pwCheck")
+	public String pwCheck(HttpServletRequest req, Model model) {
+		HttpSession session = req.getSession();
+		MemberDTO dto = (MemberDTO) session.getAttribute("ssKey");
+		
+		return "custom/PwCheck";
+	}
+	
+	@RequestMapping("/memUpForm")
+	public String memUpForm(HttpServletRequest req, HttpServletResponse res, Model model) {
+		// session정보 갖고오기
+		HttpSession session = req.getSession();
+		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		// 세션정보를 기준으로 회원 정보 가져오기
+		String page = null;
+		String msg = null;
+		String url = null;
+		if(custom!=null) {
+			MemberDTO mdto = null;
+			try {
+				mdto = memberService.getMember(custom);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			model.addAttribute("mdto", mdto);
+			model.addAttribute("contentsJsp", "custom/MemUpForm");
+			page = "Main";
+		}else {
+			msg = "로그인 먼저 필요합니다.";
+			url = "/login";
+			model.addAttribute("msg", msg);
+			model.addAttribute("url", url);
+			page = "MsgPage";
+		}
+		session.setAttribute("ssKey", custom);
+		return page;
+	}
+	
+	@RequestMapping("/memUpProc")
+	public String memUpProc(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
+		// session정보 갖고오기
+		HttpSession session = req.getSession();
+		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		// 세션정보를 기준으로 회원 정보 가져오기
+		String page = null;
+		String msg = null;
+		String url = null;
+		if(custom!=null) {
+			int r = 0;
+			try {
+				r = memberService.memUpProc(mdto);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			if(r>0) {
+				msg = "회원정보가 수정되었습니다."; //\\n 재로그인이 필요합니다.";
+				//session.invalidate(); 재로그인 하기위함
+			}
+			else msg = "수정되지 않았습니다. \\n 관리자에게 문의바랍니다.";
+			url = "/";
+		}else {
+			msg = "로그인 먼저 필요합니다.";
+			url = "/login";
+		}
+		page = "MsgPage";
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		return page;
+	}
+
+	@RequestMapping("/memdelete")
+	public String memdelete(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
+		// session정보 갖고오기
+		HttpSession session = req.getSession();
+		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		// 세션정보를 기준으로 회원 정보 가져오기
+		String page = null;
+		String msg = null;
+		String url = null;
+		if(custom!=null) {
+			int r = 0;
+			try {
+				r = memberWrapper.memDelete(custom);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(r>0) {
+				msg = "회원이 탈퇴 처리 되었습니다.";
+				session.invalidate();
+			}
+			else {
+				msg = "탈퇴할 수 없습니다. \\n 관리자에게 문의바랍니다.";
+			}
+			url = "/";
+		}else {
+			msg = "로그인 먼저 필요합니다.";
+			url = "/login";
+		}
+		page = "MsgPage";
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		return page;
+	}
 }
