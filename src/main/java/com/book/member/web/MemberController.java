@@ -107,7 +107,7 @@ public class MemberController {
 		return "MsgPage";
 	}
 	
-	@RequestMapping("/logoutProc")
+	@RequestMapping("/logoutProc") //로그아웃 동작
 	public String logoutProc(HttpServletRequest request, HttpServletResponse response, MemberDTO mdto, Model model) {
 		// 세션 정보 (ssKey) - 회원정보
 		HttpSession session = request.getSession();
@@ -149,7 +149,7 @@ public class MemberController {
 		return page;
 	}
 	
-	@RequestMapping("/memberMgt") //회원전체 목록 보기
+	@RequestMapping("/memberMgt") //회원전체 목록 보기(관리자용)
 	public String memberMgt(HttpServletRequest req, HttpServletResponse res, MemberDTO mdto, Model model, PageDTO pageDto) {
 		MemberDTO ssKey = null;
 		String page = null;
@@ -189,7 +189,7 @@ public class MemberController {
 		return "memSearch";
 	}
 	
-	@RequestMapping("/searchProc")
+	@RequestMapping("/searchProc")//아이디찾기, 비밀번호변경
 	public String searchProc(HttpServletRequest req, HttpServletResponse res, MemberDTO mdto, Model model) {
 		int r = 0;
 		String id = null;
@@ -225,7 +225,7 @@ public class MemberController {
 		return "MsgPage";
 	}
 	
-	@RequestMapping("/pwCheck")
+	@RequestMapping("/pwCheck") //비밀번호 확인 팝업창
 	public String pwCheck(HttpServletRequest req, Model model) {
 		HttpSession session = req.getSession();
 		MemberDTO dto = (MemberDTO) session.getAttribute("ssKey");
@@ -233,7 +233,7 @@ public class MemberController {
 		return "custom/PwCheck";
 	}
 	
-	@RequestMapping("/memUpForm")
+	@RequestMapping("/memUpForm") //회원정보 수정 화면 전환
 	public String memUpForm(HttpServletRequest req, HttpServletResponse res, Model model) {
 		// session정보 갖고오기
 		HttpSession session = req.getSession();
@@ -264,7 +264,7 @@ public class MemberController {
 		return page;
 	}
 	
-	@RequestMapping("/memUpProc")
+	@RequestMapping("/memUpProc") //회원정보 수정 동작
 	public String memUpProc(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
 		// session정보 갖고오기
 		HttpSession session = req.getSession();
@@ -296,7 +296,7 @@ public class MemberController {
 		return page;
 	}
 
-	@RequestMapping("/memdelete")
+	@RequestMapping("/memdelete") //회원탈퇴
 	public String memdelete(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
 		// session정보 갖고오기
 		HttpSession session = req.getSession();
