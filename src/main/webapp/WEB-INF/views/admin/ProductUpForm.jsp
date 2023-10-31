@@ -12,10 +12,13 @@
 </head>
 <body>
 <div class="clear"></div>
-	<div id="productmgt">
-		<h2 style="height: 40px; text-align: center;margin: 10px;">상품 수정</h2>
+	<div id="productMgt">
 		<form action="/productMgtProc?flag=update" method="post" name="topForm" enctype="multipart/form-data">
 			<table class="product">
+				<tr>
+					<td class="title" colspan="2">상 품 수 정</td>
+				</tr>
+				<tbody class="border">
 				<tr>
 					<th class="col1">상품번호</th>
 					<td class="col2">
@@ -31,13 +34,13 @@
 				<tr>
 					<th class="col1">재고수량</th>
 					<td class="col2">
-						<input type="text" name="stock" class="chkt" title="재고수량" value="${pdto.stock}">&nbsp;개
+						<input type="text" name="stock" class="chkt" title="재고수량" value="${pdto.stock}">
 					</td>
 				</tr>
 				<tr>
 					<th class="col1">단가</th>
 					<td class="col2">
-						<input type="text" name="price" class="chkt inprice" title="상품가격" value="${pdto.price}">&nbsp;원
+						<input type="text" name="price" class="chkt inprice" title="상품가격" value="${pdto.price}">
 					</td>
 				</tr>
 				<tr>
@@ -73,8 +76,9 @@
 						<input type="hidden" name="image" value="${pdto.image}">
 					</td>
 				</tr>
+				</tbody>
 				<tr>
-					<th colspan="2" class="tableBtn"><input class="submit1" type="button" value="상품수정전송"></th>
+					<th colspan="2" class="proButton"><input class="submit1" type="button" value="상품수정전송"></th>
 				</tr>
 			</table>
 		</form>

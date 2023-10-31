@@ -1,0 +1,73 @@
+@charset "UTF-8";
+#productMgt {
+	margin: 50px auto;
+	width: 1000px;
+	height: 800px;
+}
+#productMgt table {
+	margin: 0 auto;
+	width: 1000px;
+	border-collapse: collapse;
+}
+#productMgt .title{
+	padding: 25px;
+	text-align: center;
+	font-size: 25px;
+	background-color: #00008B;
+	color: white;
+	
+}
+#productMgt #productCnt{
+	text-align: right;
+	padding: 20px 0 10px 0; 
+}
+.border td{
+	border: 1px solid #cccccc;
+	height: 40px;
+	text-align: center;
+}
+.border th {
+	height: 40px;
+	text-align: center;
+	background-color: #00008B;
+	color: white;
+}
+.proButton {
+	text-align: center;
+	padding: 20px;
+}
+.proButton button{
+	font-weight: bold;
+	background-color: #237AF6;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 10px;
+}
+.proButton input{
+	font-weight: bold;
+	background-color: #237AF6;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 10px;
+}
+#productDetail {
+	margin: 50px auto;
+	width: 1000px;
+	height: 800px;
+}
+#productDetail table {
+	margin: 0 auto;
+	width: 700px;
+	border-collapse: collapse;
+}
+#productDetail .title{
+	padding: 25px;
+	text-align: center;
+	font-size: 25px;
+	background-color: #00008B;
+	color: white;
+}
