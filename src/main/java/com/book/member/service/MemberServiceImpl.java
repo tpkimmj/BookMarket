@@ -44,4 +44,14 @@ public class MemberServiceImpl implements MemberService {
 		return reSet;
 	}
 
+	@Override
+	public int updatePasswd(MemberDTO mdto) {
+		return memberDao.updatePasswd(mdto);
+	}
+
+	@Override
+	public String searchId(MemberDTO mdto) {
+		return memberDao.searchId(mdto);
+	}
+
 }

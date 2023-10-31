@@ -173,4 +173,42 @@ public class MemberController {
 		return page;
 	}
 	
+	@RequestMapping("/memSearch") //아이디찾기, 비미번호 변경 페이지로 이동
+	public String memSearch(HttpServletRequest req, HttpServletResponse res, MemberDTO mdto, Model model) {
+		return "custom/SearchPage";
+	}
+	
+	@RequestMapping("/memSearchProc")
+	public String memSearchProc(HttpServletRequest req, HttpServletResponse res, MemberDTO mdto, Model model) {
+		// 회원이 맞으면 비밀번호 새로 설정 페이지
+		// 회원정보가 맞지 않습니다. msg 회원가입으로 
+		return "memSearch";
+	}
+	
+	@RequestMapping("/searchProc")
+	public String searchProc(HttpServletRequest req, HttpServletResponse res, MemberDTO mdto, Model model) {
+		int r = 0;
+		String id = null;
+		String msg = null;
+		String url = "/";
+		if(mdto!=null) {
+			if(mdto.getMem_id()!=null) { // 비밀번호 설정
+				r = memberService.updatePasswd(mdto);
+				if(r>0) {
+					msg = "비밀번호가 변경되었습니다.";
+				}else { msg = "비밀번호 변경오류입니다. \\n 관리자에게 문의하세요.";
+					}
+			} else { // 아이디 찾아서 리턴
+				id = memberService.searchId(mdto);
+				System.out.println(mdto);
+				if(id!=null) msg = "회원아이디: "+id;
+				else msg = "회원정보가 없습니다.";
+				url = "memSearch";
+			}
+		}
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		return "MsgPage";
+	}
+	
 }

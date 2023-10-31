@@ -30,6 +30,7 @@
 			</div>
 			<div class="login_button_wrap">
 				<div id="submitTop"><div>로그인</div></div>
+				<a href="/memSearch"><div>아이디찾기/비밀번호변경</div></a>
 			</div>			
 		</div>
 	</div>

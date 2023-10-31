@@ -18,7 +18,7 @@ $().ready(function(){
 		$("form[name=topForm]").submit();
 	}); 
 	$('.submit1').on('click', function(){
-		var flen = $("form[name=topForm] .chkt").length;
+		var flen = $("form[name=topForm1] .chkt").length;
 		for(var i=0; i<flen; i++){
 			if($('.chkt').eq(i).val()=="" ||
 		       $('.chkt').eq(i).val()==null ||
@@ -28,7 +28,25 @@ $().ready(function(){
 			  return false;
 			}
 		}
-		$("form[name=topForm]").submit();
+		$("form[name=topForm1]").submit();
+	}); 
+	//
+	$('.submit2').on('click', function(){
+		var flen = $("form[name=topForm2] .chk2").length;
+		for(var i=0; i<flen; i++){
+			if($('.chk2').eq(i).val()=="" ||
+		       $('.chk2').eq(i).val()==null ||
+		       $('.chk2').eq(i).val().trim()==""){
+			  alert($('.chk2').eq(i).attr('title')+'를 입력하세요.');
+			  $('.chk2').eq(i).focus();
+			  return false;
+			}
+		}
+		if(pcheck){
+			alert("비밀번호가 일치하지 않습니다.")
+		} else {
+			$("form[name=topForm2]").submit();
+		}
 	}); 
 	//
 	$('#submit11').on("click", function(){

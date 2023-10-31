@@ -50,5 +50,16 @@
 		FROM MEMBER
 		WHERE M_ROLE = 'mem'
 	</select>
+	
+	<select id="searchId" parameterType="mdto" resultType="string">
+		SELECT MEM_ID FROM MEMBER
+		WHERE M_NAME = #{m_name} AND M_PHONE = #{m_phone}
+	</select>
+	
+	<update id="updatePasswd" parameterType="mdto">
+		UPDATE MEMBER
+		SET M_PASSWD = #{m_passwd}
+		WHERE MEM_ID = #{mem_id}
+	</update>
 
 </mapper>
