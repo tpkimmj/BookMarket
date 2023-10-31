@@ -10,7 +10,14 @@ $().ready(function(){
    
    $('.productDel').on('click', function(){
 	   pno = $('input[name=p_no]').val();
-	    $.ajax({
+	   r = confirm('삭제하시겠습니까?');
+						if(r){
+							  $('form[name=productForm]').attr('action', 'productDel');
+	 						  $('form[name=productForm]').submit();
+						} else {
+							return false;
+						}
+	    /*$.ajax({
 			async:true,
 			type:'post',
 			data:{"p_no":pno},
@@ -30,7 +37,7 @@ $().ready(function(){
 						}
 					}
 			}
-		});
+		});*/
    });
    
 }); // 레디 끝

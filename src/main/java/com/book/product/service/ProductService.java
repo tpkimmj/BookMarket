@@ -17,4 +17,6 @@ public interface ProductService {
 
 	ProductDTO getProduct(int p_no);
 
+	int productDel(ProductDTO pdto);
+
 }

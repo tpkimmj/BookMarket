@@ -55,13 +55,33 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public int updateProduct(ProductDTO pdto, MultipartFile file) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		String sourceFileName = file.getOriginalFilename();
+		File destinetionFile;
+		if(sourceFileName==null || sourceFileName.length()==0) {
+			if(pdto.getImage()==null || pdto.getImage().equals("ready.gif")) 
+				pdto.setImage("ready.gif");
+		} else {
+			pdto.setImage(sourceFileName);
+			destinetionFile = new File(pdto.getPath()+sourceFileName);
+			destinetionFile.getParentFile().mkdirs(); // 파일명으로 생성
+			try {
+				// 받은 파일 전송
+				file.transferTo(destinetionFile);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return productDao.updateProduct(pdto);
 	}
 
 	@Override
 	public ProductDTO getProduct(int p_no) {
 		return productDao.getProduct(p_no);
+	}
+
+	@Override
+	public int productDel(ProductDTO pdto) {
+		return productDao.productDel(pdto);
 	}
 
 }
