@@ -30,7 +30,7 @@
 	width: 1000px;
 }
 #search {
-	margin: 70px 10px 45px 0;
+	margin: 70px 10px 10px 0;
 	display: inline-block;
 	height: 40px;
 	width: 650px;
@@ -44,89 +44,11 @@
 }
 #searchIcon {
 	margin-left: 600px;
-	height: 39px;
+	height: 40px;
 }
-*{
-  list-style: none;
-}
-a {
-  text-decoration: none;
-  color: #57523E;
-}
-
-#menu{
-  position:relative; 
-  z-index: 99; 
-  background-color: white;
-  height: 55px;
-  text-align: center;
-}
-
-[class*="main"] {
-  background-color: white;
-  border-radius: 5px 5px 5px 5px;
-}
-
-[class*="main"] ul {
-  border-radius: 5px 5px 5px 5px;
-  border: 1px solid #57523E;
-}
-.main1{
-  padding-left: 0px;
-   height: 100%;
-  width: 1000px;
-  margin: 0 auto;
-  display: inline-block;
-}
-.main1>li {
-  float: left;
-  width: 13%;
-  line-height: 50px;
-  position: relative;
-}
-.main1>li:hover .main2 {
-  left: 0;
-}
-.main1>li a {
-  display: block;
-}
-.main1>li a:hover {
-  font-weight: bold;
-}
-.main2 {
-  width:110%;
-  position: absolute;
-  top: 50px;
-  left: -9999px;
-  width: 100%;
-  padding: 0px;
-}
-.main1>li:hover {
-  border-bottom: 5px solid #D94C1A;
-}
-.main2 li:hover {
-  border-left: 5px solid #D94C1A;
-}
-
-.main2>li {
-  position: relative;
-}
-.main2>li:hover .main3 {
-  left: 100%;
-}
-.main2>li a, .main3>li a {
-  border-radius: 10px;
-  margin: 10px;
-}
-.main3 {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  left: -9999px;
-  padding: 0px;
-}
-nav {
-  margin-top: 20px;
+#MainMenu {
+	margin: 70px 0 50px 0;
+	width: 1000px;
 }
 #MainMenu table{
 	border-top: 2px solid #eeeeee;

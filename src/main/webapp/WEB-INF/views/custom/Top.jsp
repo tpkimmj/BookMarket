@@ -35,30 +35,21 @@
 	<div id="mid">
 		<a href="/"><img src="/images/logo.png" id="logo"></a>
 		<div id="search">
-			<form action="/search" method="post">
-				<input type="text" name="">
-				<button style="background: #fff; border: none;"><img src="/images/search.png" id="searchIcon"></button>
-			</form>
+			<input type="text" name="">
+			<a href="#"><img src="/images/search.png" id="searchIcon"></a>
 		</div>
-	<div id="Menu">
-		<ul class="main1">
-			<li style="border: none;"><a href="#"><b style="font-size: 20px;"><span style="font-size: 20px;">≡</span> 전체보기</b></a>
-				<ul class="main2">
-					<li><a href="#">베스트셀러</a>
-					<li><a href="#">소설</a>
-					<li><a href="#">만화</a>
-					<li><a href="#">시집</a>
-					<li><a href="#">참고서</a>
-					<li><a href="#">자기계발</a>
-				</ul>
-			</li>
-			<li><a href="#"><b style="font-size: 20px;">베스트셀러</b></a>
-			<li><a href="#"><b style="font-size: 20px;">소설</b></a>
-			<li><a href="#"><b style="font-size: 20px;">만화</b></a>
-			<li><a href="#"><b style="font-size: 20px;">시집</b></a>
-			<li><a href="#"><b style="font-size: 20px;">참고서</b></a>
-			<li><a href="#"><b style="font-size: 20px;">자기계발</b></a>
-		</ul>
+	<div id="MainMenu">
+		<table>
+			<tr>
+				<td><a href="#">전체보기</a></td>
+				<td><a href="#">베스트셀러</a></td>
+				<td><a href="#">소설</a></td>
+				<td><a href="#">만화</a></td>
+				<td><a href="#">시집</a></td>
+				<td><a href="#">참고서</a></td>
+				<td><a href="#">자기계발</a></td>
+			</tr>
+		</table>
 	</div>
 	</div> 
 	</header>
