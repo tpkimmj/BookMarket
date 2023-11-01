@@ -6,6 +6,8 @@ import lombok.ToString;
 @Data
 @ToString
 public class ProductDTO {
+	private int start;
+	private int end;
 	private int rr;
 	private int p_no;
 	private int stock;
@@ -16,4 +18,6 @@ public class ProductDTO {
 	private String pr_date;
 	private String image;
 	private String path;
+	private String writer;
+	
 }

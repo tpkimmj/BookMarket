@@ -13,7 +13,7 @@
 <body>
 <div class="clear"></div>
 	<div id="productMgt">
-		<form action="/productMgtProc?flag=update" method="post" name="topForm" enctype="multipart/form-data">
+		<form action="/productMgtProc?flag=update" method="post" name="topForm1" enctype="multipart/form-data">
 			<table class="product">
 				<tr>
 					<td class="title" colspan="2">상 품 수 정</td>
@@ -22,31 +22,37 @@
 				<tr>
 					<th class="col1">상품번호</th>
 					<td class="col2">
-						<input type="text" name="p_no" class="chkt disable" title="상품명" readonly="readonly" value="${pdto.p_no}">
+						<input type="text" name="p_no" class="chkt disable" title="번호" readonly="readonly" value="${pdto.p_no}">
 					</td>
 				</tr>
 				<tr>
-					<th class="col1">상품명</th>
+					<th class="col1">책제목</th>
 					<td class="col2">
-						<input type="text" name="p_name" class="chkt" title="상품명" value="${pdto.p_name}">
+						<input type="text" name="p_name" class="chkt" title="책제목" value="${pdto.p_name}">
 					</td>
 				</tr>
 				<tr>
-					<th class="col1">재고수량</th>
+					<th class="col1">저자</th>
 					<td class="col2">
-						<input type="text" name="stock" class="chkt" title="재고수량" value="${pdto.stock}">
+						<input type="text" name="writer" class="chkt" title="저자" value="${pdto.writer}">
 					</td>
 				</tr>
 				<tr>
-					<th class="col1">단가</th>
+					<th class="col1">재고</th>
 					<td class="col2">
-						<input type="text" name="price" class="chkt inprice" title="상품가격" value="${pdto.price}">
+						<input type="text" name="stock" class="chkt" title="재고" value="${pdto.stock}">
 					</td>
 				</tr>
 				<tr>
-					<th class="col1">상품분류</th>
+					<th class="col1">가격</th>
 					<td class="col2">
-						<select id="state" name="state" title="상품분류">
+						<input type="text" name="price" class="chkt inprice" title="가격" value="${pdto.price}">
+					</td>
+				</tr>
+				<tr>
+					<th class="col1">분류</th>
+					<td class="col2">
+						<select id="state" name="state" title="분류">
 							<option value="소설">소설</option>
 							<option value="만화">만화</option>
 							<option value="시집">시집</option>
@@ -61,7 +67,7 @@
 				<tr>
 					<th class="col1">상품설명</th>
 					<td class="col2">
-						<input type="text" name="detail" title="싱품설명" value="${pdto.detail}">
+						<textarea cols="60" rows="20" name="detail" title="싱품설명">${pdto.detail}</textarea>
 					</td>
 				</tr>
 				<tr>

@@ -2,10 +2,10 @@
   margin:0 auto; 
   padding:0;
 }
-a:link{color:  rgb(0, 128, 0); text-decoration: none;}
-a:visited{color:  rgb(0, 128, 0); text-decoration: none;}
-a:active{color:  rgb(0, 128, 0); text-decoration: none;}
-a:hover{color:  rgb(0, 128, 0);
+a:link{color:  #237AF6; text-decoration: none;}
+a:visited{color:  #237AF6; text-decoration: none;}
+a:active{color:  #237AF6; text-decoration: none;}
+a:hover{color:  #237AF6;
     text-decoration: none; font-weight: bold;}
 
 ul{list-style:none;}
@@ -65,12 +65,13 @@ ul{list-style:none;}
 	}
 
  #lage_login_btn{
+ 	text-align: center;
     margin-top:30px;
     width: 380px;
     height: 40px;
     padding:10px;
     font-size:30px;
     color:white;
-    background-color: #008000;
+    background-color: #237AF6;
 }
 

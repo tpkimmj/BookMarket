@@ -18,19 +18,19 @@
 		<c:when test="${memberTot>0}">
 			<table>
 			<tr>
-				<th>회 원 목 록</th>
+				<td id="tit" colspan="4">회 원 목 록</td>
 			</tr>
 			<tr>
-				<td>총 회원수: &nbsp;${memberTot}</td>
+				<td id="totlist" colspan="4">총 회원수: &nbsp;${memberTot}</td>
 			</tr>
-			<tr>
+			<tr class="bor">
 				<th>회원아이디</th>
 				<th>회원명</th>
 				<th>연락처</th>
 				<th>주소</th>
 			</tr>
 			<c:forEach var="member" items="${members}">
-				<tr>
+				<tr class="bor">
 					<td>${member.mem_id}</td>
 					<td>${member.m_name}</td>
 					<td>${member.m_phone}</td>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.book.common.dto.PageDTO;
+import com.book.common.dto.RowInterPage;
 import com.book.member.dto.MemberDTO;
 import com.book.product.dto.ProductDTO;
 import com.book.product.service.ProductService;
@@ -44,7 +45,7 @@ public class ProductController {
 		// 모든 상품 리스트를 갖고 오기 
 		Map<String, Object> reSet = null;
 		try {
-			reSet = productServise.getProductList(pageDto);
+			reSet = productServise.getProductList(pdto,pageDto);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,6 +54,9 @@ public class ProductController {
 		// 헤딩 리스트를 저장("productList")
 		model.addAttribute("pList", reSet.get("pList"));
 		model.addAttribute("contentsJsp", "/ProductMgt");
+		model.addAttribute("pageDto", reSet.get("pageDto"));
+		model.addAttribute("totCnt", reSet.get("totCnt"));
+		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		session.setAttribute("ssKey", ssKey);
 		return page;
 	}

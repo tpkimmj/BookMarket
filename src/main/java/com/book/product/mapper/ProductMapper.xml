@@ -6,20 +6,25 @@
 	</select>
 	
 	<select id="getProductList" resultType="pdto">
-		SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE
+		SELECT * FROM
+			(SELECT ROWNUM AS RR, A.*
+			FROM
+		(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
 		FROM PRODUCT
+		ORDER BY P_NO DESC) A)
+		WHERE RR BETWEEN #{start} and #{end}
 	</select>
 	
 	<insert id="insertProduct" parameterType="pdto">
 		<selectKey keyProperty="p_no" order="BEFORE" resultType="int">
 			SELECT NVL(MAX(p_no),0)+1 FROM PRODUCT
 		</selectKey>
-		INSERT INTO PRODUCT(P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE)
-		VALUES(#{p_no}, #{stock}, #{price}, #{p_name}, #{detail}, SYSDATE, #{image}, #{path}, #{state})
+		INSERT INTO PRODUCT(P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, writer)
+		VALUES(#{p_no}, #{stock}, #{price}, #{p_name}, #{detail}, SYSDATE, #{image}, #{path}, #{state}, #{writer})
 	</insert>
 	
 	<select id="getProduct" resultType="pdto">
-		SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE
+		SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
 		FROM PRODUCT
 		WHERE P_NO=#{p_no}
 	</select>
@@ -30,7 +35,8 @@
 		PRICE = #{price}, 
 		P_NAME = #{p_name}, 
 		DETAIL = #{detail}, 
-		STATE = #{state}, 
+		STATE = #{state},
+		WRITER = #{writer},
 		PR_DATE = sysdate,
 		<if test="image!=null">
 		IMAGE = #{image}, 
@@ -42,4 +48,5 @@
 	<delete id="productDel" parameterType="pdto">
 		DELETE FROM PRODUCT WHERE P_NO = #{p_no}
 	</delete>
+	
 </mapper>

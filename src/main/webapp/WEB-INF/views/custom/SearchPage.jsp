@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" type="text/css" href="/css/common.css">
 <link rel="stylesheet" type="text/css" href="/css/tabMenu.css">
 <script src="/jquery/jquery-3.7.0.min.js"></script>
 <script src="/script/member.js"></script>

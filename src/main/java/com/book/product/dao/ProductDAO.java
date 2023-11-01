@@ -11,7 +11,7 @@ public interface ProductDAO {
 
 	int getProductCnt();
 
-	List<ProductDTO> getProductList();
+	List<ProductDTO> getProductList(ProductDTO pdto);
 
 	int insertProduct(ProductDTO pdto);
 
@@ -20,6 +20,8 @@ public interface ProductDAO {
 	int updateProduct(ProductDTO pdto);
 
 	int productDel(ProductDTO pdto);
+
+	int getTotalCnt();
 
 
 }

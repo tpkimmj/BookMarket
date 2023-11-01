@@ -2,6 +2,29 @@
 #memlist {
 	margin: 0 auto;
 	width: 1000px;
+	height: 800px;
+}
+#memlist #tit {
+	background-color: #00008B;
+	padding: 25px;
+	font-size: 25px;
+	color: white;
+}
+#memlist table {
+	width: 1000px;
+	text-align: center;
+	border-collapse: collapse;
+}
+#memlist #totlist {
+	text-align: right;
+	padding: 20px 0 20px 0;
+}
+#memlist th {
+	background-color: #00008B;
+	color: white;
+}
+.bor th, .bor td {
+	border: 1px solid #eeeeee;
 }
 #pwcheck {
 	font-weight: bold;

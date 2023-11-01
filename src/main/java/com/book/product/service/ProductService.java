@@ -9,7 +9,6 @@ import com.book.product.dto.ProductDTO;
 
 public interface ProductService {
 
-	Map<String, Object> getProductList(PageDTO pageDto) throws Exception;
 
 	int insertProduct(ProductDTO pdto, MultipartFile file) throws Exception;
 
@@ -18,5 +17,7 @@ public interface ProductService {
 	ProductDTO getProduct(int p_no);
 
 	int productDel(ProductDTO pdto);
+
+	Map<String, Object> getProductList(ProductDTO pdto, PageDTO pageDto) throws Exception;
 
 }

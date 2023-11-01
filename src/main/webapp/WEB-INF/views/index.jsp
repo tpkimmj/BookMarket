@@ -15,13 +15,13 @@
 <div id="contents">
 	 <div class="slideshow-container">
 	      <div class="mySlides fade">
-		      <div class="numbertext">1 / 6</div>
+		      <div class="numbertext">1 / 2</div>
 		      <img src="images/banner1.jpg" style="width:100%">
 		      <div class="text">ACNE STUDIO</div>
 	      </div>
 	
 	      <div class="mySlides fade">
-		      <div class="numbertext">2 / 6</div>
+		      <div class="numbertext">2 / 2</div>
 		      <img src="images/banner2.jpg" style="width:100%">
 		      <div class="text">ACNE STUDIO</div>
 	      </div>

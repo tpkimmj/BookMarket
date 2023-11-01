@@ -1,4 +1,8 @@
 @charset "UTF-8";
+footer a:link{color: white; text-decoration: none; font-weight: bold;}
+footer a:visited{color: white; text-decoration: none; font-weight: bold;}
+footer a:active{color: white; text-decoration: none; font-weight: bold;}
+footer a:hover{color: white; text-decoration: none; font-weight: bold;}
 footer {
   background-color: #272727;
   border-top: 1px solid #333;
