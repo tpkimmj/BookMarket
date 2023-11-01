@@ -9,7 +9,6 @@
 	height: 800px;
 }
 #productMgt #page{
-	
 	text-align: center;
 }
 #productMgt table {
@@ -33,6 +32,7 @@
 	border: 1px solid #cccccc;
 	height: 40px;
 	text-align: center;
+	width: 600px;
 }
 .border th {
 	height: 40px;

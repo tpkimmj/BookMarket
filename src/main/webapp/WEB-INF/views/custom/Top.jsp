@@ -41,6 +41,7 @@
 	<div id="MainMenu">
 		<table>
 			<tr>
+				<td><a href="#">전체보기</a></td>
 				<td><a href="#">베스트셀러</a></td>
 				<td><a href="#">소설</a></td>
 				<td><a href="#">만화</a></td>
