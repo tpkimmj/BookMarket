@@ -61,5 +61,9 @@
 		</ul>
 	</div> 
 	</header>
+		<div id="side">
+			<a href="javascript:window.scrollTo(0,0);"><img src="/images/up.png"></a>
+			<a onClick="window.location.reload()"><img src="/images/re.png"></a>
+		</div>
 </body>
 </html>

@@ -58,7 +58,9 @@ a {
   position:relative; 
   z-index: 99; 
   background-color: white;
-  height: 55px;
+  height: 80px;
+  text-align: center;
+  width: 1000px;
   text-align: center;
 }
 
@@ -80,7 +82,7 @@ a {
 }
 .main1>li {
   float: left;
-  width: 13%;
+  width: 14.2%;
   line-height: 50px;
   position: relative;
 }
@@ -127,4 +129,15 @@ a {
 }
 nav {
   margin-top: 20px;
+}
+#side {
+	position: fixed; 
+	right: 50%; 
+	top: 230px; 
+	margin-right: -820px;
+	text-align:center;
+	width: 120px;
+}
+#side img{
+	margin: 5px;	
 }
