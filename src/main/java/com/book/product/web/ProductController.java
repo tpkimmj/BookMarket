@@ -1,5 +1,6 @@
 package com.book.product.web;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -210,4 +211,47 @@ public class ProductController {
 		return  "MsgPage";
 	}
 	
+	@RequestMapping("/productList")
+	public String productList(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
+		String page = null;
+		Map<String, Object> reSet = null;
+		switch (request.getParameter("state")) {
+			case "all": {
+				reSet = productServise.getProducts(pdto, pageDto , "all");
+				break;
+			}
+			case "best": {
+				reSet = productServise.getProducts(pdto, pageDto , "소설");
+				break;
+				}
+			case "fiction": {
+				reSet = productServise.getProducts(pdto, pageDto , "소설");
+				break;
+			}
+			case "cartoon": {
+				reSet = productServise.getProducts(pdto, pageDto , "만화");
+				break;
+			}
+			case "divan": {
+				reSet = productServise.getProducts(pdto, pageDto , "시집");
+				break;
+			}
+			case "referbook": {
+				reSet = productServise.getProducts(pdto, pageDto , "참고서");
+				break;
+			}
+			case "selfdev": {
+				reSet = productServise.getProducts(pdto, pageDto , "자기계발");
+				break;
+			}
+		}
+		model.addAttribute("pcnt", reSet.get("pcnt"));
+		model.addAttribute("productList", reSet.get("productList"));
+		model.addAttribute("productTot", reSet.get("productTot"));
+		model.addAttribute("pageDto", reSet.get("pageDto"));
+		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+		page = "admin/Main";
+		model.addAttribute("contentsJsp", "/ProductList");
+		return page;
+	}
 }

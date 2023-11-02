@@ -114,4 +114,44 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.productDel(pdto);
 	}
 
+	@Override
+	public Map<String, Object> getProducts(ProductDTO pdto,PageDTO pageDto, String state) {
+				Map<String, Object> reSet = new HashMap<String, Object>();
+		Map<String, Object> ProductPage = new HashMap<String, Object>();
+		
+		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
+		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
+		
+		ProductPage.put("state", state);
+		int productTot = productDao.ProductTot(ProductPage);
+		// 현재 페이지 계산
+		int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE + 1;
+		int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>productTot ?
+				productTot : pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+		pdto.setStart(start);
+		pdto.setEnd(end);
+
+		ProductPage.put("start", start);
+		ProductPage.put("end", end);
+		List<ProductDTO> productList = productDao.getProducts(ProductPage);
+		
+		int pgCnt = (productTot%RowInterPage.ROW_OF_PAGE==0) ?
+				productTot/RowInterPage.ROW_OF_PAGE : 
+					productTot/RowInterPage.ROW_OF_PAGE+1;
+		int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0) ?
+				   pgCnt/RowInterPage.PAGE_OF_BLOCK : pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
+		int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
+		int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK > pgCnt) ?
+					 pgCnt : pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
+		pageDto.setPgCnt(pgCnt);
+		pageDto.setPgBlock(pgBlock);
+		pageDto.setStartPg(startPg);
+		pageDto.setEndPg(endPg);
+		
+		reSet.put("productTot", productTot);
+		reSet.put("productList", productList);
+		reSet.put("pageDto", pageDto);
+		return reSet;
+	}
+
 }

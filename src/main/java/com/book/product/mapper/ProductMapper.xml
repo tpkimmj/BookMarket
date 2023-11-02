@@ -49,4 +49,24 @@
 		DELETE FROM PRODUCT WHERE P_NO = #{p_no}
 	</delete>
 	
+	<select id="getProducts" parameterType="map">
+		SELECT * FROM
+			(SELECT ROWNUM AS RR, P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+			FROM
+		(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+		FROM PRODUCT
+		<if test='!state.equals("all")'>
+			WHERE STATE = #{state}
+		</if>
+		ORDER BY P_NO DESC) A)
+		WHERE RR BETWEEN #{start} and #{end}
+	</select>
+	
+	<select id="ProductTot" parameterType="map" resultType="int">
+		SELECT COUNT(P_NO) FROM PRODUCT
+		<if test='!state.equals("all")'>
+			WHERE STATE = #{state}
+		</if>
+	</select>
+	
 </mapper>

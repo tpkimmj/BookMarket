@@ -82,3 +82,34 @@
 textarea {
 	resize: none;
 }
+#ProList {
+	margin: 20px auto 0;
+	border: 2px solid black;
+	width: 1000px;
+	height: 1500px;
+}
+#ProList table {
+	width: 1000px;
+	padding: 20px;
+}
+#ProLine {
+	width: 1000px;
+}
+#ProLine td{
+	border-bottom: 1px solid #dddddd; 
+	border-top: 1px solid #dddddd; 
+}
+#ProCol1 {
+	width: 140px;
+	height: 190px;
+}
+#ProCol1 img{
+	width: 140px;
+	height: 190px;
+}
+#ProCol2 {
+	width: 600px;
+}
+#ProCol3 {
+	width: 150px;
+}

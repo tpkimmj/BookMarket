@@ -42,27 +42,27 @@
 		</div>
 	<div id="Menu">
 		<ul class="main1">
-			<li style="border: none;"><a href="#"><b style="font-size: 20px;"><span style="font-size: 20px;">≡</span> 전체보기</b></a>
+			<li style="border: none;"><a href="/productList?state=all"><b style="font-size: 20px;"><span style="font-size: 20px;">≡</span> 전체보기</b></a>
 				<ul class="main2">
-					<li><a href="#">베스트셀러</a>
-					<li><a href="#">소설</a>
-					<li><a href="#">만화</a>
-					<li><a href="#">시집</a>
-					<li><a href="#">참고서</a>
-					<li><a href="#">자기계발</a>
+					<li><a href="/productList?state=best">베스트셀러</a>
+					<li><a href="/productList?state=fiction">소설</a> 
+					<li><a href="/productList?state=cartoon">만화</a>
+					<li><a href="/productList?state=divan">시집</a>
+					<li><a href="/productList?state=referbook">참고서</a>
+					<li><a href="/productList?state=selfdev">자기계발</a>
 				</ul>
 			</li>
-			<li><a href="#"><b style="font-size: 20px;">베스트셀러</b></a>
-			<li><a href="#"><b style="font-size: 20px;">소설</b></a>
-			<li><a href="#"><b style="font-size: 20px;">만화</b></a>
-			<li><a href="#"><b style="font-size: 20px;">시집</b></a>
-			<li><a href="#"><b style="font-size: 20px;">참고서</b></a>
-			<li><a href="#"><b style="font-size: 20px;">자기계발</b></a>
+			<li><a href="/productList?state=best"><b style="font-size: 20px;">베스트셀러</b></a>
+			<li><a href="/productList?state=fiction"><b style="font-size: 20px;">소설</b></a>
+			<li><a href="/productList?state=cartoon"><b style="font-size: 20px;">만화</b></a>
+			<li><a href="/productList?state=divan"><b style="font-size: 20px;">시집</b></a>
+			<li><a href="/productList?state=referbook"><b style="font-size: 20px;">참고서</b></a>
+			<li><a href="/productList?state=selfdev"><b style="font-size: 20px;">자기계발</b></a>
 		</ul>
 	</div> 
 	</header>
 		<div id="side">
-			<a href="javascript:window.scrollTo(0,0);"><img src="/images/up.png"></a>
+			<a onClick="window.scrollTo(0,0);"><img src="/images/up.png"></a>
 			<a onClick="window.location.reload()"><img src="/images/re.png"></a>
 		</div>
 </body>

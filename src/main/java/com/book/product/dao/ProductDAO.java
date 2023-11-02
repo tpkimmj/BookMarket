@@ -1,6 +1,7 @@
 package com.book.product.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,6 +11,8 @@ import com.book.product.dto.ProductDTO;
 public interface ProductDAO {
 
 	int getProductCnt();
+	
+	int ProductTot(Map<String, Object> productPage);
 
 	List<ProductDTO> getProductList(ProductDTO pdto);
 
@@ -22,6 +25,8 @@ public interface ProductDAO {
 	int productDel(ProductDTO pdto);
 
 	int getTotalCnt();
+
+	List<ProductDTO> getProducts(Map<String, Object> productPage);
 
 
 }
