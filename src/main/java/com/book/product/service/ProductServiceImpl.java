@@ -37,16 +37,16 @@ public class ProductServiceImpl implements ProductService {
 				if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
 				
 				// 현재 페이지 계산
-				int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE + 1;
-				int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>totCnt ?
-						totCnt : pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+				int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PROPAGE + 1;
+				int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PROPAGE)>totCnt ?
+						totCnt : pageDto.getCurPage()*RowInterPage.ROW_OF_PROPAGE;
 				pdto.setStart(start);
 				pdto.setEnd(end);
 				List<ProductDTO> pList = productDao.getProductList(pdto);
 				// 전체 화면에 나오는 페이지 수
-				int pgCnt = (totCnt%RowInterPage.ROW_OF_PAGE==0) ?
-							totCnt/RowInterPage.ROW_OF_PAGE : 
-							totCnt/RowInterPage.ROW_OF_PAGE+1;
+				int pgCnt = (totCnt%RowInterPage.ROW_OF_PROPAGE==0) ?
+							totCnt/RowInterPage.ROW_OF_PROPAGE : 
+							totCnt/RowInterPage.ROW_OF_PROPAGE+1;
 				int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0) ?
 						   pgCnt/RowInterPage.PAGE_OF_BLOCK : pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
 				int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;

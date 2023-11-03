@@ -21,32 +21,34 @@
 							<td id="ProCol1"><img src="/upload/${product.image}"></td>
 							<td id="ProCol2">
 								<ul>
-									<li>${product.p_name}</li>
-									<li>${product.writer}</li>
-									<li>${product.price}</li>
+									<li id="bookname">${product.p_name}</li>
+									<li id="bookwriter">${product.writer}</li><br>
+									<li id="bookprice" class="price">판매가 : ${product.price}원</li>
 								</ul>
 							</td>
 							<td id="ProCol3">
-								<input type="button" name="" value="바로구매"><br>
-								<input type="button" name="" value="장바구니">
+								<input type="button" id="btn1" name="" value="바로구매"><br><br>
+								<input type="button" id="btn2" name="" value="장바구니">
 							</td>
 						</tr>
+						<tr></tr>
+						<tr></tr>
+						<tr></tr>
 					</c:forEach>
-					<% String state = request.getParameter("state"); %>
 					<tfoot>
 						<tr id="page">
 							<td colspan="7">
 							<c:if test="${pageDto.startPg>pBlock}">
-								<a href="productList?state=<%=state %>&curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]
+								<a href="productList?state=${state}&curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]
 								</a>
 							</c:if>
 							<c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-								<a href="productList?state=<%=state %>&curPage=${p}&curBlock=${pageDto.curBlock}">
+								<a href="productList?state=${state}&curPage=${p}&curBlock=${pageDto.curBlock}">
 									<span><c:out value="${p}"/></span>
 									</a>&nbsp;&nbsp;
 							</c:forEach>
 							<c:if test="${pageDto.endPg<pageDto.pgCnt}">
-								<a href="productList?state=<%=state %>&curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]
+								<a href="productList?state=${state}&curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]
 								</a>
 							</c:if>
 							</td>

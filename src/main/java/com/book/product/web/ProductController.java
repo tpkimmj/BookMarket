@@ -215,6 +215,7 @@ public class ProductController {
 	public String productList(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
 		String page = null;
 		Map<String, Object> reSet = null;
+		String state = request.getParameter("state");
 		switch (request.getParameter("state")) {
 			case "all": {
 				reSet = productServise.getProducts(pdto, pageDto , "all");
@@ -245,13 +246,15 @@ public class ProductController {
 				break;
 			}
 		}
+		
+		model.addAttribute("state", state);
 		model.addAttribute("pcnt", reSet.get("pcnt"));
 		model.addAttribute("productList", reSet.get("productList"));
 		model.addAttribute("productTot", reSet.get("productTot"));
 		model.addAttribute("pageDto", reSet.get("pageDto"));
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-		page = "admin/Main";
-		model.addAttribute("contentsJsp", "/ProductList");
+		page = "Main";
+		model.addAttribute("contentsJsp", "custom/ProductList");
 		return page;
 	}
 }

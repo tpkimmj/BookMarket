@@ -84,7 +84,6 @@ textarea {
 }
 #ProList {
 	margin: 20px auto 0;
-	border: 2px solid black;
 	width: 1000px;
 	height: 1500px;
 }
@@ -112,4 +111,39 @@ textarea {
 }
 #ProCol3 {
 	width: 150px;
+}
+#ProCol3 #btn1{
+	width: 110px;
+	height: 40px;
+	border-radius: 7px;
+	background-color: #00008B;
+	color: white;
+	font-weight: bold;
+	font-family: fantasy;
+}
+#ProCol3 #btn2{
+	width: 110px;
+	height: 40px;
+	border-radius: 7px;
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	font-family: fantasy;
+}
+#bookname {
+	font-weight: bold;
+}
+#bookwriter {
+	font-size: 14px;
+}
+#bookprice {
+	font-weight: bold;
+}
+#page {
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+}
+#page td {
+	height: 50px;
 }
