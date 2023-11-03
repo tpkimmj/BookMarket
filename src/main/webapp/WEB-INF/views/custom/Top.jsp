@@ -60,6 +60,7 @@
 			<li><a href="/productList?state=selfdev"><b style="font-size: 20px;">자기계발</b></a>
 		</ul>
 	</div> 
+	</div>
 	</header>
 		<div id="side">
 			<a onClick="window.scrollTo(0,0);"><img src="/images/up.png"></a>
