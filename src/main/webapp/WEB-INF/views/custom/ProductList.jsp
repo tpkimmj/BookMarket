@@ -18,10 +18,11 @@
 				<c:when test="${fn:length(productList)>0}">
 					<c:forEach var="product" items="${productList}">
 						<tr id="ProLine">
-							<td id="ProCol1"><img src="/upload/${product.image}"></td>
+							<td id="ProCol1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></td>
 							<td id="ProCol2">
 								<ul>
-									<li id="bookname">${product.p_name}</li>
+									<li id="bookname"><a href="/bookDetail?p_no=${product.p_no}">${product.p_name}</a>
+									</li>
 									<li id="bookwriter">${product.writer}</li><br>
 									<li id="bookprice" class="price">판매가 : ${product.price}원</li>
 								</ul>

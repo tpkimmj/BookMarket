@@ -147,3 +147,116 @@ textarea {
 #page td {
 	height: 50px;
 }
+#bookDetail {
+	margin: 20px auto;
+	width: 1000px;
+	height: 1000px;
+}
+#bookDetail table{
+	width: 1000px;
+	height: 800px;
+}
+#bookBottom {
+	width: 100%;
+	height: 72px;
+	background-color: #dddddd;
+	position: fixed;
+	bottom: 0; 
+}
+#bookBottom table{
+	width: 100%;
+	height: 65px;
+	text-align: center;
+}
+#bookCol1 {
+	padding-left: 300px;
+	text-align: right;
+}
+#bookCol1 table {
+	width: 200px;
+}
+#bookCol1 img {
+	width: 35px;
+}
+#bookCol1 #bookNum1 {
+	font-weight: bold;
+	padding-right: 20px;
+}
+#bookCol1 #bookNum2 {
+	font-weight: bold;
+	width: 50px;
+}
+#bookCol1 img {
+	width: 35px;
+}
+#bookCol2 {
+	width: 600px;
+}
+#bookBottom .price {
+	font-size: 25px;
+	font-weight: bold;
+	color: #00008B;
+}
+#bookCol3 {
+	width: 600px;
+}
+#bookCol3 #bookBtn1 {
+	font-weight: bold;
+	background-color: white;
+	border-radius : 7px;
+	color: #00008B;
+	font-size: 22px;
+	width: 190px;
+	height: 55px;
+}
+#bookCol3 #bookBtn2 {
+	font-weight: bold;
+	background-color: #00008B;
+	border-radius : 7px;
+	color: white;
+	font-size: 22px;
+	width: 190px;
+	height: 55px;
+}
+#bkDe {
+	color: #00008B;
+	font-weight: bold;
+	font-size: 25px;
+	height: 100px;
+	width: 200px;
+}
+#bkDe1 {
+	height: 250px;
+	background-color: #FFFFE2;
+}
+#bkDe1 td {
+	padding: 30px;
+}
+#bkcon1 {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	border-collapse: collapse;
+	padding: 30px;
+}
+#bkcon1 img{
+	width: 250px;
+	height: 400px;
+}
+#bkcon2 {
+	font-weight: bold;
+	font-size: 20px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#bkcon {
+	background-color: #eeeeee;
+}
+#bkName {
+	color: #00008B;
+	height: 50px;
+	text-align: left;
+	font-size: 25px;
+}
+#bkName1 {
+	height: 50px;
+}

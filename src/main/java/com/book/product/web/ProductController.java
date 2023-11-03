@@ -257,4 +257,13 @@ public class ProductController {
 		model.addAttribute("contentsJsp", "custom/ProductList");
 		return page;
 	}
+	
+	@RequestMapping("/bookDetail")
+	public String bookDetail(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto) {
+		ProductDTO product = productServise.getProduct(pdto.getP_no());
+		
+		model.addAttribute("product", product);
+		model.addAttribute("contentsJsp", "custom/BookDetail");
+		return "Main";
+	}
 }
