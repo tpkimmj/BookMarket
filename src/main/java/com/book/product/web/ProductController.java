@@ -279,4 +279,22 @@ public class ProductController {
 		model.addAttribute("contentsJsp", "custom/BookDetail");
 		return "Main";
 	}
+	
+	@RequestMapping("/search")
+	public String search(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
+		String page = null;
+		System.out.println("===>"+pdto);
+		System.out.println("===>"+pdto.getSearchText());
+		Map<String, Object> reSet = productServise.bookSearch(pdto);
+		
+		
+		model.addAttribute("pcnt", reSet.get("pcnt"));
+		model.addAttribute("productList", reSet.get("productList"));
+//		model.addAttribute("getSearch", reSet.get("getSearch"));
+//		model.addAttribute("pageDto", reSet.get("pageDto"));
+//		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+		page = "Main";
+		model.addAttribute("contentsJsp", "custom/BookSearch");
+		return page;
+	}
 }

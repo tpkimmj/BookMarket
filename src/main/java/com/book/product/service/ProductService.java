@@ -21,5 +21,7 @@ public interface ProductService {
 	Map<String, Object> getProductList(ProductDTO pdto, PageDTO pageDto) throws Exception;
 
 	Map<String, Object> getProducts(ProductDTO pdto, PageDTO pageDto, String state);
+	
+	Map<String, Object> bookSearch(ProductDTO pdto);
 
 }

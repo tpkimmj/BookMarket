@@ -28,5 +28,6 @@ public interface ProductDAO {
 
 	List<ProductDTO> getProducts(Map<String, Object> productPage);
 
+	List<ProductDTO> bookSearch(ProductDTO pdto);
 
 }

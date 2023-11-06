@@ -36,8 +36,8 @@
 		<a href="/"><img src="/images/logo.png" id="logo"></a>
 		<div id="search">
 			<form action="/search" method="post">
-				<input type="text" name="">
-				<button style="background: #fff; border: none;"><img src="/images/search.png" id="searchIcon"></button>
+				<input type="text" name="searchText">
+				<button type="submit" style="background: #fff; border: none;"><img src="/images/search.png" id="searchIcon"></button>
 			</form>
 		</div>
 	<div id="Menu">

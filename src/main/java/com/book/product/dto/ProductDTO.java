@@ -6,6 +6,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class ProductDTO {
+	private String searchText;
 	private int start;
 	private int end;
 	private int rr;
