@@ -73,7 +73,7 @@
 		SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
 		FROM  PRODUCT
 		WHERE
-		P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'||#{searchText}||'%'
+		P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'|| #{searchText}||'%'
 	</select>
 	
 </mapper>
