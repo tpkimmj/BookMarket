@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/css/member.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -12,14 +13,14 @@
 		<table>
 			<thead>
 				<tr>
-					<th colspan="2">회원가입</th>
+					<th colspan="2">정보수정</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td class="col1">아이디</td>
 					<td class="col2">
-						<input type="hidden" name="mem_id" value="${mdto.mem_id}"></td>
+						<input type="text" name="mem_id" value="${mdto.mem_id}"></td>
 				</tr>
 				<tr>
 					<td class="col1">패스워드</td>
@@ -66,8 +67,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="col1">직업</td>
-					<td class="col2">
+					<td class="col11">직업</td>
+					<td class="col22">
 						<select name="m_job" id="m_job">
 							<option value="">선택하세요.</option>
 							<option value="회사원">회사원</option>
@@ -89,13 +90,12 @@
 							$("#m_job").val('${mdto.m_job}')
 						</script>
 					</td>
-					<td class="col3">직업을 선택하세요</td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="2" class="tableBtn">
-						<button class="submit1" type="button">회원정보수정</button>
+						<button id="btn2" class="submit1" type="button">회원정보수정</button>
 					</td>
 				</tr>
 			</tfoot>

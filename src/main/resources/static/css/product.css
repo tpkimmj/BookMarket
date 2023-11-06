@@ -6,7 +6,7 @@
 #productMgt {
 	margin: 50px auto;
 	width: 1000px;
-	height: 800px;
+	height: 1000px;
 }
 #productMgt #page{
 	text-align: center;
@@ -22,7 +22,25 @@
 	font-size: 25px;
 	background-color: #00008B;
 	color: white;
-	
+	font-family: sans-serif;
+}
+#productInForm {
+	margin: 50px auto;
+	width: 1000px;
+	height: 1000px;
+}
+#productInForm table {
+	margin: 0 auto;
+	width: 1000px;
+	border-collapse: collapse;
+}
+#productInForm .title{
+	padding: 25px;
+	text-align: center;
+	font-size: 25px;
+	background-color: #E5E8FF;
+	font-family: sans-serif;
+	border: 1px solid #cccccc;
 }
 #productMgt #productCnt{
 	text-align: right;
@@ -30,7 +48,7 @@
 }
 .border td{
 	border: 1px solid #cccccc;
-	height: 40px;
+	height: 60px;
 	text-align: center;
 	width: 600px;
 }
@@ -39,6 +57,60 @@
 	text-align: center;
 	background-color: #00008B;
 	color: white;
+	font-family: sans-serif;
+}
+.border1 td{
+	border: 1px solid #cccccc;
+	height: 40px;
+	text-align: center;
+	width: 600px;
+	background-color: #FFFFEE;
+}
+.border1 th {
+	height: 40px;
+	width: 160px;
+	text-align: center;
+	background-color: #00008B;
+	color: white;
+	font-family: sans-serif;
+	border: 1px solid black;
+}
+.border2 td{
+	border: 1px solid #cccccc;
+	height: 60px;
+	text-align: center;
+	width: 600px;
+}
+.border2 td input{
+	width: 500px;
+	height: 30px;
+}
+.border2 td select{
+	width: 250px;
+	height: 30px;
+}
+.border2 th {
+	border: 1px solid #cccccc;
+	height: 40px;
+	width: 160px;
+	text-align: center;
+	background-color: #E5E8FF;
+	font-family: sans-serif;
+}
+.border1 #dcol1 {
+	height: 170px;
+}
+.border .pco1 , .border .pco7{
+	width: 150px;
+}
+.border .pco4 , .border .pco5{
+	width: 180px;
+}
+.border .pco3 {
+	width: 240px;
+}
+.border .pco6 {
+	width: 400px;
 }
 .proButton {
 	text-align: center;
@@ -65,11 +137,11 @@
 #productDetail {
 	margin: 50px auto;
 	width: 1000px;
-	height: 800px;
+	height: 1200px;
 }
 #productDetail table {
 	margin: 0 auto;
-	width: 700px;
+	width: 900px;
 	border-collapse: collapse;
 }
 #productDetail .title{
@@ -78,6 +150,14 @@
 	font-size: 25px;
 	background-color: #00008B;
 	color: white;
+}
+#productDetail #detailImg {
+	text-align: center;
+	border: 1px solid #cccccc;
+	border-collapse: collapse;
+}
+#productDetail #detailImg td{
+	padding: 15px;
 }
 textarea {
 	resize: none;

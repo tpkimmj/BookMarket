@@ -213,9 +213,25 @@ public class ProductController {
 	
 	@RequestMapping("/productList")
 	public String productList(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
+		HttpSession session = request.getSession();
 		String page = null;
+		MemberDTO ssKey = null;
 		Map<String, Object> reSet = null;
 		String state = request.getParameter("state");
+		if(session.getAttribute("ssKey")!=null) {
+			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			if(ssKey.getM_role().equals("admin")) {
+				page = "admin/Main";
+				model.addAttribute("contentsJsp", "../custom/ProductList");
+			}
+			else {
+				page = "Main";
+				model.addAttribute("contentsJsp", "custom/ProductList");
+			}
+		} else {
+			page = "Main";
+			model.addAttribute("contentsJsp", "custom/ProductList");
+		}
 		switch (request.getParameter("state")) {
 			case "all": {
 				reSet = productServise.getProducts(pdto, pageDto , "all");
@@ -246,15 +262,12 @@ public class ProductController {
 				break;
 			}
 		}
-		
 		model.addAttribute("state", state);
 		model.addAttribute("pcnt", reSet.get("pcnt"));
 		model.addAttribute("productList", reSet.get("productList"));
 		model.addAttribute("productTot", reSet.get("productTot"));
 		model.addAttribute("pageDto", reSet.get("pageDto"));
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-		page = "Main";
-		model.addAttribute("contentsJsp", "custom/ProductList");
 		return page;
 	}
 	

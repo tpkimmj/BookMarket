@@ -39,16 +39,16 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="col1">직업</td>
-				<td class="col2">${mdto.m_job}</td>
+				<td class="col11">직업</td>
+				<td class="col22">${mdto.m_job}</td>
 			</tr>
 		</tbody>
 		<tfoot>
 			<tr>
 				<td colspan="2" class="tabBtn" style="border: 1px solid white;">
-					<input name="update" type="button" onclick="update('u')" value="정보수정">
+					<input id="btn1" name="update" type="button" onclick="update('u')" value="정보수정">
 					 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input name="delete" type="button" onclick="update('d')" value="회원탈퇴">
+					<input id="btn2" name="delete" type="button" onclick="update('d')" value="회원탈퇴">
 				</td>
 			</tr>
 		</tfoot>

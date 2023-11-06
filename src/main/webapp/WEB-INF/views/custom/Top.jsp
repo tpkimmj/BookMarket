@@ -66,5 +66,8 @@
 			<a onClick="window.scrollTo(0,0);"><img src="/images/up.png"></a>
 			<a onClick="window.location.reload()"><img src="/images/re.png"></a>
 		</div>
+		<div id="sideBanner">
+			<a href="/bookDetail?p_no=26"><img src="https://img.ypbooks.co.kr/upload/banner/rightban_231031_03.jpg"></a>
+		</div>	
 </body>
 </html>

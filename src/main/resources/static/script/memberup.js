@@ -9,7 +9,7 @@ $().ready(function(){
    
 function update(flag){
    // 패스워드 확인하기
-	openWin = window.open("/pwCheck", "pwCheck", "width = 400, height = 150, toolbar = no, location = no, menubar = no, resizable = no, scrollbars = no")
+	openWin = window.open("/pwCheck", "pwCheck", "width = 355, height = 150, toolbar = no, location = no, menubar = no, resizable = no, scrollbars = no")
 	if(flag=='u'){
 		$("#upForm").attr('action', "/memUpForm");
 	} else {

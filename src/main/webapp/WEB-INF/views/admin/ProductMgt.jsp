@@ -35,10 +35,10 @@
 						<td class="pco1">${product.p_no}</td>
 						<td class="pco2"><a href="/productDetail?p_no=${product.p_no}">${product.p_name}</a></td>
 						<td class="pco3">${product.writer}</td>
-						<td class="pco3 price">${product.price}</td>
-						<td class="pco4">${product.state}</td>
-						<td class="pco5">${product.pr_date}</td>
-						<td class="pco6">${product.stock}</td>
+						<td class="pco4 price">${product.price}</td>
+						<td class="pco5">${product.state}</td>
+						<td class="pco6">${product.pr_date}</td>
+						<td class="pco7">${product.stock}</td>
 					</tr>
 				</c:forEach>
 			</c:when>

@@ -132,12 +132,18 @@ nav {
 }
 #side {
 	position: fixed; 
-	right: 50%; 
-	top: 230px; 
-	margin-right: -820px;
+	right: 0px; 
+	top: 60px; 
 	text-align:center;
 	width: 120px;
 }
-#side img{
-	margin: 5px;	
+#sideBanner {
+	position: absolute; 
+	right: 280px; 
+	top: 297px; 
+	text-align:center;
+	width: 120px;
+}
+#sideBanner img {
+	height: 626px;
 }

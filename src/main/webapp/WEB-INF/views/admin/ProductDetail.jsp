@@ -15,16 +15,18 @@
 			<tr>
 				<td class="title" colspan="2">상 품 정 보</td>
 			</tr>
+			<tr id="detailImg">
+				<td>
+					<a href="/upload/${product.image}">
+						<img src="/upload/${product.image}" height="360px" width="250px">
+					</a>
+				</td>
+			</tr>
 			<tr>
-			<td>
-				<a href="/upload/${product.image}">
-					<img src="/upload/${product.image}" height="360px" width="250px">
-				</a>
-			</td>
 				<td>
 				<form action="" name="productForm" method="post">
 					<table>
-					<tbody class="border">
+					<tbody class="border1">
 						<tr>
 							<th>상품번호</th>
 							<td>${product.p_no}</td>
@@ -44,7 +46,7 @@
 							<th>상품분류</th>
 							<td>${product.state}</td>
 						</tr>
-						<tr>
+						<tr id="dcol1">
 							<th>상품설명</th>
 							<td>${product.detail}</td>
 						</tr>
@@ -54,7 +56,7 @@
 						</tr>
 						<tr>
 							<th>재고</th>
-							<td><input type="text" name="stock" class="price disable" size="5" value="${product.stock}" ></td>
+							<td>${product.stock}</td>
 						</tr>
 					</tbody>
 						<tr>

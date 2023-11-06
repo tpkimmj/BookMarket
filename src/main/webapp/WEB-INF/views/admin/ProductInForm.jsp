@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="clear"></div>
-	<div id="productMgt">
+	<div id="productInForm">
 		<form action="/productMgtProc?flag=insert" method="post" name="topForm1" enctype="multipart/form-data">
 			<table>
 				<thead style="margin-bottom: 20px;">
@@ -20,7 +20,7 @@
 						<td class="title" colspan="2">상 품 등 록</td>
 					</tr>
 				</thead>
-				<tbody class="border">
+				<tbody class="border2">
 					<tr>
 						<th>책제목</th>
 						<td>
@@ -60,7 +60,7 @@
 					<tr>
 						<th>설명</th>
 						<td>
-							<textarea cols="60" rows="20" name="detail" title="상품설명"></textarea>
+							<textarea cols="70" rows="20" name="detail" title="상품설명"></textarea>
 						</td>
 					</tr>
 					<tr>
