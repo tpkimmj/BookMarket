@@ -14,27 +14,29 @@
 	background-color: #237AF6;
 }
 #TopMenuBox table {
-	margin-left: 1100px;
+	margin-left: 1180px;
 	height: 40px;
 	width: 500px;
 	font-size: 15px;
 	color: white;
 }
 #logo {
-	margin: 30px 30px 20px 0;
+	margin: 30px 80px 20px 20px;
 	float: left;
-	width: 250px;
+	width: 150px;
+	height: 150px;
 }
 #mid {
 	margin: 0 auto;
 	width: 1000px;
+	height: 280px;
 }
 #search {
-	margin: 70px 10px 45px 0;
+	margin: 90px 10px 45px 0;
 	display: inline-block;
-	height: 40px;
-	width: 650px;
-	border: solid 3px #237AF6;
+	height: 42px;
+	width: 655px;
+	border: solid 4px #00008B;
 }
 #search input{
 	position: absolute;
@@ -140,7 +142,7 @@ nav {
 #sideBanner {
 	position: absolute; 
 	right: 280px; 
-	top: 297px; 
+	top: 320px; 
 	text-align:center;
 	width: 120px;
 }
