@@ -27,7 +27,7 @@
 							<li>카테고리 : ${product.state}</li><br>
 							<li>상 품 명 : ${product.p_name}</li><br>
 							<li>저 자 : ${product.writer}</li><br>
-							<li class="price">가 격 : ${product.price}</li><br>
+							<li class="price">가 격 : ${product.price} ￦</li><br>
 							<li>재 고 : ${product.stock}</li>
 						</ul>
 					</td>
@@ -54,7 +54,8 @@
 							</tr>
 						</table>
 						</td>
-					<td id="bookCol2">결제예정금액&nbsp; <span class="price">${product.price}</span> 원</td>
+					<td id="bookCol2">결제예정금액&nbsp; <input readonly="readonly" name="bkprice" class="price" value="${product.price}">
+					<input type="hidden" name="bkprice2" value="${product.price}"></td>
 					<td id="bookCol3">
 						<input id="bookBtn1" type="button" value="장바구니">
 						<input id="bookBtn2" type="button" value="바로구매">

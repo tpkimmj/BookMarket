@@ -196,6 +196,8 @@ textarea {
 	font-size: 25px;
 	font-weight: bold;
 	color: #00008B;
+	background-color: #dddddd;
+	border: none;
 }
 #bookCol3 {
 	width: 600px;
@@ -248,8 +250,9 @@ textarea {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 }
+#bookCol2 input:focus {outline: none;}
 #bkcon {
-	background-color: #eeeeee;
+	background-color: #E5E8FF;
 }
 #bkName {
 	color: #00008B;
