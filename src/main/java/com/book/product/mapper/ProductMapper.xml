@@ -72,6 +72,13 @@
 		WHERE RR BETWEEN #{start} and #{end}
 	</select>
 	
+	<select id="ProductTot" parameterType="map" resultType="int">
+		SELECT COUNT(P_NO) FROM PRODUCT
+		<if test='!state.equals("all")'>
+			WHERE STATE = #{state}
+		</if>
+	</select>
+	
 	<select id="bookSearch" parameterType="pdto">
 		SELECT * FROM
 			(SELECT ROWNUM AS RR, P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
