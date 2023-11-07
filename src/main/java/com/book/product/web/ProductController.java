@@ -218,6 +218,7 @@ public class ProductController {
 		MemberDTO ssKey = null;
 		Map<String, Object> reSet = null;
 		String state = request.getParameter("state");
+		pdto.setFlag(request.getParameter("flag"));
 		if(session.getAttribute("ssKey")!=null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
@@ -234,31 +235,31 @@ public class ProductController {
 		}
 		switch (request.getParameter("state")) {
 			case "all": {
-				reSet = productServise.getProducts(pdto, pageDto , "all");
+				reSet = productServise.getProducts(pdto, pageDto, "all");
 				break;
 			}
 			case "best": {
-				reSet = productServise.getProducts(pdto, pageDto , "소설");
+				reSet = productServise.getProducts(pdto, pageDto, "소설");
 				break;
 				}
 			case "fiction": {
-				reSet = productServise.getProducts(pdto, pageDto , "소설");
+				reSet = productServise.getProducts(pdto, pageDto, "소설");
 				break;
 			}
 			case "cartoon": {
-				reSet = productServise.getProducts(pdto, pageDto , "만화");
+				reSet = productServise.getProducts(pdto, pageDto, "만화");
 				break;
 			}
 			case "divan": {
-				reSet = productServise.getProducts(pdto, pageDto , "시집");
+				reSet = productServise.getProducts(pdto, pageDto, "시집");
 				break;
 			}
 			case "referbook": {
-				reSet = productServise.getProducts(pdto, pageDto , "참고서");
+				reSet = productServise.getProducts(pdto, pageDto, "참고서");
 				break;
 			}
 			case "selfdev": {
-				reSet = productServise.getProducts(pdto, pageDto , "자기계발");
+				reSet = productServise.getProducts(pdto, pageDto, "자기계발");
 				break;
 			}
 		}

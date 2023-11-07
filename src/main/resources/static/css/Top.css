@@ -21,7 +21,7 @@
 	color: white;
 }
 #logo {
-	margin: 30px 80px 20px 20px;
+	margin: 30px 80px 20px 50px;
 	float: left;
 	width: 150px;
 	height: 150px;
@@ -149,3 +149,12 @@ nav {
 #sideBanner img {
 	height: 626px;
 }
+#sort td{
+	padding-right: 50px;
+	text-align: right;
+	height: 50px;
+}
+#sort a:link{color: black; text-decoration: none;}
+#sort a:checked{color: black; text-decoration: none; font-weight: bold;}
+#sort a:active{color: #00008B; text-decoration: none; font-weight: bold;}
+#sort a:hover{color: #00008B; text-decoration: none; font-weight: bold;}

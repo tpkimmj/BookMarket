@@ -118,11 +118,12 @@ public class ProductServiceImpl implements ProductService {
 	public Map<String, Object> getProducts(ProductDTO pdto,PageDTO pageDto, String state) {
 				Map<String, Object> reSet = new HashMap<String, Object>();
 		Map<String, Object> ProductPage = new HashMap<String, Object>();
-		
+
 		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
 		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
 		
 		ProductPage.put("state", state);
+		ProductPage.put("flag", pdto.getFlag());
 		int productTot = productDao.ProductTot(ProductPage);
 		// 현재 페이지 계산
 		int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE + 1;
