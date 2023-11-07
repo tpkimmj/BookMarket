@@ -282,17 +282,20 @@ public class ProductController {
 	
 	@RequestMapping("/search")
 	public String search(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
+		if (pdto.getSearchText() == null) {
+			pdto.setSearchText(request.getParameter("searchText"));
+		}
 		String page = null;
 		System.out.println("===>"+pdto);
 		System.out.println("===>"+pdto.getSearchText());
-		Map<String, Object> reSet = productServise.bookSearch(pdto);
+		Map<String, Object> reSet = productServise.bookSearch(pdto, pageDto);
 		
 		
 		model.addAttribute("pcnt", reSet.get("pcnt"));
 		model.addAttribute("productList", reSet.get("productList"));
-//		model.addAttribute("getSearch", reSet.get("getSearch"));
-//		model.addAttribute("pageDto", reSet.get("pageDto"));
-//		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+		model.addAttribute("getSearch", reSet.get("getSearch"));
+		model.addAttribute("pageDto", reSet.get("pageDto"));
+		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		page = "Main";
 		model.addAttribute("contentsJsp", "custom/BookSearch");
 		return page;

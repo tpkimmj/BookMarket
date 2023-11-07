@@ -33,7 +33,7 @@
 	<div id="mid">
 		<a href="/"><img src="/images/logo.png" id="logo"></a>
 		<div id="search">
-			<form action="/search" method="post">
+			<form action="/search" method="get">
 				<input type="text" name="">
 				<button style="background: #fff; border: none;"><img src="/images/search.png" id="searchIcon"></button>
 			</form>

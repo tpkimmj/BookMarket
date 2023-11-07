@@ -22,6 +22,6 @@ public interface ProductService {
 
 	Map<String, Object> getProducts(ProductDTO pdto, PageDTO pageDto, String state);
 	
-	Map<String, Object> bookSearch(ProductDTO pdto);
+	Map<String, Object> bookSearch(ProductDTO pdto, PageDTO pageDto);
 
 }

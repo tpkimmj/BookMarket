@@ -70,10 +70,21 @@
 	</select>
 	
 	<select id="bookSearch" parameterType="pdto">
-		SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+		SELECT * FROM
+			(SELECT ROWNUM AS RR, P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+			FROM
+		(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
 		FROM  PRODUCT
 		WHERE
-		P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'|| #{searchText}||'%'
+		P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'||#{searchText}||'%'
+		ORDER BY P_NO DESC) A)
+		WHERE RR BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="getSearch" parameterType="map" resultType="int">
+		SELECT COUNT(P_NO) FROM PRODUCT
+		WHERE
+		P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'||#{searchText}||'%'
 	</select>
 	
 </mapper>
