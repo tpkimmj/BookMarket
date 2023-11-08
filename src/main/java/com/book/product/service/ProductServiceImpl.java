@@ -162,6 +162,7 @@ public class ProductServiceImpl implements ProductService {
 		
 		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
 		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
+		ProductPage.put("flag", pdto.getFlag());
 		logger.info("ProductPage==>"+ProductPage);
 		
 		ProductPage.put("searchText", pdto.getSearchText());

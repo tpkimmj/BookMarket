@@ -285,6 +285,7 @@ public class ProductController {
 	public String search(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
 		if (pdto.getSearchText() == null) {
 			pdto.setSearchText(request.getParameter("searchText"));
+			pdto.setFlag(request.getParameter("flag"));
 		}
 		String page = null;
 		System.out.println("===>"+pdto);
@@ -292,6 +293,7 @@ public class ProductController {
 		Map<String, Object> reSet = productServise.bookSearch(pdto, pageDto);
 		
 		
+		model.addAttribute("searchText", pdto.getSearchText());
 		model.addAttribute("pcnt", reSet.get("pcnt"));
 		model.addAttribute("productList", reSet.get("productList"));
 		model.addAttribute("getSearch", reSet.get("getSearch"));
