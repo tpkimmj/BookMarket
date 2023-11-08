@@ -16,7 +16,7 @@
 		<table>
 			<tr id="sort">
 				<td colspan="3">
-					<a href="/productList?state=${state}&flag=row">낮은가격순</a>&nbsp;&nbsp;&nbsp;
+					<a href="/productList?state=${state}&flag=low">낮은가격순</a>&nbsp;&nbsp;&nbsp;
 					<a href="/productList?state=${state}&flag=high">높은가격순</a>
 				</td>
 			</tr> 
