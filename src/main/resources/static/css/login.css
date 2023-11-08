@@ -2,12 +2,12 @@
 .wrapper {
 	margin: 0 auto;
 	width: 1000px;
-	height: 351px;
+	height: 600px;
 }
 .wrap {
 	background-color: #FAFAD2;
 	border-radius: 20px;
-	margin: 30px auto;
+	margin: 100px auto;
 	width: 500px;
 	height: 300px;
 	text-align: center;
