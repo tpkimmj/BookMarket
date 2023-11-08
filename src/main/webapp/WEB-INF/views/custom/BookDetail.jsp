@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -54,8 +55,8 @@
 							</tr>
 						</table>
 						</td>
-					<td id="bookCol2">결제예정금액&nbsp; <input readonly="readonly" name="bkprice" class="price" value="${product.price}">
-					<input type="hidden" name="bkprice2" value="${product.price}"></td>
+					<td id="bookCol2">결제예정금액&nbsp; <div id="bkprice" class="price">${product.price}</div>
+					<div id="bkprice2" style="display: none;">${product.price}</div></td>
 					<td id="bookCol3">
 						<input id="bookBtn1" type="button" value="장바구니">
 						<input id="bookBtn2" type="button" value="바로구매">

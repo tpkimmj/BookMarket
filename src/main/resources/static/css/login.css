@@ -8,14 +8,15 @@
 	background-color: #FAFAD2;
 	border-radius: 20px;
 	margin: 100px auto;
-	width: 500px;
-	height: 300px;
+	width: 600px;
+	height: 400px;
 	text-align: center;
 }
 .logo_wrap {
+	padding: 20px;
 	border-radius: 5px;
 	font-size: 35px;
-	height: 55px;
+	height: 50px;
 	background-color: #00008B;
 	color: white;
 }
@@ -34,7 +35,7 @@
 	height: 45px;
 }
 .login_button_wrap #submitTop {
-	margin: 20px auto;
+	margin: 30px auto;
 	width: 100px;
 	font-weight: bold;
 	background-color: #237AF6;
@@ -43,6 +44,9 @@
 	border-radius: 10px;
 	font-size: 15px;
 	padding: 10px;
+}
+.login_wrap {
+	padding-top: 25px;
 }
 .login_button_wrap a:link{color: #237AF6; text-decoration: none; font-weight: bold;}
 .login_button_wrap a:visited{color: #237AF6; text-decoration: none; font-weight: bold;}
