@@ -17,16 +17,17 @@ public class ClientController {
 	@Autowired
 	MemberService memberService;
 	
-	@GetMapping("/ClientCenter") //고객센터
-	public String ClientCenter(HttpServletRequest request, HttpServletResponse response, MemberDTO mdto, Model model) {
-		String page = null;
-		
-		page = "Main";
-		
-		model.addAttribute("page", page);
-		model.addAttribute("contentsJsp", "custom/ClientCenter");
-		return page;
-	}
+//	@GetMapping("/ClientCenter") //고객센터
+//	public String ClientCenter(HttpServletRequest request, HttpServletResponse response, MemberDTO mdto, Model model) {
+//		String page = null;
+//		
+//		page = "Main";
+//		
+//		model.addAttribute("page", page);
+//		model.addAttribute("contentsJsp", "custom/ClientCenter");
+//		return page;
+//	}
+	
 	@RequestMapping("/AdminClientCenter") //관리자 고객센터
 	public String AdminClientCenter(HttpServletRequest request, HttpServletResponse response, MemberDTO mdto, Model model) {
 		String page = null;
@@ -34,7 +35,7 @@ public class ClientController {
 		page = "Main";
 		
 		model.addAttribute("page", page);
-		model.addAttribute("contentsJsp", "admin/AdminClientCenter");
+		model.addAttribute("contentsJsp", "admin/ClientCenter");
 		return page;
 	}
 }

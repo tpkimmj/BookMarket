@@ -13,6 +13,7 @@
          <typeAlias alias="map" type="java.util.Map" />
          <typeAlias alias="mdto" type="com.book.member.dto.MemberDTO" />
          <typeAlias alias="pdto" type="com.book.product.dto.ProductDTO" />
+         <typeAlias alias="cdto" type="com.book.client.dto.ClientDTO" />
          <!-- <typeAlias alias="bvo" type="com.ecom4.board.dto.BoardDTO" />
          <typeAlias alias="odto" type="com.ecom4.order.dto.OrderDTO" /> -->
      </typeAliases>	

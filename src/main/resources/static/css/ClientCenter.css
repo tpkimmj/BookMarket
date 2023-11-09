@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.col1{
+	margin: 0 auto;
+	width:100px;
+	height:70px;
+}
+.col2{
+	margin: 0 auto;
+	width:150px;
+	height:70px;
+}
+.col3{
+	margin: 0 auto;
+	width:150px;
+	height:70px;
+}
+.col4{
+	margin: 0 auto;
+	width:150px;
+	height:70px;
+}
+.col5{
+	margin: 0 auto;
+	width:100px;
+	height:70px;
+}
+#notice{
+	margin: 0 auto;
+	width:1000px;
+	height: 1000px;
+}
+
+#list th{
+	border: 20px soild #cccccc;
+	background-color:#cccccc;
+}
+
+
+

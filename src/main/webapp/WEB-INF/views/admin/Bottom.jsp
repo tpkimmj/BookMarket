@@ -10,7 +10,7 @@
       <li><a href="#">회사소개</a></li>
       <li><a href="#">홈페이지 이용약관</a></li>
       <li><a href="#">위치정보 이용약관</a></li>
-      <li><a href="#">고객센터</a></li>
+      <li><a href="ClientCenter">고객센터</a></li>
     </ul>
 
     <div class="btn-group">

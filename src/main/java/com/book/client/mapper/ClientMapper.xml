@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.client.dao.ClientDAO">
+
+   <insert id="generateClient" parameterType="cdto">
+	   <selectKey keyProperty="cno" order="BEFORE" resultType="int">
+	     SELECT NVL(MAX(CNO),0)+1 CNO FROM CLIENT
+	   </selectKey>
+		INSERT INTO CLIENT(CNO, READCOUNT, SUBJECT, CONTENT, WRITER, REGDATE)
+		VALUES(#{cno}, #{readcount}, #{subject}, #{content}, #{writer}, sysdate)
+	</insert>
+
+	<select id="getClient" parameterType="cdto">
+		SELECT CNO, READCOUNT, SUBJECT, CONTENT, WRITER,REGDATE
+		FROM CLIENT
+		WHERE CNO= #{cno}
+
+	</select>
+	
+	
+	<select id="getClients" resultType="cdto">
+		SELECT CNO, READCOUNT, SUBJECT, CONTENT, WRITER,REGDATE
+		FROM CLIENT
+	</select>
+	
+	<select id="getTotalCnt" resultType="int">
+		select count(cno) from client
+	</select>
+	
+   <update id="updateProc" parameterType="cdto">
+   UPDATE CLIENT SET
+   SUBJECT = #{subject},
+   CONTENT = #{content},
+   WRITER = #{writer},
+   REGDATE = sysdate
+   WHERE CNO=#{cno}
+   </update>
+   
+   <delete id="deleteProc" parameterType="cdto">
+   DELETE FROM CLIENT
+   WHERE CNO = #{cno}
+   </delete>
+  
+   <update id="updateReadCnt" parameterType="cdto">
+   UPDATE CLIENT SET READCOUNT = READCOUNT+1
+   WHERE CNO = #{cno}
+   </update>
+</mapper>
