@@ -42,10 +42,6 @@
 						<tr></tr>
 						<tr></tr>
 					</c:forEach>
-				</c:when>
-				<c:when test="${fn:length(productList)==0}">
-					<tr><th colspan="7">등록된 상품이 없습니다.</th></tr>
-				</c:when>
 					<tfoot>
 						<tr id="page">
 							<td colspan="7">
@@ -65,6 +61,7 @@
 							</td>
 						</tr>
 					</tfoot>
+				</c:when>
 			</c:choose>
 		</table>
 	</div>
