@@ -29,7 +29,7 @@
 							<li>상 품 명 : ${product.p_name}</li><br>
 							<li>저 자 : ${product.writer}</li><br>
 							<li class="price">가 격 : ${product.price} ￦</li><br>
-							<li>재 고 : ${product.stock}</li>
+							<li>재 고 : <div id="bkstock">${product.stock}</div></li>
 						</ul>
 					</td>
 				</tr>

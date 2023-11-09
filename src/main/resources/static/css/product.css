@@ -343,3 +343,6 @@ textarea {
 #bkName1 {
 	height: 50px;
 }
+#bkstock {
+	display: inline;
+}
