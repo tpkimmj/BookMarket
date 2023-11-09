@@ -139,7 +139,7 @@ public class ClientController {
 	            contentsJsp = "./NoticeUpForm";
 	      }else {
 	         //고객용에서도 조회가 되어야 할 듯함(조회수 증가)
-	       
+	    	  Map<String, Object> reSet = clientService.getClients(cdto);
 	    	   ClientDTO dto = clientService.getClient(cdto);
 	    	  model.addAttribute("cdto", dto);
 	         page = "Main";
