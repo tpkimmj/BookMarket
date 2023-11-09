@@ -29,7 +29,7 @@ public class ProductController {
 	@Value("${resources.location}")
 	String resourcesLocation;
 	
-	@RequestMapping("/productMgt")
+	@RequestMapping("/productMgt") //상품 리스트 가져오기
 	public String productMgr(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String page = null;
 		MemberDTO ssKey = null;
@@ -61,7 +61,7 @@ public class ProductController {
 		return page;
 	}
 	
-	@RequestMapping("/productInForm")
+	@RequestMapping("/productInForm") //관리자 상품 등록 페이지
 	public String productInForm(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String page = null;
 		MemberDTO ssKey = null;
@@ -80,7 +80,7 @@ public class ProductController {
 		return page;
 	}
 	
-	@RequestMapping("/productMgtProc")
+	@RequestMapping("/productMgtProc") //상품 등록 구동
 	public String productInsert(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto, @RequestParam("image2") MultipartFile file) {
 		MemberDTO ssKey = null;
 		String url = null;
@@ -132,7 +132,7 @@ public class ProductController {
 		return "MsgPage";
 	}
 	
-	@RequestMapping("/productDetail")
+	@RequestMapping("/productDetail") //상품 상세 정보
 	public String productDetail(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String contentsJsp = null;
 		String page = null;
@@ -159,7 +159,7 @@ public class ProductController {
 		return page;
 	}
 	
-	@RequestMapping("/productUpForm")
+	@RequestMapping("/productUpForm") //상품수정
 	public String productUpForm(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String page = null;
 		MemberDTO ssKey = null;
@@ -181,7 +181,7 @@ public class ProductController {
 		return page;
 	}
 	
-	@RequestMapping("productDel")
+	@RequestMapping("productDel") //상품 삭제
 	public String productDel(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
 		// 세션
 		HttpSession session = request.getSession();
@@ -208,7 +208,7 @@ public class ProductController {
 		return  "MsgPage";
 	}
 	
-	@RequestMapping("/productList")
+	@RequestMapping("/productList") //상품 리스트 페이지
 	public String productList(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
 		HttpSession session = request.getSession();
 		String page = null;
@@ -230,6 +230,7 @@ public class ProductController {
 			page = "Main";
 			model.addAttribute("contentsJsp", "custom/ProductList");
 		}
+		//상품분류에 따른 리스트 가져오기
 		switch (request.getParameter("state")) {
 			case "all": {
 				reSet = productService.getProducts(pdto, pageDto, "all");
@@ -278,8 +279,9 @@ public class ProductController {
 		return "Main";
 	}
 	
-	@RequestMapping("/search")
+	@RequestMapping("/search") //책 검색
 	public String search(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
+		// 검색 단어 저장 및 flag(high/low) 저장
 		if (pdto.getSearchText() == null) {
 			pdto.setSearchText(request.getParameter("searchText"));
 			pdto.setFlag(request.getParameter("flag"));
@@ -287,6 +289,8 @@ public class ProductController {
 		String page = null;
 		System.out.println("===>"+pdto);
 		System.out.println("===>"+pdto.getSearchText());
+		
+		//검색어와 페이지 저장
 		Map<String, Object> reSet = productService.bookSearch(pdto, pageDto);
 		
 		
