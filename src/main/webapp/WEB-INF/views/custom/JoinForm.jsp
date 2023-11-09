@@ -5,19 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<link rel="stylesheet" href="/css/member.css">
 <script src="/jquery/jquery-3.7.0.min.js"></script>
 <script src="/script/member.js"></script>
 <script src="/script/zipCheck.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
+<div id="joinform">
 	<form action="joinProc" name="form1" method="post">
 		<table>
 			<thead>
-				<tr>
-					<th colspan="3">회원가입</th>
+				<tr id="joinTitle">
+					<th colspan="2">회원가입</th>
 				</tr>
 			</thead>
+				<tr style="height: 20px;"></tr>
 			<tbody>
 				<tr>
 					<td class="col1">아이디</td>
@@ -25,7 +28,6 @@
 						<input type="text" id="idchk" name="mem_id" class="chk" title="아이디" placeholder="아이디를 입력하세요.">
 						<font id="warning" size="2" color="red"></font>
 					</td>
-					<td class="col3">아이디를 적어주세요.</td>
 				</tr>
 				<tr>
 					<td class="col1">패스워드</td>
@@ -33,35 +35,30 @@
 						<input type="password" id="check1" name="m_passwd" class="chk" title="패스워드" placeholder="패스워드를 입력하세요.">
 						<font id="check" size="2" color="green"></font>
 					</td>
-					<td class="col3">패스워드를 적어주세요.</td>
 				</tr>
 				<tr>
 					<td class="col1">패스워드확인</td>
 					<td class="col2">
 						<input type="password" id="check2" name="m_repasswd" class="chk" title="패스워드" placeholder="패스워드를 확인하세요.">
 					</td>
-					<td class="col3">패스워드를 확인하세요.</td>
 				</tr>
 				<tr>
 					<td class="col1">이름</td>
 					<td class="col2">
 						<input type="text" name="m_name" class="chk" title="이름" placeholder="이름을 입력하세요.">
 					</td>
-					<td class="col3">고객실명을 적어주세요.</td>
 				</tr>
 				<tr>
 					<td class="col1">이메일</td>
 					<td class="col2">
 						<input type="text" name="m_email" placeholder="aaa@himedia.co.kr">
 					</td>
-					<td class="col3">이메일을 적어주세요.</td>
 				</tr>
 				<tr>
 					<td class="col1">전화번호</td>
 					<td class="col2">
 						<input type="text" name="m_phone" class="chk" title="전화번호" placeholder="전화번호(010-1111-1234)">
 					</td>
-					<td class="col3">전화번호를 입력하세요.</td>
 				</tr>
 				<tr>
 					<td class="col1">우편번호</td>
@@ -69,7 +66,6 @@
 						<input type="text" name="zipcode" id="sample6_postcode" class="chk" readonly="readonly" placeholder="우편번호를 검색하세요.">
 						<button type="button" onclick="zipCheck()">우편번호찾기</button>
 					</td>
-					<td class="col3">우편번호를 검색하세요.</td>
 				</tr>
 				<tr>
 					<td class="col1">주소</td>
@@ -78,7 +74,6 @@
 						<input type="text" name="address2" class="chk" title="상세주소" id="sample6_detailAddress" placeholder="상세주소">
 						<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
 					</td>
-					<td class="col3">주소를 입력하세요.</td>
 				</tr>
 				<tr>
 					<td class="col1">직업</td>
@@ -101,18 +96,18 @@
 							<option value="기타">기타</option>
 						</select>
 					</td>
-					<td class="col3">직업을 선택하세요</td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="3">
+					<td colspan="2">
+						<button type="reset">다시쓰기</button>&nbsp;&nbsp;
 						<button id="submit11" type="button">회원가입</button>
-						<button type="reset">다시쓰기</button>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
 	</form>
+</div>
 </body>
 </html>

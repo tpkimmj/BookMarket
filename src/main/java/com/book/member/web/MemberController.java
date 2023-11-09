@@ -38,13 +38,20 @@ public class MemberController {
 
 	@RequestMapping("/joinProc") //회원가입동작
 	public String joinProc(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
+		String url = null;
+		String msg = null;
 		try {
 			int r = memberService.memberJoin(mdto);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "redirect:/";
+		url = "redirect:/";
+		msg = "회원가입을 환영합니다!";
+		
+		model.addAttribute("url", url);
+		model.addAttribute("msg", msg);
+		return "MsgPage";
 	}
 	
 	@RequestMapping("idCheck") //id확인

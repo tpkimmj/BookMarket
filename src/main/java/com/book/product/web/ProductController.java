@@ -25,11 +25,11 @@ import jakarta.servlet.http.HttpSession;
 public class ProductController {
 	
 	@Autowired
-	ProductService productServise;
+	ProductService productService;
 	@Value("${resources.location}")
 	String resourcesLocation;
 	
-	@RequestMapping("/productMgt")
+	@RequestMapping("/productMgt") //상품 리스트 가져오기
 	public String productMgr(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String page = null;
 		MemberDTO ssKey = null;
@@ -46,9 +46,8 @@ public class ProductController {
 		// 모든 상품 리스트를 갖고 오기 
 		Map<String, Object> reSet = null;
 		try {
-			reSet = productServise.getProductList(pdto,pageDto);
+			reSet = productService.getProductList(pdto,pageDto);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addAttribute("pcnt", reSet.get("pcnt"));
@@ -62,7 +61,7 @@ public class ProductController {
 		return page;
 	}
 	
-	@RequestMapping("/productInForm")
+	@RequestMapping("/productInForm") //관리자 상품 등록 페이지
 	public String productInForm(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String page = null;
 		MemberDTO ssKey = null;
@@ -81,7 +80,7 @@ public class ProductController {
 		return page;
 	}
 	
-	@RequestMapping("/productMgtProc")
+	@RequestMapping("/productMgtProc") //상품 등록 구동
 	public String productInsert(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto, @RequestParam("image2") MultipartFile file) {
 		MemberDTO ssKey = null;
 		String url = null;
@@ -98,9 +97,8 @@ public class ProductController {
 					// 업로드 경로 저장
 					pdto.setPath(resourcesLocation);
 					try {
-						r = productServise.insertProduct(pdto, file);
+						r = productService.insertProduct(pdto, file);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					if(r>0) {
@@ -112,9 +110,8 @@ public class ProductController {
 				} else if (flag.equals("update")) {
 					pdto.setPath(resourcesLocation);
 					try {
-						r = productServise.updateProduct(pdto, file);
+						r = productService.updateProduct(pdto, file);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					if(r>0) {
@@ -135,7 +132,7 @@ public class ProductController {
 		return "MsgPage";
 	}
 	
-	@RequestMapping("/productDetail")
+	@RequestMapping("/productDetail") //상품 상세 정보
 	public String productDetail(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String contentsJsp = null;
 		String page = null;
@@ -154,7 +151,7 @@ public class ProductController {
 			page = "/Main";
 		}
 		
-		ProductDTO product = productServise.getProduct(pdto.getP_no());
+		ProductDTO product = productService.getProduct(pdto.getP_no());
 		
 		model.addAttribute("product", product);
 		model.addAttribute("contentsJsp", contentsJsp);
@@ -162,7 +159,7 @@ public class ProductController {
 		return page;
 	}
 	
-	@RequestMapping("/productUpForm")
+	@RequestMapping("/productUpForm") //상품수정
 	public String productUpForm(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String page = null;
 		MemberDTO ssKey = null;
@@ -170,7 +167,7 @@ public class ProductController {
 		if(session.getAttribute("ssKey")!=null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
-				ProductDTO pvo = productServise.getProduct(pdto.getP_no());
+				ProductDTO pvo = productService.getProduct(pdto.getP_no());
 				page = "admin/Main";
 				model.addAttribute("pdto", pvo);
 			}
@@ -184,7 +181,7 @@ public class ProductController {
 		return page;
 	}
 	
-	@RequestMapping("productDel")
+	@RequestMapping("productDel") //상품 삭제
 	public String productDel(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
 		// 세션
 		HttpSession session = request.getSession();
@@ -196,7 +193,7 @@ public class ProductController {
 			if(mdto.getM_role().equals("mem")) { // 고객
 				url = "/";
 			} else if (mdto.getM_role().equals("admin")) {
-				int r = productServise.productDel(pdto);
+				int r = productService.productDel(pdto);
 				if(r>0) msg = pdto.getP_name() + "이/가 삭제되었습니다.";
 				else msg = pdto.getP_name() + "이/가 삭제되지 않았습니다.";
 				url = "/productMgt";
@@ -211,13 +208,14 @@ public class ProductController {
 		return  "MsgPage";
 	}
 	
-	@RequestMapping("/productList")
+	@RequestMapping("/productList") //상품 리스트 페이지
 	public String productList(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
 		HttpSession session = request.getSession();
 		String page = null;
 		MemberDTO ssKey = null;
 		Map<String, Object> reSet = null;
 		String state = request.getParameter("state");
+		pdto.setFlag(request.getParameter("flag"));
 		if(session.getAttribute("ssKey")!=null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
@@ -232,33 +230,34 @@ public class ProductController {
 			page = "Main";
 			model.addAttribute("contentsJsp", "custom/ProductList");
 		}
+		//상품분류에 따른 리스트 가져오기
 		switch (request.getParameter("state")) {
 			case "all": {
-				reSet = productServise.getProducts(pdto, pageDto , "all");
+				reSet = productService.getProducts(pdto, pageDto, "all");
 				break;
 			}
 			case "best": {
-				reSet = productServise.getProducts(pdto, pageDto , "소설");
+				reSet = productService.getProducts(pdto, pageDto, "소설");
 				break;
 				}
 			case "fiction": {
-				reSet = productServise.getProducts(pdto, pageDto , "소설");
+				reSet = productService.getProducts(pdto, pageDto, "소설");
 				break;
 			}
 			case "cartoon": {
-				reSet = productServise.getProducts(pdto, pageDto , "만화");
+				reSet = productService.getProducts(pdto, pageDto, "만화");
 				break;
 			}
 			case "divan": {
-				reSet = productServise.getProducts(pdto, pageDto , "시집");
+				reSet = productService.getProducts(pdto, pageDto, "시집");
 				break;
 			}
 			case "referbook": {
-				reSet = productServise.getProducts(pdto, pageDto , "참고서");
+				reSet = productService.getProducts(pdto, pageDto, "참고서");
 				break;
 			}
 			case "selfdev": {
-				reSet = productServise.getProducts(pdto, pageDto , "자기계발");
+				reSet = productService.getProducts(pdto, pageDto, "자기계발");
 				break;
 			}
 		}
@@ -273,24 +272,29 @@ public class ProductController {
 	
 	@RequestMapping("/bookDetail")
 	public String bookDetail(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto) {
-		ProductDTO product = productServise.getProduct(pdto.getP_no());
+		ProductDTO product = productService.getProduct(pdto.getP_no());
 		
 		model.addAttribute("product", product);
 		model.addAttribute("contentsJsp", "custom/BookDetail");
 		return "Main";
 	}
 	
-	@RequestMapping("/search")
+	@RequestMapping("/search") //책 검색
 	public String search(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
+		// 검색 단어 저장 및 flag(high/low) 저장
 		if (pdto.getSearchText() == null) {
 			pdto.setSearchText(request.getParameter("searchText"));
+			pdto.setFlag(request.getParameter("flag"));
 		}
 		String page = null;
 		System.out.println("===>"+pdto);
 		System.out.println("===>"+pdto.getSearchText());
-		Map<String, Object> reSet = productServise.bookSearch(pdto, pageDto);
+		
+		//검색어와 페이지 저장
+		Map<String, Object> reSet = productService.bookSearch(pdto, pageDto);
 		
 		
+		model.addAttribute("searchText", pdto.getSearchText());
 		model.addAttribute("pcnt", reSet.get("pcnt"));
 		model.addAttribute("productList", reSet.get("productList"));
 		model.addAttribute("getSearch", reSet.get("getSearch"));

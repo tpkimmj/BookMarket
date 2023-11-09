@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	ProductDAO productDao;
 
-	@Override
+	@Override //전체 상품리스트 불러오기
 	public Map<String, Object> getProductList(ProductDTO pdto, PageDTO pageDto) throws Exception {
 		// page계산 해서 pageDto
 				// list 넣어주고
@@ -63,7 +63,7 @@ public class ProductServiceImpl implements ProductService {
 				return reSet;
 	}
 
-	@Override
+	@Override //상품등록
 	public int insertProduct(ProductDTO pdto, MultipartFile file) throws Exception {
 		String sourceFileName = file.getOriginalFilename();
 		File destinetionFile;
@@ -83,7 +83,7 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.insertProduct(pdto);
 	}
 
-	@Override
+	@Override //상품 수정
 	public int updateProduct(ProductDTO pdto, MultipartFile file) throws Exception {
 		String sourceFileName = file.getOriginalFilename();
 		File destinetionFile;
@@ -104,12 +104,12 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.updateProduct(pdto);
 	}
 
-	@Override
+	@Override //상품번호에 맞는 상품 가져오기
 	public ProductDTO getProduct(int p_no) {
 		return productDao.getProduct(p_no);
 	}
 
-	@Override
+	@Override //상품삭제
 	public int productDel(ProductDTO pdto) {
 		return productDao.productDel(pdto);
 	}
@@ -118,11 +118,14 @@ public class ProductServiceImpl implements ProductService {
 	public Map<String, Object> getProducts(ProductDTO pdto,PageDTO pageDto, String state) {
 				Map<String, Object> reSet = new HashMap<String, Object>();
 		Map<String, Object> ProductPage = new HashMap<String, Object>();
-		
+
 		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
 		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
 		
+		//상품분류(state) flag(low,high) 저장
 		ProductPage.put("state", state);
+		ProductPage.put("flag", pdto.getFlag());
+		//상품분류(state)에 맞는 상품의 개수 불러오기
 		int productTot = productDao.ProductTot(ProductPage);
 		// 현재 페이지 계산
 		int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE + 1;
@@ -133,6 +136,8 @@ public class ProductServiceImpl implements ProductService {
 
 		ProductPage.put("start", start);
 		ProductPage.put("end", end);
+		
+		//상품분류에 맞는 상품들을 불러오고 flag에 맞게 정렬
 		List<ProductDTO> productList = productDao.getProducts(ProductPage);
 		
 		int pgCnt = (productTot%RowInterPage.ROW_OF_PAGE==0) ?
@@ -161,9 +166,13 @@ public class ProductServiceImpl implements ProductService {
 		
 		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
 		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
+		//
+		ProductPage.put("flag", pdto.getFlag());
 		logger.info("ProductPage==>"+ProductPage);
 		
+		//컨트롤러에서 받아온 검색어를 searchText에 저장
 		ProductPage.put("searchText", pdto.getSearchText());
+		//검색한 책의 개수로 페이지 계산
 		int getSearch = productDao.getSearch(ProductPage);
 
 		// 현재 페이지 계산
@@ -173,10 +182,7 @@ public class ProductServiceImpl implements ProductService {
 		pdto.setStart(start);
 		pdto.setEnd(end);
 
-		if(pdto.getP_name() == null)ProductPage.put("p_name", "");
-		else ProductPage.put("p_name", pdto.getP_name());
 		ProductPage.put("end", end);
-		ProductPage.put("writer", pdto.getWriter());
 		logger.info("productService==>"+ProductPage);
 		List<ProductDTO> productList = productDao.bookSearch(pdto);
 		

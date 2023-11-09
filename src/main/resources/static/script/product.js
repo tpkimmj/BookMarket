@@ -53,21 +53,37 @@ function count(type)  {
   // 결과를 표시할 element
   const resultElement = document.getElementById('result');
   var bkprice = null;
+  const element = document.getElementById('bkprice');
+  const element2 = document.getElementById('bkprice2').innerHTML;
+  const bkstock = document.getElementById('bkstock').innerHTML;
   // 현재 화면에 표시된 값
   let number = resultElement.innerText;
   // 더하기/빼기
   if(type === 'plus') {
-    number = parseInt(number) + 1;
-	bkprice = $("input[name=bkprice2]").val() * number;
+	  if(parseInt(number) < parseInt(bkstock)){
+		  number = parseInt(number) + 1;
+		  bkprice = parseInt(element2) * parseInt(number);
+	  } else if (parseInt(number) >= parseInt(bkstock)){
+		  alert("재고 수량이 부족합니다.");
+	  }
   }else if(type === 'minus')  {
-	  if(number > 0){
-	    number = parseInt(number) - 1;
-	    bkprice = $("input[name=bkprice2]").val() * parseInt(number);
+	  if(number == 1){
+	    alert("1개 이상 구매가능합니다.");
+	  } else if(number > 1) {
+		number = parseInt(number) - 1;
+	    bkprice = parseInt(element2) * parseInt(number);
 	  }
   }
   // 결과 출력
-  $("input[name=bkprice]").val(bkprice);
+  
+ const priceTot = bkprice.toString()
+  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+
+  element.textContent = priceTot;
+  
   resultElement.innerText = number;
   
 }
+
+
 

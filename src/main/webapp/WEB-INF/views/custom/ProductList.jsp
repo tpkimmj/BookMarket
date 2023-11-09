@@ -14,6 +14,12 @@
 <body>
 	<div id="ProList">
 		<table>
+			<tr id="sort">
+				<td colspan="3">
+					<a href="/productList?state=${state}&flag=low">낮은가격순</a>&nbsp;&nbsp;&nbsp;
+					<a href="/productList?state=${state}&flag=high">높은가격순</a>
+				</td>
+			</tr> 
 			<c:choose>
 				<c:when test="${fn:length(productList)>0}">
 					<c:forEach var="product" items="${productList}">
@@ -23,7 +29,7 @@
 								<ul>
 									<li id="bookname"><a href="/bookDetail?p_no=${product.p_no}">${product.p_name}</a>
 									</li>
-									<li id="bookwriter">${product.writer}</li><br>
+									<li id="bookwriter">${product.writer}<br></li>
 									<li id="bookprice" class="price">판매가 : ${product.price}원</li>
 								</ul>
 							</td>

@@ -13,6 +13,8 @@ import com.book.client.service.ClientService;
 import com.book.common.dto.PageDTO;
 import com.book.member.dto.MemberDTO;
 import com.book.member.service.MemberService;
+import com.book.product.dto.ProductDTO;
+import com.book.product.service.ProductService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,15 +25,18 @@ import jakarta.servlet.http.HttpSession;
 public class AdminMainController {
 	@Autowired
 	MemberService memberService;
+	@Autowired
+	ProductService productService;
 	
 	@Autowired
 	ClientService clientService;
 	
 	@RequestMapping("/") 
-	public String index(HttpServletRequest req, HttpServletResponse res, MemberDTO adto, Model adel) {
+	public String index(HttpServletRequest req, HttpServletResponse res, MemberDTO adto, Model adel, ProductDTO pdto, PageDTO pageDto) {
 		HttpSession session = req.getSession();
 		String page = null;
 		MemberDTO ssKey = null;
+		Map<String, Object> reSet = null;
 		if(session.getAttribute("ssKey")!=null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin"))
@@ -41,6 +46,9 @@ public class AdminMainController {
 		else {
 			page = "redirect:/";
 		}
+		
+		reSet = productService.getProducts(pdto, pageDto, "all");
+		adel.addAttribute("productList", reSet.get("productList"));
 		return page;
 	}
 //	@RequestMapping("/ClientCenter") //고객센터
