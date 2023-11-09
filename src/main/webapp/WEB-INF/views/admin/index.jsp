@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <link rel="stylesheet" type="text/css" href="/css/index.css">
 <!DOCTYPE html>
 <html>
@@ -42,56 +43,32 @@
 				<th id="Best" colspan="4">BEST</th>
 			</tr>
 			<tr>
-				<td>
-					<ul>
-						<li class="col1"><a href="#"><img src="/images/book1.png"></a></li>
-						<li class="col2">너에게만 좋은 사람이 되고 싶어<li>
-					</ul>
-				</td>
-				<td>
-					<ul>
-						<li class="col1"><a href="#"><img src="/images/book2.png"></a></li>
-						<li class="col2">드래곤볼 슈퍼<li>
-					</ul>
-				</td>
-				<td>
-					<ul>
-						<li class="col1"><a href="#"><img src="/images/book3.png"></a></li>
-						<li class="col2">스튜디오 지브리 입체 건축<li>
-					</ul>
-				</td>
-				<td>
-					<ul>
-						<li class="col1"><a href="#"><img src="/images/book4.png"></a></li>
-						<li class="col2">스파이 패밀리<li>
-					</ul>
-				</td>
+				<c:choose>
+				<c:when test="${fn:length(productList)>0}">
+					<c:forEach var="product" items="${productList}" begin="0" end="3">
+					<td>
+						<ul>
+							<li class="col1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></li>
+							<li class="col2">${product.p_name}<li>
+						</ul>
+					</td>
+					</c:forEach>
+				</c:when>
+			</c:choose>
 			</tr>
 			<tr>
-				<td>
-					<ul>
-						<li class="col1"><a href="#"><img src="/images/book5.png"></a></li>
-						<li class="col2">원피스<li>
-					</ul>
-				</td>
-				<td>
-					<ul>
-						<li class="col1"><a href="#"><img src="/images/book6.png"></a></li>
-						<li class="col2">주술회전 0<li>
-					</ul>
-				</td>
-				<td>
-					<ul>
-						<li class="col1"><a href="#"><img src="/images/book7.png"></a></li>
-						<li class="col2">최애의 아이<li>
-					</ul>
-				</td>
-				<td>
-					<ul>
-						<li class="col1"><a href="#"><img src="/images/book8.jpg"></a></li>
-						<li class="col2">더 그레이트 비트코인<li>
-					</ul>
-				</td>
+			<c:choose>
+				<c:when test="${fn:length(productList)>0}">
+					<c:forEach var="product" items="${productList}" begin="4" end="7">
+					<td>
+						<ul>
+							<li class="col1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></li>
+							<li class="col2">${product.p_name}<li>
+						</ul>
+					</td>
+					</c:forEach>
+				</c:when>
+			</c:choose>
 			</tr>
 		</table>
 	</div>
