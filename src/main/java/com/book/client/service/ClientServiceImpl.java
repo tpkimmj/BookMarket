@@ -39,7 +39,6 @@ public class ClientServiceImpl implements ClientService{
 		List<ClientDTO> clientList = clientDao.getClients(cdto);
 		return clientDao.getClient(cdto);
 	}
-	    	  //조회수 증가dao 호출하고, mapper 조회수 증가 하게 하기
 	
 	@Override
 	public void generateClient(ClientDTO cdto) {

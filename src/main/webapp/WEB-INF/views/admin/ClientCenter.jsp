@@ -2,13 +2,13 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
-<link rel="stylesheet" type="text/css" href="/css/ClientCenter.css">   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet">
 <title>고객센터 공지사항</title>
+<link rel="stylesheet" type="text/css" href="/css/ClientCenter.css">   
 <script src="/jquery/jquery-3.7.0.min.js"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
  <div class="head">
     <p style="text-align: center;  font-size: 30px;">공지사항</p>
     <a style="margin:0 auto; margin-left:840px; background-color:#cccccc;
-     border: 1px solid #cccccc; text-align: center;" href="/admin/NoticeWriteForm">공지사항 등록</a>
+     border: 1px solid #cccccc; text-align: center;" href="/NoticeWriteForm">공지사항 등록</a>
     <p style="padding: 5px; margin: 0 auto; margin-left: 770px; text-align: center; padding-right: 10px;
         font-size: 16px;">총:${totCnt}개</p>
  </div>
