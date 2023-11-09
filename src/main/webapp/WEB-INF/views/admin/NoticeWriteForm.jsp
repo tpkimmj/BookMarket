@@ -28,7 +28,8 @@
 				<tr>
 					<td class="col1">작성자</td>
 					<td class="col2">
-						<input type="text" name="writer" class="chk1" value="${cdto.writer}">
+						<input type="text" name="writer" class="chk1" value="관리자" readonly="readonly">
+						
 					</td>
 				</tr>
 				<tr>
