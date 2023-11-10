@@ -137,17 +137,11 @@ public class ProductController {
 		String page = null;
 		HttpSession session = request.getSession();
 		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
-		if(mdto != null) {
-			if(mdto.getM_role().equals("mem")) { // 고객
-				contentsJsp = "custom/ProductDetail";
-				page = "Main";
-			} else if (mdto.getM_role().equals("admin")) {
+		if(mdto != null && mdto.getM_role().equals("admin")) {
 				contentsJsp = "./ProductDetail";
 				page = "admin/Main";
-			}
 		} else {
-			contentsJsp = "custom/ProductDetail";
-			page = "/Main";
+			page = "redirect:/";
 		}
 		
 		ProductDTO product = productService.getProduct(pdto.getP_no());
