@@ -35,7 +35,7 @@ public class ClientServiceImpl implements ClientService{
 	}
 	@Override
 	public ClientDTO getClient(ClientDTO cdto) {
-		List<ClientDTO> clientList = clientDao.getClients(cdto);
+		clientDao.getClients(cdto);
 		return clientDao.getClient(cdto);
 	}
 	
