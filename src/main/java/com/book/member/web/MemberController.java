@@ -232,7 +232,7 @@ public class MemberController {
 	@RequestMapping("/pwCheck") //비밀번호 확인 팝업창
 	public String pwCheck(HttpServletRequest req, Model model) {
 		HttpSession session = req.getSession();
-		MemberDTO dto = (MemberDTO) session.getAttribute("ssKey");
+		session.getAttribute("ssKey");
 		
 		return "custom/PwCheck";
 	}
