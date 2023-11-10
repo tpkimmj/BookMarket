@@ -11,10 +11,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form  id= "cartSave" action="cartProc?flag=add"  name="productForm"  method="post">
 	<div id="bookDetail">
 		<table>
 			<tr id="bkName">
 				<th>${product.p_name}</th>
+				<input  id="bkpno"type="hidden" value="${product.p_no}" name="p_no" >
+				<input  id="bkp_stock"type="hidden" value="${product.stock}" name="stock">
+				<input  id="bkp_name"type="hidden" value="${product.p_name}" name="p_name">
+				<input  id="bkp_price"type="hidden" value="${product.price}" name="price">
 			</tr>
 			<tr id="bkName1">
 				<td>저자 : ${product.writer}</td>
@@ -50,7 +55,7 @@
 							<tr>
 								<td id="bookNum1">수량</td>
 								<td><a onclick='count("minus")'><img alt="" src="/images/mbtn.png"></a></td>
-								<td id="bookNum2"><div id='result'>1</div></td>
+								<td id="bookNum2"><input  id="result"type="number" value="1" name="quantity" readonly /></td>
 								<td><a onclick='count("plus")'><img alt="" src="/images/pbtn.png"></a></td>
 							</tr>
 						</table>

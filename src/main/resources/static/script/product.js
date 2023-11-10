@@ -46,6 +46,15 @@ $().ready(function(){
 			}
 		});*/
    });
+      	$('#bookBtn1').on('click', function(){
+	$('form[name=productForm]').submit();
+	})
+	
+	$('#btn2').on('click', function(){
+	$('form[name=productForm]').submit();
+	})
+
+
    
 }); // 레디 끝
 
@@ -57,7 +66,7 @@ function count(type)  {
   const element2 = document.getElementById('bkprice2').innerHTML;
   const bkstock = document.getElementById('bkstock').innerHTML;
   // 현재 화면에 표시된 값
-  let number = resultElement.innerText;
+  let number = resultElement.value;
   // 더하기/빼기
   if(type === 'plus') {
 	  if(parseInt(number) < parseInt(bkstock)){
@@ -81,9 +90,38 @@ function count(type)  {
 
   element.textContent = priceTot;
   
-  resultElement.innerText = number;
+  resultElement.value = number;
   
 }
 
-
+  function cartUpdate(f, obj){
+	    var url1;
+        var quantity = $(obj).closest('tr').find('input[name=quantity]').val();
+        var pno = $(obj).closest('tr').find('input[name=p_no]').val();
+        var stock =$(obj).closest('tr').find('input[name=stock]').val();
+	   if(f=='D'){
+		   //삭제
+		   url1='cartProc?flag=delete';
+		   $(obj).closest('tr').remove();
+	   }else if(f=='U'){
+		   if(parseInt(quantity)>parseInt(stock)){
+			   alert('재고가 부족합니다.')
+			   return false;
+		   }
+		   //수정
+		   url1='cartProc?flag=update';
+	   }
+	   $.ajax({
+		   async:true,
+		   type:'post',
+		   data:{"quantity":quantity,
+		         "p_no":pno
+		         },
+		   url: url1,
+		   dataType:"json",
+		   success : function() {
+//			   alert('장바구니 수정');
+		     }
+	   });
+  }
 

@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form  id ="cartSave" action="cartProc?flag=add" name="productForm" method="post">
 	<div id="ProList">
 		<table>
 			<tr id="sort">
@@ -23,14 +24,21 @@
 			<c:choose>
 				<c:when test="${fn:length(productList)>0}">
 					<c:forEach var="product" items="${productList}">
+					<c:set var="cvo" value="${fn:length(hCartList[status.index])}"/>
 						<tr id="ProLine">
 							<td id="ProCol1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></td>
 							<td id="ProCol2">
 								<ul>
+									<input  id="bkpno" type="hidden" value="${product.p_no}"  name="p_no">
+									<input  id="bkp_stock" type="hidden" value="${product.stock}"  name="stock">
+									<input  id="bkname" type="hidden" value="${product.p_name}"  name="p_name" >
+									<input  id="bk_price" type="hidden" value="${product.price}"  name="price">
+									<input id="bk_quantity" type="hidden" value="1" name="quantity">
 									<li id="bookname"><a href="/bookDetail?p_no=${product.p_no}">${product.p_name}</a>
 									</li>
 									<li id="bookwriter">${product.writer}<br></li>
 									<li id="bookprice" class="price">판매가 : ${product.price}원</li>
+									<li id="booknum1" class="hidden">1개</li>								
 								</ul>
 							</td>
 							<td id="ProCol3">

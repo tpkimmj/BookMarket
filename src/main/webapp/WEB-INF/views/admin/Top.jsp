@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<header>
 	<div id="TopMenuBox">
 		<table>
@@ -25,7 +26,7 @@
 						<th><a href="/join">회원가입</a></th>
 		            </c:when>
 	            </c:choose>
-					<th><a href="#">장바구니</a></th>
+					<th><a href="/orderMgt">주문관리</a></th>
 					<th><a href="/ClientCenter">공지사항</a></th>
 			</tr>
 		</table>

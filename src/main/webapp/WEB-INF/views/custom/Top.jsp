@@ -27,7 +27,7 @@
 		            </c:when>
 	            </c:choose>
 					<th><a href="/info">마이페이지</a></th>
-					<th><a href="#">장바구니</a></th>
+					<th><a href="/cartList">장바구니</a></th>
 					<th><a href="ClientCenter">공지사항</a></th>
 			</tr>
 		</table>
