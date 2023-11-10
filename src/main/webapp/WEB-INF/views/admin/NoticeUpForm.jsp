@@ -15,7 +15,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th colspan="2">공지사항등록</th>
+					<th colspan="2">공지사항수정</th>
 				</tr>
 			</thead>
 			<tbody>

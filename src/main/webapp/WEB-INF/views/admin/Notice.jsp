@@ -32,9 +32,10 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td>
-						<input type="hidden" name="cno" value="${cdto.cno}">
-						<button type="button" class="noticeList">공지사항 목록</button>
+					<td colspan="4">
+					<input type="hidden" name="cno" value="${cdto.cno}">
+						<button type="button" id="noticeUpForm">공지사항 수정</button>
+						<button type="button" onclick="location.href='ClientCenter'">공지사항 목록</button>
 					</td>
 				</tr>
 			</tfoot>

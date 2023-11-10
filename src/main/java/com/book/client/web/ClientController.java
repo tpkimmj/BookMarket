@@ -134,7 +134,7 @@ public class ClientController {
 			ClientDTO notice = clientService.getClient(cdto);
 			model.addAttribute("cdto", notice);
 			page = "admin/Main";
-			contentsJsp = "./NoticeUpForm";
+			contentsJsp = "./Notice";
 		}else {
 			//고객용에서만 조회수가 증가
 			clientService.getClients(cdto);
@@ -157,6 +157,8 @@ public class ClientController {
 		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
 	      
 		if(mdto!=null && mdto.getM_role().equals("admin")) {
+			ClientDTO notice = clientService.getClient(cdto);
+			model.addAttribute("cdto", notice);
 			page = "admin/Main";
 			contentsJsp = "./NoticeUpForm";
 		}else {
