@@ -42,7 +42,6 @@ public class MemberController {
 		try {
 			memberService.memberJoin(mdto);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		msg = "회원가입을 환영합니다!";
@@ -58,7 +57,6 @@ public class MemberController {
 		try {
 			cnt = memberService.idCheck(mdto);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return cnt;
@@ -103,7 +101,6 @@ public class MemberController {
 				msg = "아이디 또는 패스워드가 맞지 않습니다.";
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addAttribute("msg", msg);
@@ -136,7 +133,6 @@ public class MemberController {
 			try {
 				mdto = memberService.getMember(custom);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			model.addAttribute("mdto", mdto);
@@ -171,7 +167,6 @@ public class MemberController {
 		try {
 			reSet = memberService.getMembers(mdto, pageDto);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addAttribute("memberTot", reSet.get("memberTot"));
@@ -204,7 +199,6 @@ public class MemberController {
 				try {
 					r = memberService.updatePasswd(mdto);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if(r>0) {
@@ -215,7 +209,6 @@ public class MemberController {
 				try {
 					id = memberService.searchId(mdto);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				System.out.println(mdto);
@@ -251,7 +244,6 @@ public class MemberController {
 			try {
 				mdto = memberService.getMember(custom);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			model.addAttribute("mdto", mdto);
@@ -314,7 +306,6 @@ public class MemberController {
 			try {
 				r = memberWrapper.memDelete(custom);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if(r>0) {
