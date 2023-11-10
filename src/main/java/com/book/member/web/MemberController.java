@@ -40,7 +40,7 @@ public class MemberController {
 	public String joinProc(HttpServletRequest req, HttpServletResponse res, Model model, MemberDTO mdto) {
 		String msg = null;
 		try {
-			int r = memberService.memberJoin(mdto);
+			memberService.memberJoin(mdto);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
