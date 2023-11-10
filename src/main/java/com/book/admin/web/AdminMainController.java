@@ -7,10 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.book.client.service.ClientService;
 import com.book.common.dto.PageDTO;
 import com.book.member.dto.MemberDTO;
-import com.book.member.service.MemberService;
 import com.book.product.dto.ProductDTO;
 import com.book.product.service.ProductService;
 

@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.book.member.dto.MemberDTO;
 import com.book.member.service.MemberService;
 
-import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
 @Service("memberWrapper")
 public class MemberWrapper {
 	@Autowired

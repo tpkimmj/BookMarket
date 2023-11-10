@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.book.client.dao.ClientDAO;
 import com.book.client.dto.ClientDTO;
-import com.book.client.web.ClientController;
 
 @Service
 public class ClientServiceImpl implements ClientService{
