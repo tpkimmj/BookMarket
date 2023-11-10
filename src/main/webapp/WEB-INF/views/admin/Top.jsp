@@ -26,7 +26,7 @@
 		            </c:when>
 	            </c:choose>
 					<th><a href="#">장바구니</a></th>
-					<th><a href="/ClientCenter">고객센터</a></th>
+					<th><a href="/ClientCenter">공지사항</a></th>
 			</tr>
 		</table>
 	</div>
