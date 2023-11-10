@@ -40,7 +40,6 @@
 				</tr>
 			</tfoot>
 		</table>
-		<input type="hidden" name="flag" value="insert">
 	</form>
 </div>
 </body>
