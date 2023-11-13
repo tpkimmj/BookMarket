@@ -139,15 +139,21 @@ nav {
 	text-align:center;
 	width: 120px;
 }
-#sideBanner {
-	position: absolute; 
-	right: 280px; 
-	top: 320px; 
-	text-align:center;
-	width: 120px;
+#sidebar {
+    width: 160px;
+    position: fixed;
+    top: 250px;	
+    right: 50px;
 }
-#sideBanner img {
-	height: 626px;
+#sidebar.active {
+    right: -200px;
+}
+#sideBanner #sidebarCollapse {
+	position: fixed;
+	top: 270px;
+	right: 50px;
+	border: none;
+	background-color: white;
 }
 #sort td{
 	padding-right: 50px;

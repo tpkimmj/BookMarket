@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/css/Top.css">
 <link rel="stylesheet" type="text/css" href="/css/Main.css">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="/jquery/jquery-3.7.0.min.js"></script>
+<script src="/script/top.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -66,7 +68,10 @@
 			<a onClick="window.location.reload()"><img src="/images/re.png"></a>
 		</div>
 		<div id="sideBanner">
-			<a href="/bookDetail?p_no=26"><img src="https://img.ypbooks.co.kr/upload/banner/rightban_231031_03.jpg"></a>
-		</div>	
+		    <nav id="sidebar">
+		    	<a href="/bookDetail?p_no=26"><img id="bannerImg" src="https://img.ypbooks.co.kr/upload/banner/rightban_231031_03.jpg"></a>
+		    </nav>
+		  	 <button id="sidebarCollapse"><img width="20" height="20" src="https://img.icons8.com/stickers/100/x.png" alt="x"/></button> 
+		</div>
 </body>
 </html>
