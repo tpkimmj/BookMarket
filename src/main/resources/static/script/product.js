@@ -53,7 +53,25 @@ $().ready(function(){
 	$('#btn2').on('click', function(){
 	$('form[name=productForm]').submit();
 	})
-
+	
+	$('.submitProc').on('click', function(){
+		var flen = $("form[name=topForm1] .chkt").length;
+		var price = $("input[name=price]").val();
+		var stock = $("input[name=stock]").val();
+		for(var i=0; i<flen; i++){
+			if($('.chkt').eq(i).val()=="" ||
+		       $('.chkt').eq(i).val()==null ||
+		       $('.chkt').eq(i).val().trim()==""){
+			  alert($('.chkt').eq(i).attr('title')+'를 입력하세요.');
+			  $('.chkt').eq(i).focus();
+			  return false;
+			}
+		}
+		if(isNaN(price) || isNaN(stock))
+		alert("재고와 가격은 숫자만 입력가능합니다.");
+		else
+		$("form[name=topForm1]").submit();
+	}); 
 
    
 }); // 레디 끝
