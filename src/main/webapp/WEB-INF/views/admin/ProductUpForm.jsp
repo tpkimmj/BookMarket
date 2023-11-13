@@ -6,7 +6,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="/css/product.css">
 <script src="/jquery/jquery-3.7.0.min.js"></script>
-<script src="/script/member.js"></script>
+<script src="/script/product.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -87,7 +87,7 @@
 				</tr>
 				</tbody>
 				<tr>
-					<th colspan="2" class="proButton"><input class="submit1" type="button" value="상품수정전송"></th>
+					<th colspan="2" class="proButton"><input class="submitProc" type="button" value="상품수정전송"></th>
 				</tr>
 			</table>
 		</form>
