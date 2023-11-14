@@ -15,11 +15,12 @@
 	<div id="bookDetail">
 		<table>
 			<tr id="bkName">
-				<th>${product.p_name}</th>
+				<th>${product.p_name}
 				<input  id="bkpno"type="hidden" value="${product.p_no}" name="p_no" >
 				<input  id="bkp_stock"type="hidden" value="${product.stock}" name="stock">
 				<input  id="bkp_name"type="hidden" value="${product.p_name}" name="p_name">
 				<input  id="bkp_price"type="hidden" value="${product.price}" name="price">
+				</th>
 			</tr>
 			<tr id="bkName1">
 				<td>저자 : ${product.writer}</td>
@@ -69,5 +70,6 @@
 				</tr>
 			</table>
 		</div>
+		</form>
 </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.book.cart.service.CartService;
 import com.book.common.dto.PageDTO;
 import com.book.member.dto.MemberDTO;
+import com.book.member.service.MemberService;
 import com.book.order.dto.OrderDTO;
 import com.book.product.dto.ProductDTO;
 
@@ -28,20 +29,33 @@ public class CartController {
 	@Autowired
 	CartService cartService;
 	
+	@Autowired
+	MemberService memberService;
 	
 	@RequestMapping("/cartList")
 	public String cartList(HttpServletRequest request,
-			HttpServletResponse response,
+			HttpServletResponse response, MemberDTO mdto,
 			OrderDTO ovo,
 			Model model) {
 		HttpSession session = request.getSession();
-		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
-		if(mdto == null) {
-		}
-		Hashtable<Integer, OrderDTO> hCartList = (Hashtable<Integer, OrderDTO>)session.getAttribute("hCartList");
-		logger.info("a==>"+hCartList);
-		
-		 return "custom/CartList";
+		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		 	String page= null;
+	        String url = null;
+	        String msg = null;
+	        	if(custom != null) { //고객정보가 있으므로 누가 장구니를 채우는 것인지 저장
+	        		model.addAttribute("mdto", mdto);
+	        		model.addAttribute("contentsJsp","custom/CartList"); 
+	        		page = "custom/CartList"; 
+			  }else{ 
+				  msg = "로그인 먼저 필요합니다."; 
+				  model.addAttribute("url", "/login");
+				  model.addAttribute("msg", msg);
+				  page = "MsgPage"; 
+			  }
+	    Hashtable<Integer, OrderDTO> hCartList = (Hashtable<Integer, OrderDTO>)session.getAttribute("hCartList");
+		model.addAttribute("hCartList", hCartList);
+		model.addAttribute("ssKey", custom);
+		 return page;
 	}
 	@RequestMapping("cartProc")
 	public String cartProc(HttpServletRequest request,
@@ -57,7 +71,6 @@ public class CartController {
 	    @SuppressWarnings("unchecked")
 	    Hashtable<Integer, OrderDTO> hCartList =
 	    (Hashtable<Integer, OrderDTO>) session.getAttribute("hCartList");
-	    
 	    if(hCartList==null)
 	    	hCartList = new Hashtable<>();
 	    //서비스를 호출해서 먼저 저장해 두기로 함

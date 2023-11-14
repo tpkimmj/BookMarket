@@ -27,7 +27,7 @@
    </tr>
    <c:choose>
      <c:when test="${fn:length(hCartList)>0}">
-			<c:forEach var="cvo" items="${hCartList}">
+			<c:forEach var="cvo" items="${hCartList}" varStatus="status">
         <tbody>
           <tr>
             <td class="co2 border">${cvo.value.p_name}</td>

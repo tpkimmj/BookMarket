@@ -10,6 +10,15 @@ $().ready(function(){
 	 $('.price').eq(i).text(to_p);
    }
 	
+	$('#bookBtn1').on('click', function(){
+	$('form[name=productForm]').submit();
+	});
+	
+	$('#btn2').on('click', function(){
+	$('form[name=productForm]').submit();
+	});
+
+	
 	  $('.productUp').on('click', function(){
 	   $('form[name=productForm]').attr('action', 'productUpForm');
 	   $('form[name=productForm]').submit();
@@ -46,13 +55,6 @@ $().ready(function(){
 			}
 		});*/
    });
-      	$('#bookBtn1').on('click', function(){
-	$('form[name=productForm]').submit();
-	})
-	
-	$('#btn2').on('click', function(){
-	$('form[name=productForm]').submit();
-	})
 
 
    
@@ -100,7 +102,7 @@ function count(type)  {
         var pno = $(obj).closest('tr').find('input[name=p_no]').val();
         var stock =$(obj).closest('tr').find('input[name=stock]').val();
 	   if(f=='D'){
-		   //삭제
+		   //삭제	
 		   url1='cartProc?flag=delete';
 		   $(obj).closest('tr').remove();
 	   }else if(f=='U'){
