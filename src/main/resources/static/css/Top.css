@@ -164,3 +164,12 @@ nav {
 #sort a:checked{color: black; text-decoration: none; font-weight: bold;}
 #sort a:active{color: #00008B; text-decoration: none; font-weight: bold;}
 #sort a:hover{color: #00008B; text-decoration: none; font-weight: bold;}
+
+#insta{
+	position: fixed;
+	bottom: 100px;
+    right: 28px;
+    z-index: 100;
+    cursor: pointer;
+    width: 60px;
+}
