@@ -66,6 +66,18 @@
 		<div id="side">
 			<a onClick="window.scrollTo(0,0);"><img src="/images/up.png"></a>
 			<a onClick="window.location.reload()"><img src="/images/re.png"></a>
+			<c:choose>
+		            <c:when test="${ssKey!=null}">
+						<a onClick="window.open('/mychatt', 'chat', 'width = 550, height = 690, toolbar = no, location = no, menubar = no, resizable = no, scrollbars = no')">
+							<img width="64" height="64" src="https://img.icons8.com/nolan/64/speech-bubble.png" alt="speech-bubble"/>
+						</a>
+		            </c:when>
+		            <c:when test="${ssKey==null}">
+						<a onClick="alert('로그인 먼저 필요합니다.')">
+							<img width="64" height="64" src="https://img.icons8.com/nolan/64/speech-bubble.png" alt="speech-bubble"/>
+						</a>
+		            </c:when>
+		    </c:choose>
 		</div>
 		<div id="sideBanner">
 		    <nav id="sidebar">

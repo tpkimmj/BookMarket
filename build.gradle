@@ -33,6 +33,11 @@ dependencies {
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:10.1.9'
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	
+	///////////////////////////////////////////////////////////////////////
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    ///////////////////////////////////////////////////////////////////////
+	
 	compileOnly 'org.projectlombok:lombok'
 	compileOnly 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
 	compileOnly 'javax.servlet.jsp:jsp-api:2.0'
