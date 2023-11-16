@@ -55,18 +55,18 @@ public class UserSocket {
 	}
 		
 	@OnOpen
-	public void onOpen(Session userSession) {
+	public void onOpen(Session userSession) throws IOException {
 		// 인라인 클래스 User를 생성    
 		User user = new User();
 		// Unique키를 발급 ('-'는 제거한다.)    
 		user.key = UUID.randomUUID().toString().replace("-", "");
 		// WebSocket의 세션
 		user.session = userSession;
-		System.out.println("==========="+userSession);
 		System.out.println("open session : " + user.toString());
 		// 유저 리스트에 등록한다 
 		sessionUsers.add(user);
 		// 운영자 Client에 유저가 접속한 것을 알린다
+		AdminSocket.visit(user.key);
 		System.out.println("session open : " + user);
 	}
 	

@@ -25,10 +25,10 @@
         // key로 해당 div영역을 찾는다.
         let $div = $("[data-key='"+node.key+"']");
         // console영역을 찾는다.
-        let log = $div.find(".console").val();
+        let log = $div.find("#messageTextArea");
         // 아래에 메시지를 추가한다.
-        $div.find("#messageTextArea").append("<div id='adTalk'><b>사용자</b><br>" + node.message + "</div>");
-        $div.find(".console").scrollTop($div.find(".console").prop('scrollHeight'));
+        log.append("<div id='adTalk'><b>사용자</b><br>" + node.message + "</div>");
+        log.scrollTop(log.prop('scrollHeight'));
       // bye는 유저가 접속을 끊었을 때 알려주는 메시지이다.
       } else if(node.status === "bye") {
         // 해당 키로 div를 찾아서 dom을 제거한다.
@@ -44,10 +44,10 @@
       // 유저 key를 취득한다.
       let key = $div.data("key");
       // console영역을 찾는다.
-      let log = $div.find(".console").val();
+      let log = $div.find("#messageTextArea");
       // 아래에 메시지를 추가한다.
-      $div.find("#messageTextArea").append("<div id='talk'><b>관리자</b><br>" + message + "</div>");
-      $div.find(".console").scrollTop($div.find(".console").prop('scrollHeight'));
+      log.append("<div id='talk'><b>관리자</b><br>" + message + "</div>");
+      log.scrollTop(log.prop('scrollHeight'));
       // 텍스트 박스의 값을 초기화 한다.
       $div.find(".message").val("");
       // 웹소켓으로 메시지를 보낸다.

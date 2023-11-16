@@ -8,14 +8,14 @@
     // 접속이 완료되면
     webSocket.onopen = function(message) {
       // 콘솔에 메시지를 남긴다.
-      messageTextArea.value += "문의사항을 남겨주세요.\n";
+     $("#messageTextArea").append("<div id='adTalk'><b>관리자</b><br>문의사항을 남겨주세요.</div>"); 
     };
     // 접속이 끝기는 경우는 브라우저를 닫는 경우이기 떄문에 이 이벤트는 의미가 없음.
     webSocket.onclose = function(message) { };
     // 에러가 발생하면
     webSocket.onerror = function(message) {
       // 콘솔에 메시지를 남긴다.
-      messageTextArea.value += "error...\n";
+     $("#messageTextArea").append("<div id='adTalk'><b>관리자</b><br>error....</div>"); 
     };
     // 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
     webSocket.onmessage = function(message) {
