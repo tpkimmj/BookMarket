@@ -69,15 +69,13 @@
 			<a onClick="window.open('/mychatt', 'toolbar = no, location = no, menubar = no, resizable = no, scrollbars = no')">
 				<img width="64" height="64" src="https://img.icons8.com/nolan/64/speech-bubble.png" alt="speech-bubble"/>
 			</a>
+			<a href="https://www.instagram.com/book__market__/" target="_blank" rel="noopener noreferrer"><img width="50" height="50" src="https://www.bookoa.co.kr/assets/images/icons/instagram_icon.jpg"></a>
 		</div>
 		<div id="sideBanner">
 		    <nav id="sidebar">
 		    	<a href="/bookDetail?p_no=26"><img id="bannerImg" src="https://img.ypbooks.co.kr/upload/banner/rightban_231031_03.jpg"></a>
 		    </nav>
 		  	 <button id="sidebarCollapse"><img width="20" height="20" src="https://img.icons8.com/stickers/100/x.png" alt="x"/></button> 
-		</div>
-		<div id="insta">
-			<a href="https://www.instagram.com/book__market__/" target="_blank" rel="noopener noreferrer"><img width="50" height="50" src="https://www.bookoa.co.kr/assets/images/icons/instagram_icon.jpg"></a>
 		</div>
 </body>
 </html>
