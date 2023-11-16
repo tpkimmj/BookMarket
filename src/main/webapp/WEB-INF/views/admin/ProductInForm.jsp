@@ -6,7 +6,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="/css/product.css">
 <script src="/jquery/jquery-3.7.0.min.js"></script>
-<script src="/script/member.js"></script>
+<script src="/script/product.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -42,7 +42,7 @@
 					<tr>
 						<th>가격</th>
 						<td >
-							<input type="text" name="price" class="chkt inprice" title="상품가격" placeholder="단가를 입력하세요.">
+							<input type="text" name="price" class="chkt" title="상품가격" placeholder="단가를 입력하세요.">
 						</td>
 					</tr>
 					<tr>
@@ -71,7 +71,7 @@
 					</tr>
 				</tbody>
 					<tr>
-						<td colspan="2" class="proButton"><input class="submit1" type="button" value="상품등록전송"></td>
+						<td colspan="2" class="proButton"><input class="submitProc" type="button" value="상품등록전송"></td>
 					</tr>
 			</table>
 		</form>
