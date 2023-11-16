@@ -14,7 +14,6 @@
          <typeAlias alias="mdto" type="com.book.member.dto.MemberDTO" />
          <typeAlias alias="pdto" type="com.book.product.dto.ProductDTO" />
          <typeAlias alias="cdto" type="com.book.client.dto.ClientDTO" />
-         <!-- <typeAlias alias="bvo" type="com.ecom4.board.dto.BoardDTO" />
-         <typeAlias alias="odto" type="com.ecom4.order.dto.OrderDTO" /> -->
+         <typeAlias alias="odto" type="com.book.order.dto.OrderDTO" />
      </typeAliases>	
 </configuration>

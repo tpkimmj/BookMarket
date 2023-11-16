@@ -29,6 +29,7 @@
 	            </c:choose>
 					<th><a href="/info">마이페이지</a></th>
 					<th><a href="/cartList">장바구니</a></th>
+					<th><a href="/orderList">주문내역</a></th>
 					<th><a href="ClientCenter">공지사항</a></th>
 			</tr>
 		</table>
@@ -66,25 +67,15 @@
 		<div id="side">
 			<a onClick="window.scrollTo(0,0);"><img src="/images/up.png"></a>
 			<a onClick="window.location.reload()"><img src="/images/re.png"></a>
-			<c:choose>
-		            <c:when test="${ssKey!=null}">
-						<a onClick="window.open('/mychatt', 'chat', 'width = 550, height = 690, toolbar = no, location = no, menubar = no, resizable = no, scrollbars = no')">
-							<img width="64" height="64" src="https://img.icons8.com/nolan/64/speech-bubble.png" alt="speech-bubble"/>
-						</a>
-		            </c:when>
-		            <c:when test="${ssKey==null}">
-						<a onClick="alert('로그인 먼저 필요합니다.')">
-							<img width="64" height="64" src="https://img.icons8.com/nolan/64/speech-bubble.png" alt="speech-bubble"/>
-						</a>
-		            </c:when>
-		    </c:choose>
-			<a href="https://www.instagram.com/book__market__/" target="_blank" rel="noopener noreferrer"><img width="50" height="50" src="https://www.bookoa.co.kr/assets/images/icons/instagram_icon.jpg"></a>
 		</div>
 		<div id="sideBanner">
 		    <nav id="sidebar">
 		    	<a href="/bookDetail?p_no=26"><img id="bannerImg" src="https://img.ypbooks.co.kr/upload/banner/rightban_231031_03.jpg"></a>
 		    </nav>
 		  	 <button id="sidebarCollapse"><img width="20" height="20" src="https://img.icons8.com/stickers/100/x.png" alt="x"/></button> 
+		</div>
+		<div id="insta">
+			<a href="https://www.instagram.com/book__market__/" target="_blank" rel="noopener noreferrer"><img width="50" height="50" src="https://www.bookoa.co.kr/assets/images/icons/instagram_icon.jpg"></a>
 		</div>
 </body>
 </html>
