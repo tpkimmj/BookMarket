@@ -16,14 +16,26 @@
 <div id="contents">
 	 <div class="slideshow-container">
 	      <div class="mySlides fade">
-		      <div class="numbertext">1 / 2</div>
+		      <div class="numbertext">1 / 4</div>
 		      <img src="/images/banner1.jpg" style="width:100%">
 		      <div class="text">ACNE STUDIO</div>
 	      </div>
 	
 	      <div class="mySlides fade">
-		      <div class="numbertext">2 / 2</div>
+		      <div class="numbertext">2 / 4</div>
 		      <img src="/images/banner2.jpg" style="width:100%">
+		      <div class="text">ACNE STUDIO</div>
+	      </div>
+
+	      <div class="mySlides fade">
+		      <div class="numbertext">3 / 4</div>
+		      <img src="/images/banner3.png" style="width:100%">
+		      <div class="text">ACNE STUDIO</div>
+	      </div>
+	      
+	      <div class="mySlides fade">
+		      <div class="numbertext">4 / 4</div>
+		      <img src="/images/banner4.jpg" style="width:100%">
 		      <div class="text">ACNE STUDIO</div>
 	      </div>
 	
@@ -35,6 +47,8 @@
 	    <div style="text-align:center">
 	   		<span class="dot" onclick="currentSlide(0)"></span>
 	    	<span class="dot" onclick="currentSlide(1)"></span>
+	    	<span class="dot" onclick="currentSlide(2)"></span>
+	    	<span class="dot" onclick="currentSlide(4)"></span>
 	    </div>
 	    
 	<div id="MainBest">
