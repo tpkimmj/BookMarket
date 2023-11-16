@@ -137,13 +137,13 @@ nav {
 	right: 0px; 
 	top: 60px; 
 	text-align:center;
-	width: 120px;
+	width: 100px;
 }
 #sidebar {
     width: 160px;
     position: fixed;
     top: 250px;	
-    right: 50px;
+    right: 200px;
 }
 #sidebar.active {
     right: -200px;
@@ -151,7 +151,7 @@ nav {
 #sideBanner #sidebarCollapse {
 	position: fixed;
 	top: 270px;
-	right: 50px;
+	right: 200px;
 	border: none;
 	background-color: white;
 }
@@ -164,12 +164,3 @@ nav {
 #sort a:checked{color: black; text-decoration: none; font-weight: bold;}
 #sort a:active{color: #00008B; text-decoration: none; font-weight: bold;}
 #sort a:hover{color: #00008B; text-decoration: none; font-weight: bold;}
-
-#insta{
-	position: fixed;
-	bottom: 100px;
-    right: 28px;
-    z-index: 100;
-    cursor: pointer;
-    width: 60px;
-}

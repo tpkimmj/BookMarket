@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+#userChat {
+	margin: 0 auto;
+	width: 500px;
+	height: 650px;
+	border: 2px solid #bbbbbb;
+	border-radius: 10px;
+}
+#userChat h2 {
+	padding-left: 10px;
+}
+#userChat #messageTextArea{
+	margin: 0 auto 5px;
+	padding: 10px 0 10px;
+	width: 99%;
+	height: 500px;
+	resize: none;
+	border-top: 2px solid #eeeeee;
+	border-bottom: 2px solid #eeeeee;
+	overflow: auto;
+}
+#userChat #textMessage {
+	width: 85%;
+	height: 30px;
+}
+#userChat #chatBtn {
+	width: 55px;
+	height: 40px;
+	background-color: #237AF6;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
+}
+#userChat #talk {
+	margin-bottom: 5px;
+	margin-left: 210px;
+	background-color: #eeeeee;
+	border-radius: 10px;
+	padding: 5px 0 5px 15px;
+	width: 250px;
+}
+#userChat #adTalk {
+	margin-bottom: 5px;
+	margin-left: 10px;
+	background-color: #237AF6;
+	color: white;
+	border-radius: 10px;
+	padding: 5px 0 5px 15px;
+	width: 250px;
+}
+#adminChat {
+	margin: 0 auto;
+	width: 500px;
+	height: 650px;
+	border: 2px solid #bbbbbb;
+	border-radius: 10px;
+}
+#userChat h2 {
+	padding-left: 10px;
+}
+#adminChat #messageTextArea{
+	margin: 0 auto 5px;
+	padding: 10px 0 10px;
+	width: 99%;
+	height: 500px;
+	resize: none;
+	border-top: 2px solid #eeeeee;
+	border-bottom: 2px solid #eeeeee;
+	overflow: auto;
+}
+#adminChat .message {
+	width: 85%;
+	height: 30px;
+}
+#adminChat .sendBtn {
+	width: 55px;
+	height: 40px;
+	background-color: #237AF6;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
+}
+#adminChat #talk {
+	margin-bottom: 5px;
+	margin-left: 210px;
+	background-color: #eeeeee;
+	border-radius: 10px;
+	padding: 5px 0 5px 15px;
+	width: 250px;
+}
+#adminChat #adTalk {
+	margin-bottom: 5px;
+	margin-left: 10px;
+	background-color: #237AF6;
+	color: white;
+	border-radius: 10px;
+	padding: 5px 0 5px 15px;
+	width: 250px;
+}
