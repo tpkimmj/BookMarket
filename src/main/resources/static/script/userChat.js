@@ -7,6 +7,20 @@
     var messageTextArea = document.getElementById("messageTextArea");
     // 접속이 완료되면
     webSocket.onopen = function(message) {
+		var id = $('input[name=ch_id]').val();
+		$.ajax({
+			url:'getChat',
+			type:'post',
+			data:{'ch_id':id},
+			success: function(data){
+				for (var i = 0; i < data.length; i++) {
+					if(data[i].CH_ID == id)
+					$("#messageTextArea").append("<div id='talk'><b>" + data[i].CH_ID + "("+data[i].CH_NAME+")</b><br>" + data[i].CH_MSG + "</div>");
+					else
+					$("#messageTextArea").append("<div id='adTalk'><b>관리자</b><br>" + data[i].CH_MSG + "</div>");
+				}
+			}
+		})
       // 콘솔에 메시지를 남긴다.
      $("#messageTextArea").append("<div id='adTalk'><b>관리자</b><br>문의사항을 남겨주세요.</div>"); 
     };
@@ -19,23 +33,39 @@
     };
     // 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
     webSocket.onmessage = function(message) {
+		var id = $('input[name=ch_id]').val();
       $("#messageTextArea").append("<div id='adTalk'><b>관리자</b><br>" + message.data + "</div>"); 
 	  $('#messageTextArea').scrollTop($('#messageTextArea').prop('scrollHeight'));
+	  // DB저장
+	    $.ajax({
+		  url:'/createChat',
+		  type:'post',
+		  data:{'ch_id':'admin', 'ch_name':'관리자', 'ch_msg':message.data, 'ch_user':id},
+		  dataType:'json'
+	  })
     };
     // 서버로 메시지를 발송하는 함수
     // Send 버튼을 누르거나 텍스트 박스에서 엔터를 치면 실행
     function sendMessage() {
-		var me = $('input[name=name]').val();
+		var id = $('input[name=ch_id]').val();
+		var name = $('input[name=ch_name]').val();
       // 텍스트 박스의 객체를 가져옴
       let message = document.getElementById("textMessage");
       // 콘솔에 메세지를 남긴다.
-       $("#messageTextArea").append("<div id='talk'><b>" + me + "</b><br>" + message.value + "</div>");
+       $("#messageTextArea").append("<div id='talk'><b>" + id + "("+name+")</b><br>" + message.value + "</div>");
 	   $('#messageTextArea').scrollTop($('#messageTextArea').prop('scrollHeight'));
       // 소켓으로 보낸다.
       webSocket.send(message.value);
       // 텍스트 박스 초기화
+      $('input[name=insert]').focus()
+	  // DB 저장
+	  $.ajax({
+		  url:'/createChat',
+		  type:'post',
+		  data:{'ch_id':id, 'ch_name':name, 'ch_msg':message.value, 'ch_user':id},
+		  dataType:'json'
+	  })
       message.value = "";
-      $('input[name=name]').focus();
     }
     // 텍스트 박스에서 엔터를 누르면
     function enter() {
@@ -48,3 +78,15 @@
       }
       return true;
     }
+    
+    function chatEnd() {
+		var id = $('input[name=ch_id]').val();
+		if(confirm("종료시 기존 대화내용은 사라집니다\n동의하십니까?")){
+		  $.ajax({
+			  url:'/deleteChat',
+			  type:'post',
+			  data:{'ch_id':id},
+			  success:window.close()
+		 	 })
+		}
+	}

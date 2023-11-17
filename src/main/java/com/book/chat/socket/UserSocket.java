@@ -2,15 +2,12 @@ package com.book.chat.socket;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import jakarta.servlet.http.HttpSession;
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
@@ -59,12 +56,14 @@ public class UserSocket {
 		// 인라인 클래스 User를 생성    
 		User user = new User();
 		// Unique키를 발급 ('-'는 제거한다.)    
+		//user.key = UUID.randomUUID().toString().replace("-", "");
 		user.key = UUID.randomUUID().toString().replace("-", "");
 		// WebSocket의 세션
 		user.session = userSession;
-		System.out.println("open session : " + user.toString());
+		System.out.println("open session : " + userSession);
 		// 유저 리스트에 등록한다 
 		sessionUsers.add(user);
+		/* user.session.getBasicRemote().sendText("uuid:" + user.key); */
 		// 운영자 Client에 유저가 접속한 것을 알린다
 		AdminSocket.visit(user.key);
 		System.out.println("session open : " + user);

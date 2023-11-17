@@ -9,6 +9,7 @@
 }
 #userChat h2 {
 	padding-left: 10px;
+	display:inline-block;
 }
 #userChat #messageTextArea{
 	margin: 0 auto 5px;
@@ -48,6 +49,14 @@
 	border-radius: 10px;
 	padding: 5px 0 5px 15px;
 	width: 250px;
+}
+#userChat #endBtn {
+	margin-bottom: 5px;
+	margin-left: 10px;
+	background-color: #237AF6;
+	color: white;
+	font-weight: bold;
+	border-radius: 10px;
 }
 #adminChat {
 	margin: 0 auto;

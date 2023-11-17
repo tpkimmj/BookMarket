@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.book.chat.service.ChatService;
 import com.book.common.dto.PageDTO;
 import com.book.member.dto.MemberDTO;
 import com.book.member.service.MemberService;
@@ -19,6 +20,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
+	
 	@Autowired
 	MemberService memberService;
 	

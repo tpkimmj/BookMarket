@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.chat.dao.ChatDAO">
+	
+	<insert id="createChat" parameterType="chdto">
+		INSERT INTO CHATLOG(CH_ID, CH_NAME, CH_MSG, CH_DATE, CH_USER)
+		VALUES(#{ch_id}, #{ch_name}, #{ch_msg}, SYSDATE, #{ch_user})
+	</insert>
+	
+	<select id="getChat" parameterType="map">
+		SELECT CH_ID, CH_NAME, CH_MSG
+		FROM CHATLOG
+		WHERE CH_ID = #{ch_id} OR CH_ID = 'admin'
+		ORDER BY CH_DATE
+	</select>
+	
+	<delete id="deleteChat" parameterType="chdto">
+		DELETE FROM CHATLOG
+		WHERE CH_USER = #{ch_id}
+	</delete>
+	
+</mapper>
