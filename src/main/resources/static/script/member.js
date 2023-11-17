@@ -17,6 +17,7 @@ $().ready(function(){
 		}
 		$("form[name=topForm]").submit();
 	}); 
+	
 	$('.submit1').on('click', function(){
 		var flen = $("form[name=topForm1] .chkt").length;
 		for(var i=0; i<flen; i++){
@@ -131,4 +132,21 @@ $().ready(function(){
 			 return false;
 		}
 		return true;
+	}
+	
+	function enter() {
+      // keyCode 13은 엔터이다.
+      if(event.keyCode === 13) {
+		var flen = $("form[name=topForm] .chkt").length;
+		for(var i=0; i<flen; i++){
+			if($('.chkt').eq(i).val()=="" ||
+		       $('.chkt').eq(i).val()==null ||
+		       $('.chkt').eq(i).val().trim()==""){
+			  alert($('.chkt').eq(i).attr('title')+'를 입력하세요.');
+			  $('.chkt').eq(i).focus();
+			  return false;
+			}
+		}
+		$("form[name=topForm]").submit();
+      }
 	}

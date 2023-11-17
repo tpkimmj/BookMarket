@@ -22,7 +22,7 @@
 				<input type="text" name="mem_id" class="chkt" title="아이디" id="id">
 			</div>
 			<div class="pw_wrap">
-				<input type="password" name="m_passwd" class="chkt" title="패스워드" id="pw">
+				<input type="password" name="m_passwd" class="chkt" title="패스워드" id="pw" onkeydown="enter()">
 			</div>
 			<div class="login_button_wrap">
 				<div id="submitTop"><div>로그인</div></div>
