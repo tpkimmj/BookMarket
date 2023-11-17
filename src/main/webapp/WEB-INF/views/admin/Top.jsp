@@ -73,7 +73,7 @@
 		</div>
 		<div id="sideBanner">
 		    <nav id="sidebar">
-		    	<a href="/bookDetail?p_no=26"><img id="bannerImg" src="https://img.ypbooks.co.kr/upload/banner/rightban_231031_03.jpg"></a>
+		    	<a href="/bookDetail?p_no=35"><img id="bannerImg" src="https://img.ypbooks.co.kr/upload/banner/rightban_231031_03.jpg"></a>
 		    </nav>
 		  	 <button id="sidebarCollapse"><img width="20" height="20" src="https://img.icons8.com/stickers/100/x.png" alt="x"/></button> 
 		</div>
