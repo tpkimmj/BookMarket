@@ -17,9 +17,28 @@
         // 위 템플릿 div를 취득한다.
         let form = $(".template").html();
         // div를 감싸고 속성 data-key에 unique키를 넣는다.
-        form = $("<div class='float-left'></div>").attr("data-key",node.key).append(form); 
+        form = $("<div class='float-left'></div>").attr("data-key",node.key).append(form);
         // body에 추가한다.
         $("body").append(form);
+        
+        // key로 해당 div영역을 찾는다.
+        let $div = $("[data-key='"+node.key+"']");
+        let log = $div.find("#messageTextArea");
+        
+        $.ajax({
+			url:'/getAdminChat',
+			type:'post',
+			data:{'ch_key':node.key},
+			success: function(data){
+				for (var i = 0; i < data.length; i++) {
+					if(data[i].CH_NAME == '사용자')
+					log.append("<div id='adTalk'><b>사용자</b><br>" + data[i].CH_MSG + "</div>");
+					else
+					log.append("<div id='talk'><b>관리자</b><br>" + data[i].CH_MSG + "</div>");
+				}
+			}
+		});
+        
       // message는 유저가 메시지를 보낼 때 알려주는 메시지이다.
       } else if(node.status === "message") {
         // key로 해당 div영역을 찾는다.
@@ -29,6 +48,15 @@
         // 아래에 메시지를 추가한다.
         log.append("<div id='adTalk'><b>사용자</b><br>" + node.message + "</div>");
         log.scrollTop(log.prop('scrollHeight'));
+        
+        // DB저장
+		    $.ajax({
+			  url:'/createChat',
+			  type:'post',
+			  data:{'ch_key':node.key, 'ch_name':'사용자', 'ch_msg':node.message, 'ch_user':'사용자'},
+			  dataType:'json'
+		  })
+        
       // bye는 유저가 접속을 끊었을 때 알려주는 메시지이다.
       } else if(node.status === "bye") {
         // 해당 키로 div를 찾아서 dom을 제거한다.
@@ -52,6 +80,15 @@
       $div.find(".message").val("");
       // 웹소켓으로 메시지를 보낸다.
       webSocket.send(key+"#####"+message);
+      
+      // DB저장
+	    $.ajax({
+		  url:'/createChat',
+		  type:'post',
+		  data:{'ch_key':key, 'ch_name':'관리자', 'ch_msg':message, 'ch_user':'사용자'},
+		  dataType:'json'
+	  })
+      
     });
     // 텍스트 박스에서 엔터키를 누르면
     $(document).on("keydown", ".message", function(){
@@ -62,5 +99,17 @@
         // form에 의해 자동 submit을 막는다.
         return false;
       }
-      return true;
+      return true;	
     });
+    
+    function chatEnd() {
+		userkey = document.querySelector('.float-left');
+    	  if(confirm('사용자의 기록을 삭제하시겠습니까?')){
+			 $.ajax({
+				  url:'/deleteAdminChat',
+				  type:'post',
+				  data:{'ch_key':userkey.dataset.key},
+				  success:$("[data-key='"+userkey.dataset.key+"']").remove()
+			 })
+		  }
+	}

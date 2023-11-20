@@ -33,5 +33,16 @@ public class ChatServiceImpl implements ChatService {
 		return chatDao.deleteChat(chdto);
 	}
 
+	@Override
+	public List<Map<String, Object>> getAdminChat(ChatDTO chdto) {
+		List<Map<String, Object>> chatLog = chatDao.getAdminChat(chdto);
+		return chatLog;
+	}
+
+	@Override
+	public int deleteAdminChat(ChatDTO chdto) {
+		return chatDao.deleteAdminChat(chdto);
+	}
+
 
 }

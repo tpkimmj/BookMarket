@@ -16,4 +16,8 @@ public interface ChatDAO {
 
 	int deleteChat(ChatDTO chdto);
 
+	List<Map<String, Object>> getAdminChat(ChatDTO chdto);
+
+	int deleteAdminChat(ChatDTO chdto);
+
 }

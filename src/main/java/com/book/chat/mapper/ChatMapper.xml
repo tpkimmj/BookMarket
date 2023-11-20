@@ -3,20 +3,32 @@
 <mapper namespace="com.book.chat.dao.ChatDAO">
 	
 	<insert id="createChat" parameterType="chdto">
-		INSERT INTO CHATLOG(CH_ID, CH_NAME, CH_MSG, CH_DATE, CH_USER)
-		VALUES(#{ch_id}, #{ch_name}, #{ch_msg}, SYSDATE, #{ch_user})
+		INSERT INTO CHATLOG(CH_KEY, CH_NAME, CH_MSG, CH_DATE, CH_USER)
+		VALUES(#{ch_key}, #{ch_name}, #{ch_msg}, SYSDATE, #{ch_user})
 	</insert>
 	
 	<select id="getChat" parameterType="map">
-		SELECT CH_ID, CH_NAME, CH_MSG
+		SELECT CH_KEY, CH_NAME, CH_MSG, CH_USER
 		FROM CHATLOG
-		WHERE CH_ID = #{ch_id} OR CH_ID = 'admin'
+		WHERE CH_USER = #{ch_user}
+		ORDER BY CH_DATE
+	</select>
+	
+	<select id="getAdminChat" parameterType="map">
+		SELECT CH_KEY, CH_NAME, CH_MSG, CH_USER
+		FROM CHATLOG
+		WHERE CH_KEY = #{ch_key}
 		ORDER BY CH_DATE
 	</select>
 	
 	<delete id="deleteChat" parameterType="chdto">
 		DELETE FROM CHATLOG
-		WHERE CH_USER = #{ch_id}
+		WHERE CH_USER = #{ch_user}
+	</delete>
+	
+	<delete id="deleteAdminChat" parameterType="chdto">
+		DELETE FROM CHATLOG
+		WHERE CH_KEY = #{ch_key}
 	</delete>
 	
 </mapper>

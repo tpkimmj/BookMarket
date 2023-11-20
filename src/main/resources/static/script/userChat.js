@@ -9,18 +9,18 @@
     webSocket.onopen = function(message) {
 		var id = $('input[name=ch_id]').val();
 		$.ajax({
-			url:'getChat',
+			url:'/getChat',
 			type:'post',
-			data:{'ch_id':id},
+			data:{'ch_user':id},
 			success: function(data){
 				for (var i = 0; i < data.length; i++) {
-					if(data[i].CH_ID == id)
-					$("#messageTextArea").append("<div id='talk'><b>" + data[i].CH_ID + "("+data[i].CH_NAME+")</b><br>" + data[i].CH_MSG + "</div>");
+					if(data[i].CH_KEY == id)
+					$("#messageTextArea").append("<div id='talk'><b>" + data[i].CH_USER + "("+data[i].CH_NAME+")</b><br>" + data[i].CH_MSG + "</div>");
 					else
 					$("#messageTextArea").append("<div id='adTalk'><b>관리자</b><br>" + data[i].CH_MSG + "</div>");
 				}
 			}
-		})
+		});
       // 콘솔에 메시지를 남긴다.
      $("#messageTextArea").append("<div id='adTalk'><b>관리자</b><br>문의사항을 남겨주세요.</div>"); 
     };
@@ -40,7 +40,7 @@
 	    $.ajax({
 		  url:'/createChat',
 		  type:'post',
-		  data:{'ch_id':'admin', 'ch_name':'관리자', 'ch_msg':message.data, 'ch_user':id},
+		  data:{'ch_key':'admin', 'ch_name':'관리자', 'ch_msg':message.data, 'ch_user':id},
 		  dataType:'json'
 	  })
     };
@@ -62,7 +62,7 @@
 	  $.ajax({
 		  url:'/createChat',
 		  type:'post',
-		  data:{'ch_id':id, 'ch_name':name, 'ch_msg':message.value, 'ch_user':id},
+		  data:{'ch_key':id, 'ch_name':name, 'ch_msg':message.value, 'ch_user':id},
 		  dataType:'json'
 	  })
       message.value = "";
@@ -85,8 +85,11 @@
 		  $.ajax({
 			  url:'/deleteChat',
 			  type:'post',
-			  data:{'ch_id':id},
-			  success:window.close()
+			  data:{'ch_user':id},
+			  success:function() {
+			  webSocket.send('사용자가 대화를 종료하였습니다.')
+			  window.close()
+			  }
 		 	 })
 		}
 	}

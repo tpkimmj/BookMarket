@@ -49,10 +49,21 @@ public class ChatController {
 		 return chatService.deleteChat(chdto); 
 	 }
 	 
+	 @RequestMapping("/deleteAdminChat") 
+	 public int deleteAdminChat(HttpServletRequest request, HttpServletResponse response, ChatDTO chdto) {
+		 return chatService.deleteAdminChat(chdto); 
+	 }
+	 
 	 @ResponseBody
 	 @RequestMapping("/getChat") 
 	 public List<Map<String, Object>> getChat(HttpServletRequest request, HttpServletResponse response, ChatDTO chdto) {
 		 return chatService.getChat(chdto); 
+	 }
+	 
+	 @ResponseBody
+	 @RequestMapping("/getAdminChat") 
+	 public List<Map<String, Object>> getAdminChat(HttpServletRequest request, HttpServletResponse response, ChatDTO chdto) {
+		 return chatService.getAdminChat(chdto); 
 	 }
 	 
 }

@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.book.chat.service.ChatService;
 
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnMessage;
@@ -17,6 +20,9 @@ import jakarta.websocket.server.ServerEndpoint;
 @Service
 @ServerEndpoint("/userChat")
 public class UserSocket {
+	
+	@Autowired
+	ChatService chatService;
 	
 	//searchUser 함수의 filter 표현식을 위한 인터페이스
 	private interface SearchExpression {
@@ -101,7 +107,7 @@ public class UserSocket {
 		// 접속 리스트에  User가 있으면
 		if (user != null) {
 			// 운영자 Client에 유저 Key로 접속 종료를 알린다
-			AdminSocket.bye(user.key);
+			/* AdminSocket.bye(user.key); */
 			sessionUsers.remove(user);
 		}
 	}

@@ -13,5 +13,9 @@ public interface ChatService {
 
 	int deleteChat(ChatDTO chdto);
 
+	List<Map<String, Object>> getAdminChat(ChatDTO chdto);
+
+	int deleteAdminChat(ChatDTO chdto);
+
 
 }
