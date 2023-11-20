@@ -18,7 +18,7 @@
   <div class="template" style="display:none">
   	<div id="adminChat">
   	<h2>UserChat</h2>
-  	<input id="endBtn" onclick="chatEnd()" type="button" value="문 의 종 료">
+  	<input id="endBtn" name="endBtn" onclick="chatEnd(this)" type="button" value="문 의 종 료">
     <!-- 서버와 메시지를 주고 받는 콘솔 텍스트 영역 -->
     <div id="messageTextArea"></div>
     <form>

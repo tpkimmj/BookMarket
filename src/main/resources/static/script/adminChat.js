@@ -21,8 +21,11 @@
         // body에 추가한다.
         $("body").append(form);
         
+        /*$("input[name=endBtn]").attr('onclick','chatEnd('+ node.key +')');*/
+        
         // key로 해당 div영역을 찾는다.
         let $div = $("[data-key='"+node.key+"']");
+        // console영역을 찾는다.
         let log = $div.find("#messageTextArea");
         
         $.ajax({
@@ -102,14 +105,15 @@
       return true;	
     });
     
-    function chatEnd() {
-		userkey = document.querySelector('.float-left');
-    	  if(confirm('사용자의 기록을 삭제하시겠습니까?')){
+    function chatEnd(user) {
+		userkey =  user.closest(".float-left").getAttribute("data-key");
+		/*userkey = document.querySelector('.float-left');*/
+    	  if(confirm('사용자의 기록을 삭제하시겠습니까?')){	
 			 $.ajax({
 				  url:'/deleteAdminChat',
 				  type:'post',
-				  data:{'ch_key':userkey.dataset.key},
-				  success:$("[data-key='"+userkey.dataset.key+"']").remove()
+				  data:{'ch_key':userkey},
+				  success:$("[data-key='"+userkey+"']").remove()
 			 })
 		  }
 	}
