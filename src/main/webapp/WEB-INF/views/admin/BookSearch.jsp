@@ -24,18 +24,16 @@
 				<c:when test="${fn:length(productList)>0}">
 					<c:forEach var="product" items="${productList}">
 						<tr id="ProLine">
-							<td id="ProCol1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></td>
+							<td id="ProCol1"><a href="/productDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></td>
 							<td id="ProCol2">
 								<ul>
-									<li id="bookname"><a href="/bookDetail?p_no=${product.p_no}">${product.p_name}</a>
+									<li id="bookname"><a href="/productDetail?p_no=${product.p_no}">${product.p_name}</a>
 									</li>
 									<li id="bookwriter">${product.writer}</li><br>
 									<li id="bookprice" class="price">판매가 : ${product.price}원</li>
 								</ul>
 							</td>
 							<td id="ProCol3">
-								<input type="button" id="btn1" name="" value="바로구매"><br><br>
-								<input type="button" id="btn2" name="" value="장바구니">
 							</td>
 						</tr>
 						<tr></tr>

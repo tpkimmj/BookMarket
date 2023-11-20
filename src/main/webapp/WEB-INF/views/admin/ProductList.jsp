@@ -40,9 +40,6 @@
 									</ul>
 								</td>
 								<td id="ProCol3">
-									<input type="button" class="productUp" value="상품수정" id="btn1"><br><br>
-									<input type="button" class="productDel" value="상품삭제" id="btn2">&nbsp;&nbsp;
-									<input type="hidden" name="p_no" value="${product.p_no}">
 								</td>
 							</tr>
 						</form>

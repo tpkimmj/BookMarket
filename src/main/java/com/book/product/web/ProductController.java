@@ -274,15 +274,31 @@ public class ProductController {
 	
 	@RequestMapping("/search") //책 검색
 	public String search(HttpServletRequest request, HttpServletResponse response, Model model, ProductDTO pdto, PageDTO pageDto) {
+		HttpSession session = request.getSession();
+		MemberDTO ssKey = null;
+		String page = null;
+		if(session.getAttribute("ssKey")!=null) {
+			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			if(ssKey.getM_role().equals("admin")) {
+				page = "admin/Main";
+				model.addAttribute("contentsJsp", "admin/BookSearch");
+			}
+			else {
+				page = "Main";
+				model.addAttribute("contentsJsp", "custom/BookSearch");
+			}
+		} else {
+			page = "Main";
+			model.addAttribute("contentsJsp", "custom/BookSearch");
+		}
+		System.out.println("===>"+pdto);
+		System.out.println("===>"+pdto.getSearchText());
+		
 		// 검색 단어 저장 및 flag(high/low) 저장
 		if (pdto.getSearchText() == null) {
 			pdto.setSearchText(request.getParameter("searchText"));
 			pdto.setFlag(request.getParameter("flag"));
 		}
-		String page = null;
-		System.out.println("===>"+pdto);
-		System.out.println("===>"+pdto.getSearchText());
-		
 		//검색어와 페이지 저장
 		Map<String, Object> reSet = productService.bookSearch(pdto, pageDto);
 		
@@ -294,7 +310,7 @@ public class ProductController {
 		model.addAttribute("pageDto", reSet.get("pageDto"));
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		page = "Main";
-		model.addAttribute("contentsJsp", "custom/BookSearch");
+//		model.addAttribute("contentsJsp", "custom/BookSearch");
 		return page;
 	}
 }
