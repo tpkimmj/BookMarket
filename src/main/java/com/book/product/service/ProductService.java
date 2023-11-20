@@ -1,10 +1,12 @@
 package com.book.product.service;
 
+import java.util.Hashtable;
 import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.book.common.dto.PageDTO;
+import com.book.order.dto.OrderDTO;
 import com.book.product.dto.ProductDTO;
 
 public interface ProductService {
@@ -23,5 +25,7 @@ public interface ProductService {
 	Map<String, Object> getProducts(ProductDTO pdto, PageDTO pageDto, String state);
 	
 	Map<String, Object> bookSearch(ProductDTO pdto, PageDTO pageDto);
+
+	void updateStocks(Hashtable<Integer, OrderDTO> hCartList);
 
 }

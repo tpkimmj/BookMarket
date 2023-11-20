@@ -2,99 +2,102 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.book.order.dao.OrderDAO">
-  <insert id="insertOrders" parameterType="list">
-     <selectKey keyProperty="o_no" resultType="int" order="BEFORE">
-		SELECT NVL(MAX(O_NO), 0)+1 AS O_NO FROM ORDERT
-	</selectKey>
-    <foreach collection="list" item="ovo" index="index"
-     open="INSERT ALL " close="SELECT * FROM DUAL" 
-     separator=" ">
-     INTO ORDERT(O_NO,PRICE,AMOUNT,QUANTITY,O_REGDATE, 
-                  STATE,MEM_ID,P_NO)
-          VALUES(#{o_no},#{ovo.price},#{ovo.price}*#{ovo.quantity},
+  	<insert id="insertOrders" parameterType="list">
+     	<selectKey keyProperty="o_no" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(O_NO), 0)+1 AS O_NO FROM ORDERT
+		</selectKey>
+	    <foreach collection="list" item="ovo" index="index" open="INSERT ALL " close="SELECT * FROM DUAL" separator=" ">
+     		INTO ORDERT(O_NO,PRICE,AMOUNT,QUANTITY,O_REGDATE, STATE,MEM_ID,P_NO)
+          	VALUES(#{o_no},#{ovo.price},#{ovo.price}*#{ovo.quantity},
                  #{ovo.quantity},
                  sysdate,
                  1,
                  #{ovo.mem_id},
                  #{ovo.p_no})
-	</foreach>
-  </insert>
-   <select id="getOrders" parameterType="odto" resultType="odto">
-    SELECT * FROM
-    (SELECT ROWNUM AS RR, A.*
-      FROM
-	  (SELECT  O.O_NO, O.P_NO, P.P_NAME, O.QUANTITY, O.AMOUNT,
-		       M.MEM_ID, M.M_NAME, O_REGDATE, O.PRICE, M_ROLE,
-		       P.STOCK, O.STATE
-		FROM ORDERT O
-		INNER JOIN PRODUCT P
-		  ON O.P_NO = P.P_NO
-		INNER JOIN MEMBER M
-		  ON O.MEM_ID = M.MEM_ID
+		</foreach>
+  	</insert>
+  	
+   	<select id="getOrders" parameterType="odto" resultType="odto">
+    	SELECT * FROM
+    		(SELECT ROWNUM AS RR, A.*
+      			FROM
+	  			(SELECT  O.O_NO, O.P_NO, P.P_NAME, O.QUANTITY, O.AMOUNT,
+		       		M.MEM_ID, M.M_NAME, O_REGDATE, O.PRICE, M_ROLE,
+		       		P.STOCK, O.STATE
+			FROM ORDERT O
+			INNER JOIN PRODUCT P
+				ON O.P_NO = P.P_NO
+			INNER JOIN MEMBER M
+		  		ON O.MEM_ID = M.MEM_ID
 		  <if test="m_role=='mem'"><!-- mem_id!=null -->
      		 WHERE O.MEM_ID= #{mem_id} and #{m_role}='mem'<!--and이후에 삭제 -->
 		  </if>
 		ORDER BY O_NO DESC) A)
-	   <![CDATA[
-	    WHERE RR>=#{startRow} AND RR <=#{endRow} 
-	   ]]> 
-  </select>
-  <select id="getTotalOrder" parameterType="string" resultType="int">
-	  SELECT count(O.O_NO)
+		<![CDATA[
+		    WHERE RR>=#{startRow} AND RR <=#{endRow} 
+	   	]]> 
+  	</select>
+  	
+	<select id="getTotalOrder" parameterType="string" resultType="int">
+		SELECT count(O.O_NO)
 		FROM ORDERT O
-		INNER JOIN PRODUCT P
-		  ON O.P_NO = P.P_NO
-		INNER JOIN MEMBER M
-		  ON O.MEM_ID = M.MEM_ID
+			INNER JOIN PRODUCT P
+				ON O.P_NO = P.P_NO
+			INNER JOIN MEMBER M
+				ON O.MEM_ID = M.MEM_ID
 		<if test="mem_id!=null">
-		  WHERE O.MEM_ID= #{mem_id}
+			WHERE O.MEM_ID= #{mem_id}
 		</if>
-  </select>
-  <select id="customOrDetail" parameterType="odto" resultType="odto">
-     SELECT  O.O_NO, O.P_NO,
-         (SELECT P_NAME FROM PRODUCT WHERE P_NO=#{p_no}) P_NAME,
-          O.QUANTITY, 
-          O.MEM_ID, 
-         (SELECT M_NAME FROM MEMBER WHERE MEM_ID = #{mem_id}) M_NAME,
-         O_REGDATE, O.PRICE, 
-         (SELECT STOCK FROM PRODUCT WHERE P_NO= #{p_no}) STOCK, 
-         O.STATE,
-         O.AMOUNT
-	FROM ORDERT O 
-       WHERE MEM_ID = #{mem_id}
-       AND O_NO =#{o_no} 
-       AND P_NO =#{p_no}
-  </select>
-  <update id="updateState" parameterType="odto">
-     UPDATE ORDERT
-     SET STATE =#{state} 
-     WHERE O_NO = #{o_no}
-     AND   P_NO = #{p_no}
-     AND   MEM_ID=#{mem_id}
-  </update>
-    <select id="getOrderOfMember" parameterType="odto" resultType="odto">
-    <![CDATA[
-     SELECT * FROM ORDERT
-     WHERE MEM_ID =#{mem_id}
-	 AND STATE < 5 
-	   ]]> 
-  </select>
-  <delete id="deleteOrder" parameterType="mdto">
-    DELETE FROM ORDERT
-    WHERE MEM_ID = #{mem_id}
-     AND STATE =5
-  </delete> 
-  <update id="updateOrderState" parameterType="list" >
-  <foreach collection="list" item="item" 
-     index="index" separator=";" open="DECLARE BEGIN" close="; END;">
-		UPDATE ORDERT SET
-        STATE = #{item.state},
-        O_REGDATE = SYSDATE
-		WHERE O_NO=#{item.o_no}
-		AND P_NO = #{item.p_no}
-		AND MEM_ID = #{item.mem_id}
-	</foreach>
-   </update>
+	</select>
+	  
+	<select id="customOrDetail" parameterType="odto" resultType="odto">
+	     SELECT  O.O_NO, O.P_NO,
+	         (SELECT P_NAME FROM PRODUCT WHERE P_NO=#{p_no}) P_NAME,
+	          O.QUANTITY, 
+	          O.MEM_ID, 
+	         (SELECT M_NAME FROM MEMBER WHERE MEM_ID = #{mem_id}) M_NAME,
+	         O_REGDATE, O.PRICE, 
+	         (SELECT STOCK FROM PRODUCT WHERE P_NO= #{p_no}) STOCK, 
+	         O.STATE,
+	         O.AMOUNT
+		FROM ORDERT O 
+	       WHERE MEM_ID = #{mem_id}
+	       AND O_NO =#{o_no} 
+	       AND P_NO =#{p_no}
+	</select>
+	  
+	<update id="updateState" parameterType="odto">
+		UPDATE ORDERT
+		SET STATE =#{state} 
+		WHERE O_NO = #{o_no}
+		AND   P_NO = #{p_no}
+		AND   MEM_ID=#{mem_id}
+	</update>
+	  
+	<select id="getOrderOfMember" parameterType="odto" resultType="odto">
+		<![CDATA[
+			SELECT * FROM ORDERT
+			WHERE MEM_ID =#{mem_id}
+			AND STATE < 5 
+		]]> 
+	</select>
+	
+	<delete id="deleteOrder" parameterType="mdto">
+		DELETE FROM ORDERT
+		WHERE MEM_ID = #{mem_id}
+		AND STATE =5
+	</delete>
+	 
+	<update id="updateOrderState" parameterType="list" >
+		<foreach collection="list" item="item" index="index" separator=";" open="DECLARE BEGIN" close="; END;">
+			UPDATE ORDERT SET
+	        STATE = #{item.state},
+	        O_REGDATE = SYSDATE
+			WHERE O_NO=#{item.o_no}
+			AND P_NO = #{item.p_no}
+			AND MEM_ID = #{item.mem_id}
+		</foreach>
+	</update>
 </mapper>
 
 

@@ -1,9 +1,13 @@
 package com.book.product.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.book.common.dto.PageDTO;
 import com.book.common.dto.RowInterPage;
+import com.book.order.dto.OrderDTO;
 import com.book.product.dao.ProductDAO;
 import com.book.product.dto.ProductDTO;
 
@@ -203,6 +208,17 @@ public class ProductServiceImpl implements ProductService {
 		reSet.put("productList", productList);
 		reSet.put("pageDto", pageDto);
 		return reSet;
+	}
+
+	@Override
+	public void updateStocks(Hashtable<Integer, OrderDTO> hCartList) {
+		Set<Integer> keys = hCartList.keySet();
+		List<OrderDTO> list = new ArrayList<OrderDTO>(keys.size());
+		Iterator<Integer> iterKeys = keys.iterator();
+		while(iterKeys.hasNext()) {
+			list.add(hCartList.get(iterKeys.next()));
+		}
+		productDao.updateStocks(list);
 	}
 	
 }

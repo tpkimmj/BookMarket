@@ -107,4 +107,14 @@
 		P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'||#{searchText}||'%'
 	</select>
 	
+	<update id="updateStocks" parameterType="list">
+		<foreach collection="list" item="ovo" index="index" separator=";" open="DECLARE BEGIN" close="; END;">
+			UPDATE PRODUCT
+			SET STOCK = STOCK-#{ovo.quantity}
+			<where>
+				P_NO = #{ovo.p_no}
+			</where>
+		</foreach>
+	</update>
+	
 </mapper>

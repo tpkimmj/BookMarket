@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.book.order.dto.OrderDTO;
 import com.book.product.dto.ProductDTO;
 
 @Mapper
@@ -31,5 +32,7 @@ public interface ProductDAO {
 	List<ProductDTO> bookSearch(ProductDTO pdto);
 	
 	int getSearch(Map<String, Object> productPage);
+
+	int updateStocks(List<OrderDTO> list);
 
 }

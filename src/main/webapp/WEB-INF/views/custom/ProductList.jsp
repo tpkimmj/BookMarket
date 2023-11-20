@@ -23,29 +23,28 @@
 			<c:choose>
 				<c:when test="${fn:length(productList)>0}">
 					<c:forEach var="product" items="${productList}" varStatus="status">
-					<tr>
-					<form  id ="cartSave" action="cartProc?flag=add" name="productForm" method="post">
-							<td id="ProCol1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></td>
-							<td id="ProCol2">
-								<ul>
-									<input  id="bkpno" type="hidden" value="${product.p_no}"  name="p_no"/>
-									<input  id="bkp_stock" type="hidden" value="${product.stock}"  name="stock"/>
-									<input  id="bkname" type="hidden" value="${product.p_name}"  name="p_name" />
-									<input  id="bk_price" type="hidden" value="${product.price}"  name="price"/>
+						<form id ="cartSave" action="cartProc?flag=add" name="productForm" method="post">
+							<tr>
+								<td id="ProCol1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></td>
+								<td id="ProCol2">
+									<input id="bkpno" type="hidden" value="${product.p_no}"  name="p_no"/>
+									<input id="bkp_stock" type="hidden" value="${product.stock}"  name="stock"/>
+									<input id="bkname" type="hidden" value="${product.p_name}"  name="p_name" />
+									<input id="bk_price" type="hidden" value="${product.price}"  name="price"/>
 									<input id="bk_quantity" type="hidden" value="1" name="quantity"/>
-									<li id="bookname"><a href="/bookDetail?p_no=${product.p_no}">${product.p_name}</a>
-									</li>
-									<li id="bookwriter">${product.writer}<br></li>
-									<li id="bookprice" class="price">판매가 : ${product.price}원</li>
-									<li id="booknum1" class="hidden">1개</li>								
-								</ul>
-							</td>
-							<td id="ProCol3">
-								<input type="button" id="btn1" name="" value="바로구매" onclick="locaiton.href = /pay?pkpno=${product.p_no}"><br><br>
-								<button type="submit" id="btn2" name="" value="장바구니">장바구니</button>
-							</td>
-							</form>
-						</tr>
+									<ul>
+										<li id="bookname"><a href="/bookDetail?p_no=${product.p_no}">${product.p_name}</a></li>
+										<li id="bookwriter">${product.writer}<br></li>
+										<li id="bookprice" class="price">판매가 : ${product.price}원</li>
+										<!-- <li id="booknum1" class="hidden">1개</li> -->								
+									</ul>
+								</td>
+								<td id="ProCol3">
+									<input type="button" id="btn1" name="" value="바로구매" onclick="locaiton.href = /pay?pkpno=${product.p_no}"><br><br>
+									<button type="submit" id="btn2" name="" value="장바구니">장바구니</button>
+								</td>
+							</tr>
+						</form>
 					</c:forEach>
 					<tfoot>
 						<tr id="page">
