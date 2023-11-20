@@ -62,7 +62,7 @@
 					<c:forEach var="product" items="${productList}" begin="0" end="3">
 					<td>
 						<ul>
-							<li class="col1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></li>
+							<li class="col1"><a href="/productDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></li>
 							<li class="col2">${product.p_name}<li>
 						</ul>
 					</td>
@@ -76,7 +76,7 @@
 					<c:forEach var="product" items="${productList}" begin="4" end="7">
 					<td>
 						<ul>
-							<li class="col1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></li>
+							<li class="col1"><a href="/productDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></li>
 							<li class="col2">${product.p_name}<li>
 						</ul>
 					</td>

@@ -213,7 +213,7 @@ public class ProductController {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
 				page = "admin/Main";
-				model.addAttribute("contentsJsp", "../custom/ProductList");
+				model.addAttribute("contentsJsp", "./ProductList");
 			}
 			else {
 				page = "Main";
