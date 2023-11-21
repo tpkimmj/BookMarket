@@ -273,6 +273,7 @@ textarea {
 	text-align: right;
 	background: #dddddd;
 }
+#bookCol1 #bookNum2 input:focus {outline: none;}
 #bookCol1 img {
 	width: 35px;
 }
