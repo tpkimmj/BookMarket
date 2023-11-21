@@ -74,7 +74,7 @@
 						</a>
 		            </c:when>
 		            <c:when test="${ssKey==null}">
-						<a onClick="alert('로그인 먼저 필요합니다.')">
+						<a href="/login" onClick="alert('로그인 먼저 필요합니다.')">
 							<img width="64" height="64" src="https://img.icons8.com/nolan/64/speech-bubble.png" alt="speech-bubble"/>
 						</a>
 		            </c:when>

@@ -14,7 +14,7 @@
 		<td >비밀번호 입력</td>
 	</tr>
 	<tr>
-		<td id="pwinput"><input type="password" id="pwck"></td>
+		<td id="pwinput"><input type="password" id="pwck" autofocus="autofocus" onkeydown="return enter()"></td>
 	</tr>
 	<tr id="pwbtn">
 		<td colspan="2">
