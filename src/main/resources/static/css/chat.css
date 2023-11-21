@@ -40,6 +40,7 @@
 	border-radius: 10px;
 	padding: 5px 0 5px 15px;
 	width: 250px;
+	word-break: break-all;
 }
 #userChat #adTalk {
 	margin-bottom: 5px;
@@ -49,6 +50,7 @@
 	border-radius: 10px;
 	padding: 5px 0 5px 15px;
 	width: 250px;
+	word-break: break-all;
 }
 #endBtn {
 	margin-bottom: 5px;
@@ -98,6 +100,7 @@
 	border-radius: 10px;
 	padding: 5px 0 5px 15px;
 	width: 250px;
+	word-break: break-all;
 }
 #adminChat #adTalk {
 	margin-bottom: 5px;
@@ -107,4 +110,5 @@
 	border-radius: 10px;
 	padding: 5px 0 5px 15px;
 	width: 250px;
+	word-break: break-all;
 }
