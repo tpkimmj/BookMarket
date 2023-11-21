@@ -54,9 +54,9 @@
 					<td id="bookCol1">
 						<table>
 							<tr>
-								<td id="bookNum1">수량</td>
+								<td id="bookNum1">수 량</td>
 								<td><a onclick='count("minus")'><img alt="" src="/images/mbtn.png"></a></td>
-								<td id="bookNum2"><input  id="result"type="number" value="1" name="quantity" readonly /></td>
+								<td id="bookNum2"><input  id="result" type="number" value="1" name="quantity" readonly /></td>
 								<td><a onclick='count("plus")'><img alt="" src="/images/pbtn.png"></a></td>
 							</tr>
 						</table>

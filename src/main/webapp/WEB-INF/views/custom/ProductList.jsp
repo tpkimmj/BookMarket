@@ -7,8 +7,8 @@
 <head>
 <link rel="stylesheet" type="text/css" href="/css/product.css">
 <script src="/jquery/jquery-3.7.0.min.js"></script>
-<!-- <script src="/script/product.js"></script>
- --><meta charset="UTF-8">
+<script src="/script/product.js"></script>
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
 				<c:when test="${fn:length(productList)>0}">
 					<c:forEach var="product" items="${productList}" varStatus="status">
 						<form id ="cartSave" action="cartProc?flag=add" name="productForm" method="post">
-							<tr>
+							<tr id="ProLine">
 								<td id="ProCol1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></td>
 								<td id="ProCol2">
 									<input id="bkpno" type="hidden" value="${product.p_no}"  name="p_no"/>
