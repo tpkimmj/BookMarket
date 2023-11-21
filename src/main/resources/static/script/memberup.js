@@ -38,3 +38,15 @@ function setParentText(){
 		this.window.close();
 	}
 }
+
+  // 텍스트 박스에서 엔터를 누르면
+    function enter() {
+      // keyCode 13은 엔터이다.
+      if(event.keyCode === 13) {
+        // 서버로 메시지 전송
+        setParentText(this)
+        // form에 의해 자동 submit을 막는다.
+        return false;
+      }
+      return true;
+    }
