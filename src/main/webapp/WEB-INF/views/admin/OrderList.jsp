@@ -70,7 +70,7 @@
 			<tr><th colspan="9"> 등록된 주문이 없습니다.</th></tr>
      	</c:when>   
 	</c:choose>
-	<tr style="text-align:right;height: 50px;">
+	<tr>
 		<th colspan="9" class="ordButton">
 			<input name="s" type="button"  class="selectBtn" value="상태수정">
 		</th>
