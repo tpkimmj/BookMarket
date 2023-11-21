@@ -1,0 +1,121 @@
+@charset "UTF-8";
+#productMgt a:link{color: black; text-decoration: none; font-weight: bold;}
+#productMgt a:visited{color: black; text-decoration: none; font-weight: bold;}
+#productMgt a:active{color: black; text-decoration: none; font-weight: bold;}
+#productMgt a:hover{color: black; text-decoration: none; font-weight: bold;}
+#orderMgt {
+	margin: 50px auto;
+	width: 1100px;
+	height: 1000px;
+}
+#orderMgt table {
+	margin: 0 auto;
+	width: 1100px;
+	border-collapse: collapse;
+}
+#orderMgt .title{
+	padding: 25px;
+	text-align: center;
+	font-size: 25px;
+	background-color: #00008B;
+	color: white;
+	font-family: sans-serif;
+}
+#orderMgt #orderCnt{
+	text-align: right;
+	padding: 20px 0 10px 0; 
+}
+.border td{
+	border: 1px solid #cccccc;
+	height: 60px;
+	text-align: center;
+	width: 600px;
+}
+.border th {
+	height: 40px;
+	text-align: center;
+	background-color: #00008B;
+	color: white;
+	font-family: sans-serif;
+}
+.border .acl0{
+	width: 130px;
+}
+.border .acl1{
+	width: 155px;
+}
+.border .acl3{
+	width: 200px;
+}
+.border .acl4 {
+	width: 155px;
+}
+.border .acl5{
+	width: 100px;
+}
+.border .acl6{
+	width: 100px;
+}
+.border .acl7{
+	width: 280px;
+}
+.border .acl8{
+	width: 200px;
+}
+.ordButton {
+	text-align: center;
+	padding: 20px;
+}
+.ordButton button{
+	font-weight: bold;
+	background-color: #237AF6;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 10px;
+}
+.ordButton input{
+	font-weight: bold;
+	background-color: #237AF6;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 10px;
+}
+
+#customorder {
+	margin: 50px auto;
+	width: 1000px;
+	height: 1000px;
+}
+#customorder table {
+	margin: 0 auto;
+	width: 1000px;
+	border-collapse: collapse;
+}
+#customorder .title{
+	padding: 25px;
+	text-align: center;
+	font-size: 25px;
+	background-color: #00008B;
+	color: white;
+	font-family: sans-serif;
+}
+#customorder #orderCnt{
+	text-align: right;
+	padding: 20px 0 10px 0; 
+}
+.border .cl1{
+	width: 250px;
+}
+.border .cl2 , .border .cl6{
+	width: 250px;
+}
+.border .cl3, .border .cl4 {
+	width: 150px;
+}
+.border .cl5 {
+	width: 250px;
+}
