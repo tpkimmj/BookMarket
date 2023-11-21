@@ -19,7 +19,7 @@
 		</div>
 		<div class="login_wrap"> 
 			<div class="id_wrap">
-				<input type="text" name="mem_id" class="chkt" title="아이디" id="id">
+				<input type="text" autofocus="autofocus" name="mem_id" class="chkt" title="아이디" id="id">
 			</div>
 			<div class="pw_wrap">
 				<input type="password" name="m_passwd" class="chkt" title="패스워드" id="pw" onkeydown="enter()">

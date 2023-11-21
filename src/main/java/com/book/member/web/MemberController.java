@@ -101,6 +101,7 @@ public class MemberController {
 				session.setAttribute("ssKey", ssKey);
 			} else { 
 				msg = "아이디 또는 패스워드가 맞지 않습니다.";
+				url = "/login";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
