@@ -118,9 +118,11 @@
 	</update>
 	
 	<select id="wordSearchSHow" parameterType="pdto">
-		SELECT P_NAME FROM PRODUCT
+		SELECT * FROM
+		(SELECT P_NAME FROM PRODUCT
 		WHERE 
-		P_NAME LIKE '%'||#{searchText}||'%'
+		P_NAME LIKE '%'||#{searchText}||'%')
+		WHERE <![CDATA[rownum <= 5]]>
 	</select>
 	
 </mapper>
