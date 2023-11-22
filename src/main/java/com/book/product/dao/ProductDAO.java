@@ -35,4 +35,6 @@ public interface ProductDAO {
 
 	int updateStocks(List<OrderDTO> list);
 
+	List<String> wordSearchSHow(ProductDTO pdto);
+
 }

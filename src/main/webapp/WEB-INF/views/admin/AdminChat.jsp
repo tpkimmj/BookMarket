@@ -14,6 +14,7 @@
 </style>
 </head>
 <body>
+	<div style="background-color: #237AF6; color: white; width: 200px; text-align: center; margin: 20px auto; font-size: 30px;">AdminChat</div>
   <!-- 유저가 접속할 때마다 이 템플릿으로 채팅창을 생성한다. -->
   <div class="template" style="display:none">
   	<div id="adminChat">

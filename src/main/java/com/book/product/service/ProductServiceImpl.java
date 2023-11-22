@@ -220,5 +220,10 @@ public class ProductServiceImpl implements ProductService {
 		}
 		productDao.updateStocks(list);
 	}
+
+	@Override
+	public List<String> wordSearchSHow(ProductDTO pdto) {
+		return productDao.wordSearchSHow(pdto);
+	}
 	
 }

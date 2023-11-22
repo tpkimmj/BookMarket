@@ -1,6 +1,7 @@
 package com.book.product.service;
 
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -27,5 +28,7 @@ public interface ProductService {
 	Map<String, Object> bookSearch(ProductDTO pdto, PageDTO pageDto);
 
 	void updateStocks(Hashtable<Integer, OrderDTO> hCartList);
+
+	List<String> wordSearchSHow(ProductDTO pdto);
 
 }

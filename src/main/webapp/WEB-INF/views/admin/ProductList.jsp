@@ -24,7 +24,7 @@
 				<c:when test="${fn:length(productList)>0}">
 					<c:forEach var="product" items="${productList}" varStatus="status">
 						<form name="productForm" method="post">
-							<tr>
+							<tr id="proLine">
 								<td id="ProCol1"><a href="/productDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></td>
 								<td id="ProCol2">
 									<input id="bkpno" type="hidden" value="${product.p_no}"  name="p_no"/>

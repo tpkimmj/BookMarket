@@ -1,13 +1,19 @@
 package com.book.product.web;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.configurationprocessor.json.JSONArray;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.book.common.dto.PageDTO;
@@ -312,5 +318,13 @@ public class ProductController {
 		page = "Main";
 //		model.addAttribute("contentsJsp", "custom/BookSearch");
 		return page;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/wordSearchShow")
+	public List<String> wordSearchShow(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto) {
+				
+		List<String> wordList = productService.wordSearchSHow(pdto);
+		return wordList;
 	}
 }

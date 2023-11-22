@@ -31,14 +31,21 @@
 	width: 1000px;
 	height: 280px;
 }
+#mid_top {
+	width: 1000px;
+	margin: 0 auto;
+	height: 200px;
+}
 #search {
 	margin: 90px 10px 45px 0;
 	display: inline-block;
 	height: 42px;
 	width: 655px;
 	border: solid 4px #00008B;
+	position: absolute;
 }
 #search input{
+	font-size: 18px;
 	position: absolute;
 	height: 38px;
 	width: 600px;
@@ -47,6 +54,26 @@
 #searchIcon {
 	margin-left: 600px;
 	height: 39px;
+}
+#displayList {
+	background-color: white;
+	display: inline-block;
+	border: solid 2px #cccccc;
+	top: 140px;
+	width: 659px;
+	height: auto;
+	position: relative;
+	z-index: 999;
+}
+#displayList .autoText {
+	display: inline-block;
+	padding: 5px;
+	width: 98.5%;
+	cursor: pointer;
+}
+#displayList > span:hover{
+	background-color: #cccccc;
+	font-weight: bold;
 }
 *{
   list-style: none;

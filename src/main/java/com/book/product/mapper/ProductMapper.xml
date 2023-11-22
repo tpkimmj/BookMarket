@@ -117,4 +117,10 @@
 		</foreach>
 	</update>
 	
+	<select id="wordSearchSHow" parameterType="pdto">
+		SELECT P_NAME FROM PRODUCT
+		WHERE 
+		P_NAME LIKE '%'||#{searchText}||'%'
+	</select>
+	
 </mapper>
