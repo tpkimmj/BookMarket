@@ -38,7 +38,9 @@
 		<div id="search">
 			<form action="/search" method="post">
 				<input type="text" name="">
-				<button style="background: #fff; border: none;"><img src="/images/search.png" id="searchIcon"></button>
+				<button style="background: #fff; border: none;">
+					<img id="searchIcon" src="/images/search_static.png" alt="" data-animated="/images/search.gif" data-static="/images/search_static.png" class="hov-anim">
+				</button>
 			</form>
 		</div>
 	<div id="Menu">

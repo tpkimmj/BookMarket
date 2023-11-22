@@ -39,8 +39,8 @@
 						<input type="hidden" name="mem_id" value="${order.mem_id}">
 					</td>
 					<td class="cl2">${order.quantity}</td>
-					<td class="cl3">${order.price}</td>
-					<td class="cl4">${order.amount}</td>
+					<td class="cl3 price">${order.price}</td>
+					<td class="cl4 price">${order.amount}</td>
 					<td class="cl5">${order.o_regdate}</td>
 					<td class="cl6" >
 					<c:choose>

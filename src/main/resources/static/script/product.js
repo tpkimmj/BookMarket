@@ -144,6 +144,7 @@ $().ready(function(){
 		   }
 		   //수정
 		   url1='cartProc?flag=update';
+		   window.location.reload();
 	   }
 	   $.ajax({
 		   async:true,
