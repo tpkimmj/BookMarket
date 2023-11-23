@@ -121,7 +121,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Map<String, Object> getProducts(ProductDTO pdto,PageDTO pageDto, String state) {
-				Map<String, Object> reSet = new HashMap<String, Object>();
+		Map<String, Object> reSet = new HashMap<String, Object>();
 		Map<String, Object> ProductPage = new HashMap<String, Object>();
 
 		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
@@ -143,7 +143,14 @@ public class ProductServiceImpl implements ProductService {
 		ProductPage.put("end", end);
 		
 		//상품분류에 맞는 상품들을 불러오고 flag에 맞게 정렬
-		List<ProductDTO> productList = productDao.getProducts(ProductPage);
+		if(state=="best") {
+			List<ProductDTO> productList = productDao.getBestList(ProductPage);
+			reSet.put("productList", productList);
+		} else {
+			List<ProductDTO> productList = productDao.getProducts(ProductPage);
+			reSet.put("productList", productList);
+		}
+			
 		
 		int pgCnt = (productTot%RowInterPage.ROW_OF_PAGE==0) ?
 				productTot/RowInterPage.ROW_OF_PAGE : 
@@ -159,7 +166,6 @@ public class ProductServiceImpl implements ProductService {
 		pageDto.setEndPg(endPg);
 		
 		reSet.put("productTot", productTot);
-		reSet.put("productList", productList);
 		reSet.put("pageDto", pageDto);
 		return reSet;
 	}

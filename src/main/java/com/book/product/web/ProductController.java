@@ -236,7 +236,7 @@ public class ProductController {
 				break;
 			}
 			case "best": {
-				reSet = productService.getProducts(pdto, pageDto, "소설");
+				reSet = productService.getProducts(pdto, pageDto, "best");
 				break;
 				}
 			case "fiction": {

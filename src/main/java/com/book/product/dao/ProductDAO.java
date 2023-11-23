@@ -37,4 +37,6 @@ public interface ProductDAO {
 
 	List<String> wordSearchSHow(ProductDTO pdto);
 
+	List<ProductDTO> getBestList(Map<String, Object> productPage);
+
 }

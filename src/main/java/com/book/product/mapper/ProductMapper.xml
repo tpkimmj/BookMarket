@@ -72,6 +72,27 @@
 		WHERE RR BETWEEN #{start} and #{end}
 	</select>
 	
+	<select id="getBestList" parameterType="map">
+		SELECT * FROM
+		(SELECT SUM(B.QUANTITY) AS COUNT, A.P_NO, A.STOCK, A.PRICE, A.P_NAME, A.DETAIL, A.PR_DATE, A.IMAGE, A.PATH, A.STATE, A.WRITER
+					FROM PRODUCT A
+					INNER JOIN ORDERT B
+					ON A.P_NO = B.P_NO
+					GROUP BY A.P_NO, A.STOCK, A.PRICE, A.P_NAME, A.DETAIL, A.PR_DATE, A.IMAGE, A.PATH, A.STATE, A.WRITER
+		<choose>
+			<when test="flag==null">
+				ORDER BY COUNT DESC)
+			</when>
+			<when test='flag.equals("low")'>
+				ORDER BY A.PRICE)
+			</when>
+			<when test='flag.equals("high")'>
+				ORDER BY A.PRICE DESC)
+			</when>
+		</choose>
+		        WHERE <![CDATA[rownum <= 8]]>
+	</select>
+	
 	<select id="ProductTot" parameterType="map" resultType="int">
 		SELECT COUNT(P_NO) FROM PRODUCT
 		<if test='!state.equals("all")'>

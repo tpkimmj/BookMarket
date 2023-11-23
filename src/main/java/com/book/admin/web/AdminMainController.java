@@ -38,7 +38,7 @@ public class AdminMainController {
 			page = "redirect:/";
 		}
 		
-		reSet = productService.getProducts(pdto, pageDto, "all");
+		reSet = productService.getProducts(pdto, pageDto, "best");
 		adel.addAttribute("productList", reSet.get("productList"));
 		return page;
 	}
