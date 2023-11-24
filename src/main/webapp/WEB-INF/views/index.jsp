@@ -61,7 +61,7 @@
 			<c:choose>
 				<c:when test="${fn:length(productList)>0}">
 					<c:forEach var="product" items="${productList}" begin="0" end="3">
-					<td>
+					<td class="bestarea">
 						<ul>
 							<li class="col1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></li>
 							<li class="col2">${product.p_name}<li>
@@ -75,7 +75,7 @@
 			<c:choose>
 				<c:when test="${fn:length(productList)>0}">
 					<c:forEach var="product" items="${productList}" begin="4" end="7">
-					<td>
+					<td class="bestarea">
 						<ul>
 							<li class="col1"><a href="/bookDetail?p_no=${product.p_no}"><img src="/upload/${product.image}"></a></li>
 							<li class="col2">${product.p_name}<li>

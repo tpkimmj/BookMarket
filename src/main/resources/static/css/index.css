@@ -17,14 +17,23 @@
 }
 .col1 {
 	margin: 20px;
-}
-.col2 {
-	width: 90%;
 	text-align: center;
 }
+.col2 {
+	width: 100%;
+	text-align: center;
+	height: 40px;
+	font-weight: bold;
+}
 .col1 img{
-	width: 150px;
-	height: 220px;
+	width: 160px;
+	height: 230px;
+}
+.bestarea {
+	margin: 0 auto;
+	padding: 0;
+	width: 220px;
+	height: 270px;
 }
 /* Slideshow container */
 .slideshow-container {
