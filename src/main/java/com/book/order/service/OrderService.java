@@ -3,10 +3,12 @@ package com.book.order.service;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 import com.book.member.dto.MemberDTO;
 import com.book.order.dto.OrderDTO;
+import com.book.product.dto.ProductDTO;
 
 public interface OrderService {
 
@@ -21,6 +23,10 @@ public interface OrderService {
 	boolean deleteOrder(MemberDTO custom);
 
 	void orderStateUpdate(ArrayList<String> tdArr);
+
+	MemberDTO getMember(MemberDTO mdto);
+
+	ProductDTO getProduct(String parameter);
    
 }
 

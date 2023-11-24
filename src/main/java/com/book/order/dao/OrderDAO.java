@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.book.member.dto.MemberDTO;
 import com.book.order.dto.OrderDTO;
+import com.book.product.dto.ProductDTO;
 
 @Mapper
 public interface OrderDAO {
@@ -25,4 +26,8 @@ public interface OrderDAO {
 	void deleteOrder(MemberDTO custom);
 
 	void updateOrderState(List<OrderDTO> list);
+
+	MemberDTO getMember(MemberDTO mdto);
+
+	ProductDTO getProduct(String parameter);
 }

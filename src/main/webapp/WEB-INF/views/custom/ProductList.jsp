@@ -40,7 +40,7 @@
 									</ul>
 								</td>
 								<td id="ProCol3">
-									<input type="button" id="btn1" name="" value="바로구매" onclick="locaiton.href=/pay?pkpno=${product.p_no}"><br><br>
+									<input type="button" id="btn1" name="" value="바로구매" onclick="location.href='/payment?p_no=${product.p_no}'"><br><br>
 									<button type="submit" id="btn2" name="" value="장바구니">장바구니</button>
 								</td>
 							</tr>

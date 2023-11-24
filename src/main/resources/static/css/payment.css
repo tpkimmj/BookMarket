@@ -1,0 +1,75 @@
+@charset "UTF-8";
+#payment {
+	width: 1000px;
+	height: 800px;
+	margin: 20px auto;
+	background-color: #eeeeee;
+	padding: 5px 10px 10px 10px;
+}
+#payment h2{
+	text-align: center;
+	margin: 20px;
+}
+#payment #p_address {
+	width: 700px;
+	height: 150px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payment .p_title {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+#payment .p_inner {
+	padding: 10px;
+}
+#payment .p_inner span {
+	display: block;
+	height: 30px;	
+}
+#payment #p_info {
+	width: 700px;
+	height: 210px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payment #p_info .inimg{
+	width: 100px;
+	height: 140px;
+	border: 1px solid #dddddd;
+	padding: 3px;
+	display: inline-block;
+	margin-right: 30px;
+}
+#payment #p_info .p_con{
+	display: inline-block;
+}
+#payment #p_info .p_con .price{
+	font-size: 18px;
+	font-weight: bold;
+	color: #1088ED;
+}
+#payment #p_info .p_con .pname{
+	font-size: 18px;
+	font-weight: bold;
+}
+#paybtn {
+	width: 200px;
+	margin: 20px auto;
+	text-align: center;
+}
+#paybtn button{
+	width: 200px;
+	height: 40px;
+	font-weight: bold;
+	color: white;
+	background-color: #1088ED;
+	border: none;
+	border-radius: 10px;
+}

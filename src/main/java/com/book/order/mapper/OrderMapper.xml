@@ -98,6 +98,21 @@
 			AND MEM_ID = #{item.mem_id}
 		</foreach>
 	</update>
+	
+	<select id="getMember" parameterType="mdto" resultType="mdto">
+		SELECT MEM_ID, M_NAME, M_PASSWD
+				, M_EMAIL, M_PHONE, ZIPCODE, ADDRESS
+				, ADDRESS2, M_JOB, M_ROLE
+		FROM MEMBER
+		WHERE MEM_ID = #{mem_id}
+	</select>
+	
+	<select id="getProduct" parameterType="string">
+		SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+		FROM PRODUCT
+		WHERE P_NO=#{p_no}
+	</select>
+	
 </mapper>
 
 

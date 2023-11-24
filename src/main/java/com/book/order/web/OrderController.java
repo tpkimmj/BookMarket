@@ -11,11 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.book.cart.service.CartService;
 import com.book.member.dto.MemberDTO;
 import com.book.order.dto.OrderDTO;
 import com.book.order.service.OrderService;
+import com.book.product.dto.ProductDTO;
 import com.book.wrapper.OrderWrapper;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -197,4 +199,35 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 			}
 		}
 	}
+	
+	@RequestMapping("/payment")
+	public String payment(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model) {
+		HttpSession session = request.getSession();
+		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		String page = null;
+		if(session.getAttribute("ssKey")!=null) {
+			MemberDTO memberInfo = orderService.getMember(custom);
+			ProductDTO productInfo = orderService.getProduct(request.getParameter("p_no"));
+			int quantity = ovo.getQuantity();
+			if(ovo.getQuantity()!=0) {
+				model.addAttribute("quantity", quantity);
+			}
+			else {
+				model.addAttribute("quantity", 1);
+			}
+			model.addAttribute("pInfo", productInfo);
+			model.addAttribute("mInfo", memberInfo);
+			model.addAttribute("contentsJsp", "custom/Payment");
+			page = "Main";
+		} else {
+			String msg = "로그인이 필요합니다.";
+			String url = "/login";
+			model.addAttribute("msg", msg);
+			model.addAttribute("url", url);
+			page = "MsgPage";
+		}
+		return page;
+	}
+	
+	
 }
