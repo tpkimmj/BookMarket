@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import com.book.member.dto.MemberDTO;
 import com.book.order.dao.OrderDAO;
 import com.book.order.dto.OrderDTO;
-import com.book.product.dto.ProductDTO;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -107,15 +106,8 @@ public class OrderServiceImpl implements OrderService {
 		}
 		orderDao.updateOrderState(list);
 	}
-
 	@Override
-	public MemberDTO getMember(MemberDTO mdto) {
-		return orderDao.getMember(mdto);
-	}
-
-	@Override
-	public ProductDTO getProduct(String parameter) {
-		return orderDao.getProduct(parameter);
+	public int orderCancle(OrderDTO odto) {
+		return orderDao.orderCancle(odto);
 	}
 }
-	

@@ -21,6 +21,7 @@
 <table class="orderList">
    	<tr class="border">
     	<th>선택</th>
+    	<th>주문번호</th>
     	<th>상품번호</th>
     	<th>상품명</th>
     	<th>고객명<br>(고객아이디)</th>
@@ -37,18 +38,19 @@
             		<td class="acl0">
              			<input type="checkbox" name="ck" value="${i.index}" readonly="readonly"> 
             		</td>
-		            <td class="acl1">${order.p_no}</td>
-            		<td class="acl2"><a onclick="javascript:orderDetail(this)">${order.p_name}</a>
+            		<td class="acl1">${order.o_no}</td>
+		            <td class="acl2">${order.p_no}</td>
+            		<td class="acl3"><a onclick="javascript:orderDetail(this)">${order.p_name}</a>
 			            <input type="hidden" name="p_no" value="${order.p_no}">
 			            <input type="hidden" name="o_no" value="${order.o_no}">
 			            <input type="hidden" name="mem_id" value="${order.mem_id}">
             		</td>
-		            <td class="acl3">${order.m_name}(${order.mem_id})</td>
-		            <td class="acl4">${order.quantity}</td>
-		            <td class="acl5">${order.price}</td>
-		            <td class="acl6">${order.amount}</td>
-		            <td class="acl7">${order.o_regdate}</td>
-		            <td class="acl8" >
+		            <td class="acl4">${order.m_name}(${order.mem_id})</td>
+		            <td class="acl5">${order.quantity}</td>
+		            <td class="acl6">${order.price}</td>
+		            <td class="acl7">${order.amount}</td>
+		            <td class="acl8">${order.o_regdate}</td>
+		            <td class="acl9" >
               			<select name="state" id="state${i.count}">
 							<option value="1">결재중</option>
 							<option value="2">배송준비</option>

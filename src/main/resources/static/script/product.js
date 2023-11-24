@@ -99,10 +99,6 @@ $().ready(function(){
     $('#bookBtn1').on('click', function(){
 	$('form[name=productForm]').submit();
 	})
-    $('#bookBtn2').on('click', function(){
-		$('form[name=productForm]').attr('action', '/payment?p_no='+$('input[name=p_no]').val());
-		$('form[name=productForm]').submit();
-	})
 	
 	$('#btn2').on('click', function(){
 	$('form[name=productForm]').submit();
@@ -126,9 +122,22 @@ $().ready(function(){
 		else
 		$("form[name=topForm1]").submit();
 	}); 
-
-   
-}); // 레디 끝
+	$('.orderCancle').on('click', function(){
+	   ono = $('input[name=o_no]').val();
+	   pname = $('input[name=p_name]').val();
+	   pno = $('input[name=p_no]').val();
+	    r = confirm('삭제하시겠습니까?');
+						if(r){
+							  $('form[name=orderForm]').attr('action', 'orderCancle');
+	 						  $('form[name=orderForm]').submit();
+						} else {
+							return false;
+						}
+		});
+	$('.cancleFail').on('click', function(){
+	  alert("결재중 혹은 배송준비 상품만 주문 취소가 가능합니다.\n 고객센터를 통해 문의해주세요.")
+   });
+});
 
 
 
