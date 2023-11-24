@@ -1,17 +1,13 @@
 package com.book.product.web;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.configurationprocessor.json.JSONArray;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -316,7 +312,6 @@ public class ProductController {
 		model.addAttribute("pageDto", reSet.get("pageDto"));
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		page = "Main";
-//		model.addAttribute("contentsJsp", "custom/BookSearch");
 		return page;
 	}
 	

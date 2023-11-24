@@ -96,7 +96,7 @@ $().ready(function(){
 			});
 		 
 
-      	$('#bookBtn1').on('click', function(){
+    $('#bookBtn1').on('click', function(){
 	$('form[name=productForm]').submit();
 	})
 	
@@ -131,7 +131,7 @@ $().ready(function(){
   function cartUpdate(f, obj){
 	    var url1;
         var quantity = $(obj).closest('tr').find('input[name=quantity]').val();
-        var pno = $(obj).closest('tr').find('input[name=p_no]').val();
+        var cno = $(obj).closest('tr').find('input[name=c_no]').val();
         var stock =$(obj).closest('tr').find('input[name=stock]').val();
 	   if(f=='D'){
 		   //삭제	
@@ -144,20 +144,20 @@ $().ready(function(){
 		   }
 		   //수정
 		   url1='cartProc?flag=update';
-		   window.location.reload();
 	   }
 	   $.ajax({
-		   async:true,
+		   async:false,
 		   type:'post',
 		   data:{"quantity":quantity,
-		         "p_no":pno
+		         "c_no":cno
 		         },
 		   url: url1,
 		   dataType:"json",
 		   success : function() {
-//			   alert('장바구니 수정');
+			   alert('장바구니 수정');
 		     }
 	   });
+	   window.location.reload();
   }
 
    function orderDetail(obj){

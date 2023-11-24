@@ -1,21 +1,17 @@
 package com.book.cart.service;
 
-import java.util.Hashtable;
+import java.util.Map;
 
-import com.book.order.dto.OrderDTO;
-
-
+import com.book.cart.dto.CartDTO;
 
 public interface CartService {
 
-	void setCartList(Hashtable<Integer, OrderDTO> hCartList);
-	
-	Hashtable<Integer, OrderDTO> addCart(OrderDTO ovo);
-	
-	Hashtable<Integer, OrderDTO> updateCart(OrderDTO ovo);
-	
-	Hashtable<Integer, OrderDTO> deleteCart(OrderDTO ovo);
-	
-	Hashtable<Integer, OrderDTO> getCartList();
+	Map<String, Object> getCarts(CartDTO cto);
+
+	int addCart(CartDTO cto);
+
+	int updateCart(CartDTO cto);
+
+	int deleteCart(CartDTO cto);
 
 }

@@ -1,69 +1,81 @@
 package com.book.cart.service;
 
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.book.order.dto.OrderDTO;
+import com.book.cart.dao.CartDAO;
+import com.book.cart.dto.CartDTO;
 
 @Service
 public class CartServiceImpl implements CartService {
-	
-	private Hashtable<Integer, OrderDTO> hCartList;
+	@Autowired
+	CartDAO cartDao;
 
 	@Override
-	public void setCartList(Hashtable<Integer, OrderDTO> hCartList) {
-		this.hCartList=hCartList;
+	public Map<String, Object> getCarts(CartDTO cto) {
+		int cartTot = 0;
+		if(cto.getM_role().equals("admin")) {
+			cartTot = cartDao.getTotalCart(null);
+		}else {
+			cartTot = cartDao.getTotalCart(cto.getMem_id());
+		}
+		List<CartDTO> cartList = cartDao.getCarts(cto);
+		Map<String, Object> reSet = new HashMap<String, Object>();
+		reSet.put("cartTot", cartTot);
+		reSet.put("cartList", cartList);
+		System.out.println("===="+cartList);
+		return reSet;
 	}
 
 	@Override
-	public Hashtable<Integer, OrderDTO> getCartList() {
-		return hCartList;
+	public int addCart(CartDTO cto) { //상품아이디 멤버아이디 수량 파라미터를 카트디티오또는리스트
+		int p_no = cto.getP_no();
+		int quantity = cto.getQuantity();
+		int result = cartDao.addCart(cto);
+		System.out.println("++++++++"+quantity);
+//		if(quantity>0) { 
+//			if(cartList.containsKey(p_no)) { 
+//				CartDTO tempvo = (CartDTO)cartList.get(p_no); 
+//				quantity+=tempvo.getQuantity();
+//				if(tempvo.getStock()<quantity) { 
+//					tempvo.setQuantity(tempvo.getQuantity());
+//				}else {
+//					tempvo.setQuantity(quantity); 
+//				}
+//				tempvo.setQuantity(quantity);
+//				cartList.put(p_no, tempvo);
+//			}else {
+//				cartList.put(p_no, cto);
+//			} 
+//		} 
+		return result; 
 	}
 
 	@Override
-	public Hashtable<Integer, OrderDTO> addCart(OrderDTO ovo) {
-		 int p_no = ovo.getP_no(); int quantity = ovo.getQuantity();
-		 if(quantity>0) { 
-			 if(hCartList.containsKey(p_no)) { 
-				 OrderDTO tempvo = (OrderDTO)hCartList.get(p_no); 
-				 quantity+=tempvo.getQuantity();
-		 if(tempvo.getStock()<quantity) { 
-			 tempvo.setQuantity(tempvo.getQuantity());
-		 }else {
-			 tempvo.setQuantity(quantity); 
-			 } 
-		 hCartList.put(p_no, tempvo);
-		 }else {
-			 hCartList.put(p_no, ovo);
-		 } 
-			 } 
-		 return hCartList; 
+	public int updateCart(CartDTO cto) {
+		int p_no =cto.getP_no();
+		int quantity=cto.getQuantity();
+		int result = cartDao.updateCart(cto); 
+//		 if(cartList.contains(p_no)) { 
+//			 CartDTO tempvo = (CartDTO)cartList.get(p_no); 
+//			 //재고가 주문수량보다 적을경우
+//			 if(tempvo.getStock()<quantity) {
+//				 tempvo.setQuantity(tempvo.getQuantity());
+//			 }else {
+//				 tempvo.setQuantity(quantity); 
+//			 } 
+//			 tempvo.setQuantity(quantity);
+//			 cartList.add(p_no, cto); 
+//	 	} 
+	 	return result; 
 	}
-	
 
 	@Override
-	public Hashtable<Integer, OrderDTO> updateCart(OrderDTO ovo) {
-		 int p_no =ovo.getP_no(); int quantity=ovo.getQuantity();
-		 if(hCartList.containsKey(p_no)) { 
-			 OrderDTO tempvo = (OrderDTO)hCartList.get(p_no); 
-			 //재고가 주문수량보다 적을경우
-			 if(tempvo.getStock()<quantity) {
-				 tempvo.setQuantity(tempvo.getQuantity());
-			 }else {
-				 tempvo.setQuantity(quantity); 
-			 } 
-			 tempvo.setQuantity(quantity);
-			 hCartList.put(p_no, tempvo); 
-	 	} 
-	 	return hCartList; 
-	 }
-	
-
-	@Override
-	public Hashtable<Integer, OrderDTO> deleteCart(OrderDTO ovo) {
-		int p_no = ovo.getP_no();
-		hCartList.remove(p_no);
-		return hCartList;
+	public int deleteCart(CartDTO cto) {
+		return cartDao.deleteCart(cto);
 	}
 }

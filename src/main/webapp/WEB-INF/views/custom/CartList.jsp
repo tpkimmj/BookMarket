@@ -30,30 +30,30 @@
 		<th>조회</th>
 	</tr>
 	<c:choose>
-		<c:when test="${fn:length(hCartList)>0}">
-			<c:forEach var="cvo" items="${hCartList}" varStatus="status">
+		<c:when test="${fn:length(cartList)>0}">
+			<c:forEach var="cto" items="${cartList}" varStatus="status">
 				<tbody>
 					<tr class="border">
-						<td class="co1">${cvo.value.p_name}</td>
-						<td class="co2 price">${cvo.value.price}</td>
+						<td class="co1">${cto.p_name}</td>
+						<td class="co2 price">${cto.price}</td>
 						<td class="co3" > <!-- 수량 -->
-							<input name="quantity" type="text" style="text-align: right; padding-right: 5px;" value="${cvo.value.quantity}" size="5">
-							<input type="hidden" name="stock" value="${cvo.value.stock}">
-							<input type="hidden" name="p_no" value="${cvo.value.p_no}">
-							<input type="hidden" name="p_name" value="${cvo.value.p_name}">
-							<input type="hidden" name="price" value="${cvo.value.price}">
-						<td class="co4 price">${cvo.value.price * cvo.value.quantity}</td>
+							<input name="quantity" type="text" style="text-align: right; padding-right: 5px;" value="${cto.quantity}" size="5">
+							<input type="hidden" name="stock" value="${cto.stock}">
+							<input type="hidden" name="c_no" value="${cto.c_no}">
+							<input type="hidden" name="p_name" value="${cto.p_name}">
+							<input type="hidden" name="price" value="${cto.price}">
+						<td class="co4 price">${cto.price * cto.quantity}</td>
 						<td class="co5"><input type="button" value="수정" onclick="javascript:cartUpdate('U',this)">&nbsp;/&nbsp;
 							<input type="button" value="삭제" onclick="javascript:cartUpdate('D',this)">
 						</td>
 						<td class="co6"> <!-- 상품 상세 조회 -->
-							<input  id="bkpno" type="hidden" value="${product.p_no}"  name="p_no"><a href="/bookDetail?p_no=${cvo.value.p_no}">상세보기</a>
+							<input  id="bkpno" type="hidden" value="${product.p_no}"  name="p_no"><a href="/bookDetail?p_no=${cto.p_no}">상세보기</a>
 						</td>
 					</tr>
 				</tbody>
 			</c:forEach>
 		</c:when>   
-		<c:when test="${fn:length(hCartList)==0}">
+		<c:when test="${fn:length(cartList)==0}">
 			<tr><th colspan="6"> 등록된 상품이 없습니다.</th></tr>
 		</c:when>   
 	</c:choose>

@@ -1,8 +1,6 @@
 package com.book.order.web;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -43,21 +41,21 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 	@Autowired
 	private CartService cartService;
    
-	@RequestMapping("/orderProc")
-	public String orderProc(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model) {
-		HttpSession session = request.getSession();
-		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
-		//장바구니
-		Hashtable<Integer, OrderDTO> hCartList = cartService.getCartList();
-		//주문하고 재고 하나 줄고
-		HashMap<String, Object> map = orderWrapper.orderProc(ovo, hCartList);
-		//model
-		model.addAttribute("msg", map.get("msg"));
-		model.addAttribute("url", map.get("url"));
-		session.setAttribute("ssKey", custom);
-		session.setAttribute("hCartList", hCartList);
-		return "MsgPage";
-	}
+//	@RequestMapping("/orderProc")
+//	public String orderProc(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model) {
+//		HttpSession session = request.getSession();
+//		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+//		//장바구니
+//		Hashtable<Integer, OrderDTO> hCartList = cartService.getCartList();
+//		//주문하고 재고 하나 줄고
+//		HashMap<String, Object> map = orderWrapper.orderProc(ovo, hCartList);
+//		//model
+//		model.addAttribute("msg", map.get("msg"));
+//		model.addAttribute("url", map.get("url"));
+//		session.setAttribute("ssKey", custom);
+//		session.setAttribute("hCartList", hCartList);
+//		return "MsgPage";
+//	}
    
 	@RequestMapping("/orderList")
 	public String orderList(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model) {
