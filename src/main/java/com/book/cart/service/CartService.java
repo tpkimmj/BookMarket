@@ -14,4 +14,8 @@ public interface CartService {
 
 	int deleteCart(CartDTO cto);
 
+	int chkCart(CartDTO cto);
+
+	int sumQunt(CartDTO cto);
+
 }

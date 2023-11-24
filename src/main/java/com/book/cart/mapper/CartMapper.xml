@@ -39,12 +39,8 @@
      	<selectKey keyProperty="c_no" resultType="int" order="BEFORE">
 			SELECT NVL(MAX(C_NO), 0)+1 AS C_NO FROM CART
 		</selectKey>
-	  	INSERT INTO CART(C_NO,PRICE,AMOUNT,QUANTITY,C_REGDATE,MEM_ID,P_NO)
-		VALUES(#{c_no},#{price},#{price}*#{quantity},
-                 #{quantity},
-                 sysdate,
-                 #{mem_id},
-                 #{p_no}) 
+	  	INSERT INTO CART(C_NO, PRICE, AMOUNT, QUANTITY, C_REGDATE, MEM_ID, P_NO)
+		VALUES(#{c_no},#{price},#{price}*#{quantity}, #{quantity}, sysdate, #{mem_id}, #{p_no}) 
   	</insert>
   	
   	<update id="updateCart" parameterType="cto">
@@ -57,6 +53,20 @@
 		DELETE FROM CART
 		WHERE  C_NO = #{c_no}
 	</delete>
+	
+	<select id="chkCart" resultType="int">
+		SELECT COUNT(*)
+		FROM CART
+		WHERE MEM_ID = #{mem_id}
+		AND P_NO = #{p_no}
+	</select>
+	
+	<update id="sumQunt">
+		UPDATE CART
+		SET QUANTITY = QUANTITY + #{quantity}
+		WHERE MEM_ID = #{mem_id}
+		AND P_NO = #{p_no}
+	</update>
 </mapper>
 
 

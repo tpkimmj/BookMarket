@@ -20,4 +20,8 @@ public interface CartDAO {
 
 	public int deleteCart(CartDTO cto);
 
+	public int chkCart(CartDTO cto);
+
+	public int sumQunt(CartDTO cto);
+
 }

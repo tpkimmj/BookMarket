@@ -33,8 +33,8 @@ public class CartController {
 		HttpSession session = request.getSession();
 		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
 		String url = null;
-		String page= null;
-	    String msg = null;
+		String msg = null;
+		String page = null;
 	    Map<String, Object> reSet = null;
     	if(custom != null) { //고객정보가 있으므로 누가 장구니를 채우는 것인지 저장
     		cto.setMem_id(custom.getMem_id());
@@ -42,7 +42,7 @@ public class CartController {
     		reSet = cartService.getCarts(cto);
     		model.addAttribute("cartList", reSet.get("cartList"));
     		model.addAttribute("cartTot", reSet.get("cartdTot"));
-        	model.addAttribute("contentsJsp","custom/CartList"); 
+        	model.addAttribute("contentsJsp", "custom/CartList"); 
         	page = "Main"; 
     	}else{ 
     		msg = "로그인 먼저 필요합니다."; 
@@ -63,7 +63,6 @@ public class CartController {
 		HttpSession session = request.getSession();
 	    MemberDTO mdto =(MemberDTO) session.getAttribute("ssKey");
 	    String flag = request.getParameter("flag");
-	    int r;
   	    if(mdto !=null ) {
   	    	//고객정보가 있으므로 누가 장구니를 채우는 것인지 저장
   	    	cto.setMem_id(mdto.getMem_id());	
@@ -76,7 +75,10 @@ public class CartController {
   	    //flag에 따라서 service호출
   	    switch (flag) {
 			case "add": {
-				r = cartService.addCart(cto);
+				//장바구니에 기존 상품이 있는지 검사
+				int count = cartService.chkCart(cto);
+				//상품 없으면 add : 상품 있으면 수량만 증가
+				count = count == 0 ? cartService.addCart(cto) : cartService.sumQunt(cto);
 				break;
 			}
 			case "update": {

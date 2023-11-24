@@ -27,12 +27,11 @@ public class CartServiceImpl implements CartService {
 		Map<String, Object> reSet = new HashMap<String, Object>();
 		reSet.put("cartTot", cartTot);
 		reSet.put("cartList", cartList);
-		System.out.println("===="+cartList);
 		return reSet;
 	}
 
 	@Override
-	public int addCart(CartDTO cto) { //상품아이디 멤버아이디 수량 파라미터를 카트디티오또는리스트
+	public int addCart(CartDTO cto) {
 		int p_no = cto.getP_no();
 		int quantity = cto.getQuantity();
 		int result = cartDao.addCart(cto);
@@ -77,5 +76,15 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public int deleteCart(CartDTO cto) {
 		return cartDao.deleteCart(cto);
+	}
+
+	@Override
+	public int chkCart(CartDTO cto) {
+		return cartDao.chkCart(cto);
+	}
+
+	@Override
+	public int sumQunt(CartDTO cto) {
+		return cartDao.sumQunt(cto);
 	}
 }
