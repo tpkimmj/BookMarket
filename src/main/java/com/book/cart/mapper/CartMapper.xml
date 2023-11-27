@@ -67,6 +67,16 @@
 		WHERE MEM_ID = #{mem_id}
 		AND P_NO = #{p_no}
 	</update>
+	
+	<delete id="clearCart" parameterType="list">
+		DELETE FROM CART
+	</delete>
+	
+	<!-- 주문취소 -->
+	<update id ="orderCancle" parameterType="com.book.order.dto.OrderDTO" >
+		DELETE FROM ORDERT 
+		WHERE O_NO = #{o_no}
+	</update>
 </mapper>
 
 

@@ -1,5 +1,6 @@
 package com.book.cart.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.book.cart.dao.CartDAO;
 import com.book.cart.dto.CartDTO;
+import com.book.order.dto.OrderDTO;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -32,44 +34,17 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	public int addCart(CartDTO cto) {
-		int p_no = cto.getP_no();
-		int quantity = cto.getQuantity();
+		cto.getP_no();
+		cto.getQuantity();
 		int result = cartDao.addCart(cto);
-		System.out.println("++++++++"+quantity);
-//		if(quantity>0) { 
-//			if(cartList.containsKey(p_no)) { 
-//				CartDTO tempvo = (CartDTO)cartList.get(p_no); 
-//				quantity+=tempvo.getQuantity();
-//				if(tempvo.getStock()<quantity) { 
-//					tempvo.setQuantity(tempvo.getQuantity());
-//				}else {
-//					tempvo.setQuantity(quantity); 
-//				}
-//				tempvo.setQuantity(quantity);
-//				cartList.put(p_no, tempvo);
-//			}else {
-//				cartList.put(p_no, cto);
-//			} 
-//		} 
 		return result; 
 	}
 
 	@Override
 	public int updateCart(CartDTO cto) {
-		int p_no =cto.getP_no();
-		int quantity=cto.getQuantity();
+		cto.getP_no();
+		cto.getQuantity();
 		int result = cartDao.updateCart(cto); 
-//		 if(cartList.contains(p_no)) { 
-//			 CartDTO tempvo = (CartDTO)cartList.get(p_no); 
-//			 //재고가 주문수량보다 적을경우
-//			 if(tempvo.getStock()<quantity) {
-//				 tempvo.setQuantity(tempvo.getQuantity());
-//			 }else {
-//				 tempvo.setQuantity(quantity); 
-//			 } 
-//			 tempvo.setQuantity(quantity);
-//			 cartList.add(p_no, cto); 
-//	 	} 
 	 	return result; 
 	}
 
@@ -87,4 +62,20 @@ public class CartServiceImpl implements CartService {
 	public int sumQunt(CartDTO cto) {
 		return cartDao.sumQunt(cto);
 	}
+
+	@Override
+	public int clearCart(Map<String, Object> reSet) {
+		List<CartDTO> cartList = (List<CartDTO>) reSet.get("cartList");
+		List<OrderDTO> list = new ArrayList<OrderDTO>(cartList.size());
+		for(CartDTO cto : cartList) {
+			OrderDTO ovo = new OrderDTO();
+			ovo.setMem_id(cto.getMem_id());
+			ovo.setM_role(cto.getM_role());
+			ovo.setP_no(cto.getP_no());
+			
+			list.add(ovo);
+		}
+		return cartDao.clearCart(list);
+	}
+
 }

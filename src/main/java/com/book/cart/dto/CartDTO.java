@@ -28,4 +28,5 @@ public class CartDTO {
 	private String p_name; //product
 	private int startRow = 1;
 	private int endRow = 10;
+	private int o_no;
 }

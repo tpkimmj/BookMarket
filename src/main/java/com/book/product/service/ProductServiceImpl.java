@@ -3,18 +3,14 @@ package com.book.product.service;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.book.cart.dto.CartDTO;
 import com.book.common.dto.PageDTO;
 import com.book.common.dto.RowInterPage;
 import com.book.order.dto.OrderDTO;
@@ -24,8 +20,6 @@ import com.book.product.dto.ProductDTO;
 @Service
 public class ProductServiceImpl implements ProductService {
 	
-	private static final Logger logger = 
-			LoggerFactory.getLogger(ProductServiceImpl.class);
 	
 	@Autowired
 	ProductDAO productDao;
@@ -179,7 +173,6 @@ public class ProductServiceImpl implements ProductService {
 		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
 		//
 		ProductPage.put("flag", pdto.getFlag());
-		logger.info("ProductPage==>"+ProductPage);
 		
 		//컨트롤러에서 받아온 검색어를 searchText에 저장
 		ProductPage.put("searchText", pdto.getSearchText());
@@ -194,7 +187,6 @@ public class ProductServiceImpl implements ProductService {
 		pdto.setEnd(end);
 
 		ProductPage.put("end", end);
-		logger.info("productService==>"+ProductPage);
 		List<ProductDTO> productList = productDao.bookSearch(pdto);
 		
 		int pgCnt = (getSearch%RowInterPage.ROW_OF_PAGE==0) ?
@@ -217,19 +209,24 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void updateStocks(Hashtable<Integer, OrderDTO> hCartList) {
-		Set<Integer> keys = hCartList.keySet();
-		List<OrderDTO> list = new ArrayList<OrderDTO>(keys.size());
-		Iterator<Integer> iterKeys = keys.iterator();
-		while(iterKeys.hasNext()) {
-			list.add(hCartList.get(iterKeys.next()));
-		}
-		productDao.updateStocks(list);
-	}
-
-	@Override
 	public List<String> wordSearchSHow(ProductDTO pdto) {
 		return productDao.wordSearchSHow(pdto);
 	}
+
+	@Override
+	public int updateStocks(Map<String, Object> reSet) {
+		List<CartDTO> cartList = (List<CartDTO>) reSet.get("cartList");
+		List<OrderDTO> list = new ArrayList<OrderDTO>(cartList.size());
+		for(CartDTO cto : cartList) {
+			OrderDTO ovo = new OrderDTO();
+			ovo.setP_no(cto.getP_no());
+			ovo.setQuantity(cto.getQuantity());
+			ovo.setStock(cto.getStock());
+			
+			list.add(ovo);
+		}
+		return productDao.updateStocks(list);
+	}
 	
 }
+

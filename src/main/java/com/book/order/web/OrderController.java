@@ -2,7 +2,6 @@ package com.book.order.web;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.book.cart.dto.CartDTO;
 import com.book.cart.service.CartService;
 import com.book.member.dto.MemberDTO;
 import com.book.order.dto.OrderDTO;
@@ -45,18 +45,21 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 	private CartService cartService;
    
 	@RequestMapping("/orderProc")
-	public String orderProc(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model) {
-	HttpSession session = request.getSession();
+	public String orderProc(HttpServletRequest request, HttpServletResponse response, CartDTO cto, OrderDTO ovo, Model model) {
+		HttpSession session = request.getSession();
 		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		cto.setMem_id(custom.getMem_id());
+		cto.setM_role(custom.getM_role());
 		//장바구니
-		Hashtable<Integer, OrderDTO> hCartList = cartService.getCartList();
+		Map<String, Object> reSet = cartService.getCarts(cto);
 		//주문하고 재고 하나 줄고
-		HashMap<String, Object> map = orderWrapper.orderProc(ovo, hCartList);
+		HashMap<String, Object> map = orderWrapper.orderProc(request, response, ovo, reSet);
 		//model
 		model.addAttribute("msg", map.get("msg"));
 		model.addAttribute("url", map.get("url"));
 		session.setAttribute("ssKey", custom);
-		session.setAttribute("hCartList", hCartList);
+		session.setAttribute("ovo", reSet);
+		System.out.println("카트리스트"+reSet);
 		return "MsgPage";
 	}
    
@@ -199,6 +202,35 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 				logger.info(e.getMessage());
 			}
 		}
+	}
+	
+	@RequestMapping("/payment")
+	public String payment(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model) {
+		HttpSession session = request.getSession();
+		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		String page = null;
+		if(session.getAttribute("ssKey")!=null) {
+			MemberDTO memberInfo = orderService.getMember(custom);
+			ProductDTO productInfo = orderService.getProduct(request.getParameter("p_no"));
+			int quantity = ovo.getQuantity();
+			if(ovo.getQuantity()!=0) {
+				model.addAttribute("quantity", quantity);
+			}
+			else {
+				model.addAttribute("quantity", 1);
+			}
+			model.addAttribute("pInfo", productInfo);
+			model.addAttribute("mInfo", memberInfo);
+			model.addAttribute("contentsJsp", "custom/Payment");
+			page = "Main";
+		} else {
+			String msg = "로그인이 필요합니다.";
+			String url = "/login";
+			model.addAttribute("msg", msg);
+			model.addAttribute("url", url);
+			page = "MsgPage";
+		}
+		return page;
 	}
 	@RequestMapping("/orderCancle")
 	public String orderCancle(HttpServletRequest request, HttpServletResponse response, OrderDTO odto, Model model , ProductDTO pdto) {

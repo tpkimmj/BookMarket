@@ -7,10 +7,9 @@ import java.util.Map;
 
 import com.book.member.dto.MemberDTO;
 import com.book.order.dto.OrderDTO;
+import com.book.product.dto.ProductDTO;
 
 public interface OrderService {
-
-	int insertOrders(Hashtable<Integer, OrderDTO> hCartList);
 
 	Map<String, Object> getOrders(OrderDTO ovo);
 
@@ -22,7 +21,13 @@ public interface OrderService {
 
 	void orderStateUpdate(ArrayList<String> tdArr);
 	
+	MemberDTO getMember(MemberDTO mdto);
+
+	ProductDTO getProduct(String parameter);
+	
 	int orderCancle(OrderDTO odto);
+
+	int insertOrders(Map<String, Object> reSet);
 
 
 

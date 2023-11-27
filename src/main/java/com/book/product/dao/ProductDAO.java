@@ -33,10 +33,10 @@ public interface ProductDAO {
 	
 	int getSearch(Map<String, Object> productPage);
 
-	int updateStocks(List<OrderDTO> list);
-
 	List<String> wordSearchSHow(ProductDTO pdto);
 
 	List<ProductDTO> getBestList(Map<String, Object> productPage);
+
+	int updateStocks(List<OrderDTO> list);
 
 }

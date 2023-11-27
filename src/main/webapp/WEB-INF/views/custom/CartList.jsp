@@ -58,7 +58,7 @@
 		</c:when>   
 	</c:choose>
 	<tr class="buttonArea">
-		<th colspan="6" ><a class="cartButton" href="orderProc">주문하기</a></th>
+		<th colspan="6" ><a class="cartButton" href="/orderProc">주문하기</a></th>
 	</tr>
 </table>
 </div>

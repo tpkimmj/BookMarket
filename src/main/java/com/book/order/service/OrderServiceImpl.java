@@ -3,36 +3,23 @@ package com.book.order.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.book.cart.dto.CartDTO;
 import com.book.member.dto.MemberDTO;
 import com.book.order.dao.OrderDAO;
 import com.book.order.dto.OrderDTO;
+import com.book.product.dto.ProductDTO;
 
 @Service
 public class OrderServiceImpl implements OrderService {
 	@Autowired
 	OrderDAO orderDao;
    
-	@Override
-	public int insertOrders(Hashtable<Integer, OrderDTO> hCartList) {
-		//키를 받아서 해당 키 만큼 주문내역을 리스트로 받아서 데이터베이스 리스트로 저장
-		//결제를 하고 ok 되면
-		Set<Integer> keys = hCartList.keySet();
-		List<OrderDTO> list = new ArrayList<OrderDTO>(keys.size());
-		Iterator<Integer> iterKeys = keys.iterator();
-		while(iterKeys.hasNext()) {
-			list.add(hCartList.get(iterKeys.next()));
-      	}
-		return orderDao.insertOrders(list);
-   }
-
 	@Override
 	public Map<String, Object> getOrders(OrderDTO odto) {
 		int orderTot = 0;
@@ -106,6 +93,39 @@ public class OrderServiceImpl implements OrderService {
 		}
 		orderDao.updateOrderState(list);
 	}
+	
+	@Override
+	public MemberDTO getMember(MemberDTO mdto) {
+		return orderDao.getMember(mdto);
+	}
+
+	@Override
+	public ProductDTO getProduct(String parameter) {
+		return orderDao.getProduct(parameter);
+	}
+	
+	@Override
+	public int insertOrders(Map<String, Object> reSet) {
+		List<CartDTO> cartList = (List<CartDTO>) reSet.get("cartList");
+		List<OrderDTO> list = new ArrayList<OrderDTO>(cartList.size());
+		for(CartDTO cto : cartList) {
+			OrderDTO ovo = new OrderDTO();
+			ovo.setMem_id(cto.getMem_id());
+			ovo.setAmount(cto.getAmount());
+			ovo.setM_name(cto.getM_name());
+			ovo.setP_name(cto.getP_name());
+			ovo.setP_no(cto.getP_no());
+			ovo.setPrice(cto.getPrice());
+			ovo.setQuantity(cto.getQuantity());
+			ovo.setM_role(cto.getM_role());
+			ovo.setStock(cto.getStock());
+			
+			list.add(ovo);
+		}
+		
+		return orderDao.insertOrders(list);
+	}
+	
 	@Override
 	public int orderCancle(OrderDTO odto) {
 		return orderDao.orderCancle(odto);

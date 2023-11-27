@@ -18,4 +18,7 @@ public interface CartService {
 
 	int sumQunt(CartDTO cto);
 
+	int clearCart(Map<String, Object> reSet);
+
+
 }

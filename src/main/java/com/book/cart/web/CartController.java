@@ -1,6 +1,5 @@
 package com.book.cart.web;
 
-import java.util.Hashtable;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import com.book.cart.dto.CartDTO;
 import com.book.cart.service.CartService;
 import com.book.member.dto.MemberDTO;
 import com.book.member.service.MemberService;
-import com.book.order.dto.OrderDTO;
 import com.book.product.dto.ProductDTO;
 
 import jakarta.servlet.http.HttpServletRequest;

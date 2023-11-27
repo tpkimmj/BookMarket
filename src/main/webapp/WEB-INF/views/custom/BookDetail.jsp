@@ -65,7 +65,7 @@
 					<div id="bkprice2" style="display: none;">${product.price}</div></td>
 					<td id="bookCol3">
 						<input id="bookBtn1" type="button" value="장바구니">
-						<input id="bookBtn2" type="button" value="바로구매">
+						<input id="bookBtn2" type="button" value="바로구매" onclick="location.href='/payment?p_no=${product.p_no}'">
 					</td>
 				</tr>
 			</table>

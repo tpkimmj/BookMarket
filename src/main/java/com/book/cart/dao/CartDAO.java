@@ -1,11 +1,11 @@
 package com.book.cart.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import com.book.cart.dto.CartDTO;
+import com.book.order.dto.OrderDTO;
 
 @Mapper
 public interface CartDAO {
@@ -23,5 +23,10 @@ public interface CartDAO {
 	public int chkCart(CartDTO cto);
 
 	public int sumQunt(CartDTO cto);
+
+	public List<CartDTO> selectAll(CartDTO cto);
+
+	public int clearCart(List<OrderDTO> list);
+
 
 }
