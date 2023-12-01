@@ -137,6 +137,7 @@ $().ready(function(){
 	$('.cancleFail').on('click', function(){
 	  alert("결재중 혹은 배송준비 상품만 주문 취소가 가능합니다.\n 고객센터를 통해 문의해주세요.")
    });
+   
 });
 
 

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 #payment {
 	width: 1000px;
-	height: 800px;
+	height: auto;
 	margin: 20px auto;
 	background-color: #eeeeee;
 	padding: 5px 10px 10px 10px;
@@ -33,7 +33,7 @@
 }
 #payment #p_info {
 	width: 700px;
-	height: 210px;
+	height: auto;
 	border: 1px solid #dddddd;
 	background-color: white;
 	padding: 10px;
@@ -72,4 +72,88 @@
 	background-color: #1088ED;
 	border: none;
 	border-radius: 10px;
+}
+#payment #payTot {
+	width: 700px;
+	height: 40px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payment #payTot #t_inner {
+	padding: 8px 5px 5px 480px;	
+}
+#payment #payTot #t_inner span {
+	color: #1088ED;	
+}
+#cartPayment {
+	width: 1000px;
+	height: auto;
+	margin: 20px auto;
+	background-color: #eeeeee;
+	padding: 5px 10px 10px 10px;
+}
+#cartPayment h2{
+	text-align: center;
+	margin: 20px;
+}
+#cartPayment #p_address {
+	width: 700px;
+	height: 150px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#cartPayment .p_title {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+#cartPayment .p_inner {
+	padding: 10px;
+}
+#cartPayment .p_inner span {
+	display: block;
+	height: 30px;	
+}
+#cartPayment #p_info {
+	width: 700px;
+	height: auto;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#cartPayment #p_info .p_con .price{
+	font-size: 18px;
+	font-weight: bold;
+	color: #1088ED;
+}
+#cartPayment #p_info .p_con {
+	background-color: #eeeeee;
+	margin: 10px;
+	padding: 10px;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+#cartPayment #p_info .p_con .pname{
+	font-size: 18px;
+	font-weight: bold;
+}
+#cartPayment #payTot {
+	width: 700px;
+	height: 40px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#cartPayment #payTot #t_inner {
+	padding: 8px 5px 5px 480px;	
+}
+#cartPayment #payTot #t_inner span {
+	color: #1088ED;	
 }

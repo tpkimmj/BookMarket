@@ -2,6 +2,7 @@ package com.book.order.web;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -232,6 +233,34 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 		}
 		return page;
 	}
+	
+	@RequestMapping("/cartPayment")
+	public String cartPayment(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model, CartDTO cto) {
+		HttpSession session = request.getSession();
+		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		String page = null;
+		cto.setMem_id(custom.getMem_id());
+		cto.setM_role(custom.getM_role());
+		//장바구니
+		Map<String, Object> reSet = cartService.getCarts(cto);
+		MemberDTO memberInfo = orderService.getMember(custom);
+			if(session.getAttribute("ssKey")!=null) {
+				List<String> pList = (List<String>) reSet.get("cartList");
+				System.err.println("=========="+pList);
+				model.addAttribute("pInfo", pList);
+				model.addAttribute("mInfo", memberInfo);
+				model.addAttribute("contentsJsp", "custom/CartPayment");
+				page = "Main";
+			} else {
+				String msg = "로그인이 필요합니다.";
+				String url = "/login";
+				model.addAttribute("msg", msg);
+				model.addAttribute("url", url);
+				page = "MsgPage";
+			}
+		return page;
+	}
+	
 	@RequestMapping("/orderCancle")
 	public String orderCancle(HttpServletRequest request, HttpServletResponse response, OrderDTO odto, Model model , ProductDTO pdto) {
 		String url= null;

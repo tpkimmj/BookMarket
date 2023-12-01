@@ -34,8 +34,8 @@ public class OrderWrapper {
 		if(r>0){
 			productService.updateStocks(reSet);
 			msg = "주문완료했습니다";
-			url = "orderList";
-			cartService.clearCart(reSet);
+			url = "cartPayment";
+			//cartService.clearCart(reSet);
 		}else {
 			msg = "주문실패";
 			url = "cartList";

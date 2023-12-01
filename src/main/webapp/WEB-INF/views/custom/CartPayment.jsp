@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<div id="payment">
+	<div id="cartPayment">
 		<h2>주문/결제</h2>
 		<div id="p_address">
 			<div class="p_title">배송지</div>
@@ -24,19 +24,24 @@
 		<div id="p_info">
 			<div class="p_title">주문상품</div>
 			<div class="p_inner">
-				<div class="inimg"><img width="100%" height="100%" src="/upload/${pInfo.image}"></div>
-				<div class="p_con">
-					<span>${pInfo.state}</span>
-					<span class="pname">${pInfo.p_name}</span>
-					<span>${pInfo.writer}</span>
-					<span>구매수량 : ${quantity}</span>
-					<span class="price">${pInfo.price*quantity}원</span>
-				</div>
+			<c:set var="sum" value="0" />
+				<c:choose>
+					<c:when test="${fn:length(pInfo)>0}">
+						<c:forEach var="product" items="${pInfo}">
+							<c:set var="sum" value="${sum + product.price*product.quantity}" />
+							<div class="p_con">
+								<span class="pname">${product.p_name}</span>
+								<span>구매수량 : ${product.quantity}</span>
+								<span class="price">${product.price*product.quantity}원</span>
+							</div>
+						</c:forEach>
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 		<div id="payTot">
 			<div id="t_inner">
-				<h3>총 결제금액&nbsp; :&nbsp; <span class="price">${pInfo.price}</span></h3>
+				<h3>총 결제금액&nbsp; :&nbsp; <span class="price">${sum}</span></h3>
 			</div>
 		</div>
 		<div id="paybtn"><button>결 제 하 기</button></div>
