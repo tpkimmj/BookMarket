@@ -184,6 +184,11 @@ $().ready(function(){
 	 $('form[name=orform]').submit();
    }
    
+   //결제
+   function auth(){
+	   $('fomt[name=auth]').submit;
+   }
+   
 function count(type)  {
   // 결과를 표시할 element
   const resultElement = document.getElementById('result');

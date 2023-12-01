@@ -241,14 +241,19 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 		String page = null;
 		cto.setMem_id(custom.getMem_id());
 		cto.setM_role(custom.getM_role());
+		ovo.setM_role(custom.getM_role());
+		ovo.setMem_id(custom.getMem_id());
 		//장바구니
 		Map<String, Object> reSet = cartService.getCarts(cto);
 		MemberDTO memberInfo = orderService.getMember(custom);
+		Map<String, Object> oderNum = orderService.payOrders(ovo);
+		model.addAttribute("oderNum", oderNum.get("o_no"));
 			if(session.getAttribute("ssKey")!=null) {
 				List<String> pList = (List<String>) reSet.get("cartList");
 				System.err.println("=========="+pList);
 				model.addAttribute("pInfo", pList);
 				model.addAttribute("mInfo", memberInfo);
+				System.err.println(oderNum.get("o_no"));
 				model.addAttribute("contentsJsp", "custom/CartPayment");
 				page = "Main";
 			} else {

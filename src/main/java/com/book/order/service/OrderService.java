@@ -29,6 +29,8 @@ public interface OrderService {
 
 	int insertOrders(Map<String, Object> reSet);
 
+	Map<String, Object> payOrders(OrderDTO ovo);
+
 
 
 }

@@ -130,4 +130,9 @@ public class OrderServiceImpl implements OrderService {
 	public int orderCancle(OrderDTO odto) {
 		return orderDao.orderCancle(odto);
 	}
+
+	@Override
+	public Map<String, Object> payOrders(OrderDTO ovo) {
+		return orderDao.payOrders(ovo);
+	}
 }

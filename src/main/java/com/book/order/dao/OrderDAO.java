@@ -1,6 +1,7 @@
 package com.book.order.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -32,14 +33,16 @@ public interface OrderDAO {
 	ProductDTO getProduct(String parameter);
 	
 	// 주문 취소	
-		int orderCancle(OrderDTO odto);
-		// 주문 상품 정보
-		List<OrderDTO> getOrderItemInfo(String memid);
-		// 주문 정보
-		OrderDTO getOrder(String memid);
-		
-		int getOrderCnt();
+	int orderCancle(OrderDTO odto);
+	// 주문 상품 정보
+	List<OrderDTO> getOrderItemInfo(String memid);
+	// 주문 정보
+	OrderDTO getOrder(String memid);
+	
+	int getOrderCnt();
 
-		List<OrderDTO> getOrderList(OrderDTO odto);
+	List<OrderDTO> getOrderList(OrderDTO odto);
+
+	Map<String, Object> payOrders(OrderDTO ovo);
 		
-	}
+}
