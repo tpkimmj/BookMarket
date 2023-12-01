@@ -247,13 +247,12 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 		Map<String, Object> reSet = cartService.getCarts(cto);
 		MemberDTO memberInfo = orderService.getMember(custom);
 		Map<String, Object> oderNum = orderService.payOrders(ovo);
-		model.addAttribute("oderNum", oderNum.get("o_no"));
 			if(session.getAttribute("ssKey")!=null) {
 				List<String> pList = (List<String>) reSet.get("cartList");
 				System.err.println("=========="+pList);
 				model.addAttribute("pInfo", pList);
 				model.addAttribute("mInfo", memberInfo);
-				System.err.println(oderNum.get("o_no"));
+				model.addAttribute("oderNum", oderNum);
 				model.addAttribute("contentsJsp", "custom/CartPayment");
 				page = "Main";
 			} else {
