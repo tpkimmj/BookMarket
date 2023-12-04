@@ -1,8 +1,14 @@
 package com.book.pay.dao;
 
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public class PayDAO {
+public interface PayDAO {
+
+	void insertOrder(Map<String, String> param);
+
+	Map<String, Object> getOrder(Map<String, String> param);
 
 }

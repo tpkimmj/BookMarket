@@ -14,19 +14,22 @@
 $().ready(function(){
 
 	$("#auth").on("click",function(){
-		var orderNumber = $("input[name=orderNumber]").val(); 
 		var amount = $("input[name=amount]").val(); 
 		var itemName = $("input[name=itemName]").val(); 
 		var userName = $("input[name=userName]").val(); 
+		var p_no = $("input[name=p_no]").val(); 
+		var mem_id = $("input[name=mem_id]").val(); 
+		
 		$.ajax({
 			   async:false,
 			   type:'post',
-			   data:{"orderNumber":orderNumber,
-				   	"amount" : amount,
+			   data:{"amount" : amount,
 				   	"itemName" : itemName,
+				   	"p_no" : p_no,
+				   	"mem_id" : mem_id,
 				   	"userName" : userName
 			   },
-			   url: "/payOrder",
+			   url: "/directPay",
 			   dataType:"json",
 			   success : function(data) {
 				   console.log(data);
@@ -135,7 +138,8 @@ function jsf__pay() {
 	
 	<script type="text/javascript" src="https://testpay.kcp.co.kr/plugin/payplus_web.jsp"></script>
 	<form name="kcp_order_info" id="kcp_order_info" action="/authPay" method="post" accept-charset="euc-kr">
-		<input type="hidden" name="orderNumber" value="${pInfo.p_no}">
+		<input type="hidden" name="mem_id" value="${mInfo.mem_id}">
+		<input type="hidden" name="p_no" value="${pInfo.p_no}">
 		<input type="hidden" name="itemName" value="${pInfo.p_name}">
 		<input type="hidden" name="amount" value="${pInfo.price*quantity}">
 		<input type="hidden" name="userName" value="${mInfo.m_name}">

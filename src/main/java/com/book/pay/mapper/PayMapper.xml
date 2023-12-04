@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.pay.dao.PayDAO">
+  	<insert id="insertOrder" parameterType="map">
+     	<selectKey keyProperty="o_no" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(O_NO), 0)+1 AS O_NO FROM ORDERT
+		</selectKey>
+     		INSERT INTO ORDERT(O_NO,PRICE,AMOUNT,QUANTITY,O_REGDATE, STATE,MEM_ID,P_NO)
+          	VALUES(#{o_no},#{amount},#{amount},
+                 1,
+                 sysdate,
+                 1,
+                 #{mem_id},
+                 #{p_no})
+  	</insert>
+  	
+  	<select id="getOrder" parameterType="map">
+		SELECT * FROM
+    		(SELECT ROWNUM AS RR, A.*
+      			FROM
+	  			(SELECT  O_NO, P_NO, QUANTITY, AMOUNT,
+		       		O_REGDATE, PRICE,
+		       		STATE
+			FROM ORDERT 
+     		 WHERE MEM_ID= #{mem_id}
+		ORDER BY O_REGDATE DESC) A)
+		WHERE <![CDATA[rownum = 1]]>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
