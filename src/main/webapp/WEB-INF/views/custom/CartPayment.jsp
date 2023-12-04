@@ -17,11 +17,13 @@ $().ready(function(){
 		var amount = $("input[name=amount]").val(); 
 		var itemName = $("input[name=itemName]").val(); 
 		var userName = $("input[name=userName]").val(); 
+		var mem_id = $("input[name=mem_id]").val(); 
 		$.ajax({
 			   async:false,
 			   type:'post',
 			   data:{"orderNumber":orderNumber,
 				   	"amount" : amount,
+				   	"mem_id" : mem_id,
 				   	"itemName" : itemName,
 				   	"userName" : userName
 			   },
@@ -144,6 +146,7 @@ function jsf__pay() {
 		<input type="hidden" name="itemName" value="${pro}건">
 		<input type="hidden" name="amount" value="${sum}">
 		<input type="hidden" name="userName" value="${mInfo.m_name}">
+		<input type="hidden" name="mem_id" value="${mInfo.mem_id}">
 		
 		<input type="hidden" name="ordr_idxx" value="">
 		<input type="hidden" name="good_name" value="">

@@ -63,6 +63,14 @@ public class PayRestController {
 		Map<String,Object> orderResult = apiService.JsonApi(url, map);
 		test.put("orderResult",orderResult); // <- 화면으로 데이터보내기
 		
+		if("0000".equals(orderResult.get("responseCode"))) {
+			//정상 JSP
+			apiService.deleteCart(param);
+			apiService.updateState(param);
+		}else {
+			//실패 JSP
+		}
+		
 		map.put("test", "test");
 		
 		return test;

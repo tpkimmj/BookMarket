@@ -27,6 +27,17 @@
 		ORDER BY O_REGDATE DESC) A)
 		WHERE <![CDATA[rownum = 1]]>
 	</select>
+	
+	<delete id="deleteCart" parameterType="map">
+		DELETE FROM CART
+		WHERE  MEM_ID = #{mem_id}
+	</delete>
+	
+	<update id="updateState" parameterType="map">
+		UPDATE ORDERT
+		SET STATE = 2 
+		WHERE O_NO = #{orderNumber}
+	</update>
 </mapper>
 
 

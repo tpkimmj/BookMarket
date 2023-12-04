@@ -11,4 +11,8 @@ public interface PayDAO {
 
 	Map<String, Object> getOrder(Map<String, String> param);
 
+	void deleteCart(Map<String, String> param);
+
+	void updateState(Map<String, String> param);
+
 }

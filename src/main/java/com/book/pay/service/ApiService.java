@@ -106,5 +106,15 @@ public class ApiService {
 	public Map<String, Object> getOrder(Map<String, String> param) {
 		return payDao.getOrder(param);
 	}
+
+
+	public void deleteCart(Map<String, String> param) {
+		payDao.deleteCart(param);
+	}
+
+
+	public void updateState(Map<String, String> param) {
+		payDao.updateState(param);
+	}
 	
 }
