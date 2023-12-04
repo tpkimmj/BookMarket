@@ -37,7 +37,7 @@ public class PayRestController {
 		String userAgent = "WP";
 		String returnUrl = "returnUrl";
 		String signature = "";
-		String timestamp = now.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+		String timestamp = formatedNow;
 		String g = "|";
 		String apiCertKey = "ac805b30517f4fd08e3e80490e559f8e";
 		System.out.println(param);
@@ -99,7 +99,7 @@ public class PayRestController {
 		String userAgent = "WP";
 		String returnUrl = "returnUrl";
 		String signature = "";
-		String timestamp = now.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+		String timestamp = formatedNow;
 		String g = "|";
 		String apiCertKey = "ac805b30517f4fd08e3e80490e559f8e";
 		System.out.println(param);
