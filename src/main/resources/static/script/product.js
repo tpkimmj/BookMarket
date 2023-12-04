@@ -122,22 +122,33 @@ $().ready(function(){
 		else
 		$("form[name=topForm1]").submit();
 	}); 
-	$('.orderCancle').on('click', function(){
-	   ono = $('input[name=o_no]').val();
-	   pname = $('input[name=p_name]').val();
-	   pno = $('input[name=p_no]').val();
-	    r = confirm('삭제하시겠습니까?');
-						if(r){
-							  $('form[name=orderForm]').attr('action', 'orderCancle');
-	 						  $('form[name=orderForm]').submit();
-						} else {
-							return false;
-						}
-		});
-	$('.cancleFail').on('click', function(){
-	  alert("결재중 혹은 배송준비 상품만 주문 취소가 가능합니다.\n 고객센터를 통해 문의해주세요.")
-   });
-   
+    $('.orderCancle').on('click', function() {
+        // Get the relevant data from the row
+        var p_no = $(this).closest('tr').find('[name="p_no"]').val();
+        var o_no = $(this).closest('tr').find('[name="o_no"]').val();
+        var mem_id = $(this).closest('tr').find('[name="mem_id"]').val();
+        var p_name = $(this).closest('tr').find('[name="p_name"]').val();
+
+        // Confirm with the user before canceling the order
+        var confirmCancel = confirm('주문을 취소하시겠습니까?');
+
+        if (confirmCancel) {
+            // If the user confirms, you can perform further actions here, 
+            // such as making an AJAX request to the server to update the order status
+            // For now, let's assume you want to submit the form with the relevant data
+            // You can uncomment the following lines when you are ready to implement the actual logic.
+
+            $('form[name="orderForm"]').find('[name="p_no"]').val(p_no);
+            $('form[name="orderForm"]').find('[name="o_no"]').val(o_no);
+            $('form[name="orderForm"]').find('[name="mem_id"]').val(mem_id);
+            $('form[name="orderForm"]').find('[name="p_name"]').val(p_name);
+            $('form[name="orderForm"]').attr('action' , '/orderCancle');
+            $('form[name="orderForm"]').submit();
+
+            // Optionally, you can redirect the user to a different page or display a message
+            alert('주문이 취소되었습니다.');
+        }
+    });
 });
 
 
