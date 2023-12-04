@@ -21,7 +21,7 @@ public class PayRestController {
 	@RequestMapping("/payOrder")
 	public Map<String, Object> payOrder(@RequestParam Map<String, String> param) {
 		
-		Map<String, Object> test = new HashMap<>();
+		Map<String, Object> pay = new HashMap<>();
 		
 		// 현재 날짜/시간       
 		LocalDateTime now = LocalDateTime.now();         
@@ -61,7 +61,7 @@ public class PayRestController {
 		map.put("signature", signature);
 		
 		Map<String,Object> orderResult = apiService.JsonApi(url, map);
-		test.put("orderResult",orderResult); // <- 화면으로 데이터보내기
+		pay.put("orderResult",orderResult); // <- 화면으로 데이터보내기
 		
 		if("0000".equals(orderResult.get("responseCode"))) {
 			//정상 JSP
@@ -71,15 +71,15 @@ public class PayRestController {
 			//실패 JSP
 		}
 		
-		map.put("test", "test");
+		map.put("pay", "pay");
 		
-		return test;
+		return pay;
 	}
 	
 	@RequestMapping("/directPay")
 	public Map<String, Object> directPay(@RequestParam Map<String, String> param) {
 		
-		Map<String, Object> test = new HashMap<>();
+		Map<String, Object> pay = new HashMap<>();
 		
 		// 현재 날짜/시간       
 		LocalDateTime now = LocalDateTime.now();         
@@ -123,7 +123,7 @@ public class PayRestController {
 		map.put("signature", signature);
 		
 		Map<String,Object> orderResult = apiService.JsonApi(url, map);
-		test.put("orderResult",orderResult); // <- 화면으로 데이터보내기
+		pay.put("orderResult",orderResult); // <- 화면으로 데이터보내기
 		
 		if("0000".equals(orderResult.get("responseCode"))) {
 			//정상 JSP
@@ -132,8 +132,8 @@ public class PayRestController {
 			//실패 JSP
 		}
 		
-		map.put("test", "test");
+		map.put("pay", "pay");
 		
-		return test;
+		return pay;
 	}
 }

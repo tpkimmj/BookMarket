@@ -23,9 +23,6 @@ public class OrderWrapper {
 	@Autowired
 	private ProductService productService;
 	
-	@Autowired
-	private CartService cartService;
-	
 	public HashMap<String, Object> orderProc(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Map<String, Object> reSet) {
 		String url;
 		String msg;

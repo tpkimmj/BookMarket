@@ -15,12 +15,6 @@ public class MemberWrapper {
 	@Transactional //회원탈퇴 , 밑에 주석된부분은 추후 주문내역과 조인한뒤에 활성화 하면 됨.
 	public int memDelete(MemberDTO custom) throws Exception{
 		int redata = 0;
-//		boolean r = orderService.deleteOrder(custom);
-//		if(r) {
-//			redata = memberService.memDelete(custom);
-//		}else {
-//			redata = 0;
-//		}
 		redata = memberService.memDelete(custom);
 		return redata;
 	}

@@ -174,7 +174,6 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 		String url=null;
 		String msg = null;
 		String page = null;
-		Map<String, Object> reSet = null;
 		//해당되는 고객의 주문 정보만 갖고 와야 함
 		if(admin != null) {
 			orderService.updateState(ovo);
