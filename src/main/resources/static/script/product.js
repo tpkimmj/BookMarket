@@ -14,6 +14,12 @@ $().ready(function(){
 	$('form[name=productForm]').submit();
 	});
 	
+	$('#bookBtn2').on('click', function(){
+		var p_no = $('input[name=p_no]').val();
+		$('form[name=productForm]').attr("action", "/payment?p_no="+p_no);
+		$('form[name=productForm]').submit();
+	})
+	
 	$('#btn2').on('click', function(){
 	$('form[name=productForm]').submit();
 	});
@@ -74,20 +80,6 @@ $().ready(function(){
 			  } 
 			});
 		 
-
-    $('#bookBtn1').on('click', function(){
-		$('form[name=productForm]').submit();
-	})
-    $('#bookBtn2').on('click', function(){
-		var p_no = $('input[name=p_no]').val();
-		$('form[name=productForm]').attr("action", "/payment?p_no="+p_no);
-		$('form[name=productForm]').submit();
-	})
-	
-	$('#btn2').on('click', function(){
-	$('form[name=productForm]').submit();
-	})
-	
 	$('.submitProc').on('click', function(){
 		var flen = $("form[name=topForm1] .chkt").length;
 		var price = $("input[name=price]").val();
