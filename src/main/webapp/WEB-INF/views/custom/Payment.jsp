@@ -130,7 +130,7 @@ function jsf__pay() {
 		</div>
 		<div id="payTot">
 			<div id="t_inner">
-				<h3>총 결제금액&nbsp; :&nbsp; <span class="price">${pInfo.price}</span></h3>
+				<h3>총 결제금액&nbsp; :&nbsp; <span class="price">${pInfo.price*quantity}</span></h3>
 			</div>
 		</div>
 		<div id="paybtn"><button id="auth">결 제 하 기</button></div>

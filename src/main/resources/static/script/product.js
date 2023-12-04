@@ -76,7 +76,12 @@ $().ready(function(){
 		 
 
     $('#bookBtn1').on('click', function(){
-	$('form[name=productForm]').submit();
+		$('form[name=productForm]').submit();
+	})
+    $('#bookBtn2').on('click', function(){
+		var p_no = $('input[name=p_no]').val();
+		$('form[name=productForm]').attr("action", "/payment?p_no="+p_no);
+		$('form[name=productForm]').submit();
 	})
 	
 	$('#btn2').on('click', function(){

@@ -205,7 +205,7 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 	}
 	
 	@RequestMapping("/payment")
-	public String payment(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model) {
+	public String payment(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model, @RequestParam Map<String, Object> param) {
 		HttpSession session = request.getSession();
 		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
 		String page = null;
@@ -217,7 +217,10 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 				model.addAttribute("quantity", quantity);
 			}
 			else {
-				model.addAttribute("quantity", 1);
+				if(param.get("quantity")=="0" && param.get("quantity")==null)
+					model.addAttribute("quantity", param.get("quantity"));
+				else
+					model.addAttribute("quantity", 1);
 			}
 			model.addAttribute("pInfo", productInfo);
 			model.addAttribute("mInfo", memberInfo);
