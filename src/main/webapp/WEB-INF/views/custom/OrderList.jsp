@@ -56,8 +56,16 @@
 					</c:choose>
 				</td>
 				<td class="cl7">
-				<c:if test="${order.state < 3}">
-			 	<input type="button" class="orderCancle" value="주문취소">
+				<c:if test="${order.state == 1}">
+			 	<input type="button" class="cancle" value="결제하기"> / 
+			 	<input type="button" class="cancle" value="주문취소">
+					<input type="hidden" name="p_no" value="${order.p_no}">
+					<input type="hidden" name="o_no" value="${order.o_no}">
+					<input type="hidden" name="mem_id" value="${order.mem_id}">
+					<input type="hidden" name="p_name" value="${order.p_name}">
+				</c:if>
+				<c:if test="${order.state ==2 }">
+			 	<input type="button" class="orderCancle" value="결제취소">
 					<input type="hidden" name="p_no" value="${order.p_no}">
 					<input type="hidden" name="o_no" value="${order.o_no}">
 					<input type="hidden" name="mem_id" value="${order.mem_id}">
