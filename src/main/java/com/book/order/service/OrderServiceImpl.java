@@ -134,4 +134,9 @@ public class OrderServiceImpl implements OrderService {
 	public Map<String, Object> payOrders(OrderDTO ovo) {
 		return orderDao.payOrders(ovo);
 	}
+
+	@Override
+	public Map<String, Object> getpayOrders(OrderDTO ovo) {
+		return orderDao.getpayOrders(ovo);
+	}
 }

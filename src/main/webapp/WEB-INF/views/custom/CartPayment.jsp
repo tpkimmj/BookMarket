@@ -103,7 +103,10 @@ function jsf__pay() {
 </script>
 </head>
 <body>
-	<div id="cartPayment">
+${mInfo}
+<br>
+${pInfo}
+<%-- 	<div id="cartPayment">
 		<h2>주문/결제</h2>
 		<div id="p_address">
 			<div class="p_title">배송지</div>
@@ -137,12 +140,12 @@ function jsf__pay() {
 			<div id="t_inner">
 				<h3>총 결제금액&nbsp; :&nbsp; <span class="price">${sum}</span></h3>
 			</div>
-		</div>
+		</div> --%>
 		<div id="paybtn"><button id="auth">결 제 하 기</button></div>
 	</div>
 	<script type="text/javascript" src="https://testpay.kcp.co.kr/plugin/payplus_web.jsp"></script>
 	<form name="kcp_order_info" id="kcp_order_info" action="/authPay" method="post" accept-charset="euc-kr">
-		<input type="hidden" name="orderNumber" value="${oderNum.O_NO}">
+		<%-- <input type="hidden" name="orderNumber" value="${oderNum.O_NO}"> --%>
 		<input type="hidden" name="itemName" value="${pro}건">
 		<input type="hidden" name="amount" value="${sum}">
 		<input type="hidden" name="userName" value="${mInfo.m_name}">

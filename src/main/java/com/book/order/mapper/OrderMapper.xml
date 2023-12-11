@@ -135,8 +135,21 @@
      		 WHERE O.MEM_ID= #{mem_id} and #{m_role}='mem'<!--and이후에 삭제 -->
 		  </if>
 		ORDER BY O_REGDATE DESC) A)
-		WHERE <![CDATA[rownum = 1]]>
+		WHERE <![CDATA[rownum = 1]]> and O_NO = #{o_no}
 	</select>
+	
+	<select id="getpayOrders" parameterType="odto">
+    	SELECT  O.O_NO, O.P_NO, P.P_NAME, O.QUANTITY, O.AMOUNT,
+		       		M.MEM_ID, M.M_NAME, O_REGDATE, O.PRICE, M_ROLE,
+		       		P.STOCK, O.STATE
+			FROM ORDERT O
+			INNER JOIN PRODUCT P
+				ON O.P_NO = P.P_NO
+			INNER JOIN MEMBER M
+		  		ON O.MEM_ID = M.MEM_ID
+		WHERE O_NO = #{o_no}
+  	</select>
+	
 </mapper>
 
 

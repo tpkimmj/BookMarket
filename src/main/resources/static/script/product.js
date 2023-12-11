@@ -125,7 +125,33 @@ $().ready(function(){
             alert('주문이 취소되었습니다.');
         }
     });
-});
+    $('.orderPay').on('click', function() {
+        // Get the relevant data from the row
+        var p_no = $(this).closest('tr').find('[name="p_no"]').val();
+        var o_no = $(this).closest('tr').find('[name="o_no"]').val();
+        var mem_id = $(this).closest('tr').find('[name="mem_id"]').val();
+        var m_name = $(this).closest('tr').find('[name="m_name"]').val();
+        var p_name = $(this).closest('tr').find('[name="p_name"]').val();
+
+        // Confirm with the user before canceling the order
+        var confirmPay = confirm('결제하시겠습니까?');
+
+        if (confirmPay) {
+            // If the user confirms, you can perform further actions here, 
+            // such as making an AJAX request to the server to update the order status
+            // For now, let's assume you want to submit the form with the relevant data
+            // You can uncomment the following lines when you are ready to implement the actual logic.
+
+            $('form[name="orderForm"]').find('[name="p_no"]').val(p_no);
+            $('form[name="orderForm"]').find('[name="o_no"]').val(o_no);
+            $('form[name="orderForm"]').find('[name="mem_id"]').val(mem_id);
+            $('form[name="orderForm"]').find('[name="m_name"]').val(m_name);
+            $('form[name="orderForm"]').find('[name="p_name"]').val(p_name);
+            $('form[name="orderForm"]').attr('action' , '/orderPay');
+            $('form[name="orderForm"]').submit();
+        }
+    });
+}); //ready끝
 
 
 

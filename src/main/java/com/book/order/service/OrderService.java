@@ -30,6 +30,8 @@ public interface OrderService {
 
 	Map<String, Object> payOrders(OrderDTO ovo);
 
+	Map<String, Object> getpayOrders(OrderDTO ovo);
+
 
 
 }

@@ -267,6 +267,38 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 		return page;
 	}
 	
+	@RequestMapping("/orderPay")
+	public String orderPay(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model) {
+		HttpSession session = request.getSession();
+		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		String page = null;
+		ovo.setM_role(custom.getM_role());
+		ovo.setMem_id(custom.getMem_id());
+		//장바구니
+		Map<String, Object> reSet = orderService.getpayOrders(ovo);
+		MemberDTO memberInfo = orderService.getMember(custom);
+		//Map<String, Object> oderNum = orderService.payOrders(ovo);
+		System.err.println("=========="+reSet);
+		System.err.println("=========="+memberInfo);
+		//System.err.println("=========="+oderNum);
+		if(session.getAttribute("ssKey")!=null) {
+			List<String> pList = (List<String>) reSet.get("orderList");
+			model.addAttribute("pInfo", reSet);
+			System.err.println("=========="+pList);
+			model.addAttribute("mInfo", memberInfo);
+			//model.addAttribute("oderNum", oderNum);
+			model.addAttribute("contentsJsp", "custom/CartPayment");
+			page = "Main";
+		} else {
+			String msg = "로그인이 필요합니다.";
+			String url = "/login";
+			model.addAttribute("msg", msg);
+			model.addAttribute("url", url);
+			page = "MsgPage";
+		}
+		return page;
+	}
+	
 	@RequestMapping("/orderCancle")
 	public String orderCancle(HttpServletRequest request, HttpServletResponse response, OrderDTO odto, Model model , ProductDTO pdto) {
 		String url= null;
