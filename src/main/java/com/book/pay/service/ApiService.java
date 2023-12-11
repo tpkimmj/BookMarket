@@ -116,5 +116,10 @@ public class ApiService {
 	public void updateState(Map<String, String> param) {
 		payDao.updateState(param);
 	}
+
+
+	public void payResult(Map<String, Object> orderResult) {
+		payDao.payResult(orderResult);
+	}
 	
 }

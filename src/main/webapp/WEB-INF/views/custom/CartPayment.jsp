@@ -142,7 +142,7 @@ function jsf__pay() {
 	</div>
 	<script type="text/javascript" src="https://testpay.kcp.co.kr/plugin/payplus_web.jsp"></script>
 	<form name="kcp_order_info" id="kcp_order_info" action="/authPay" method="post" accept-charset="euc-kr">
-		<input type="hidden" name="orderNumber" value="${oderNum.o_no}">
+		<input type="text" name="orderNumber" value="${oderNum.O_NO}">
 		<input type="hidden" name="itemName" value="${pro}건">
 		<input type="hidden" name="amount" value="${sum}">
 		<input type="hidden" name="userName" value="${mInfo.m_name}">

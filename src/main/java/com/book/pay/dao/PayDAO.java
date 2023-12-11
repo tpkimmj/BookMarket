@@ -15,4 +15,6 @@ public interface PayDAO {
 
 	void updateState(Map<String, String> param);
 
+	void payResult(Map<String, Object> orderResult);
+
 }

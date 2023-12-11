@@ -135,7 +135,7 @@
      		 WHERE O.MEM_ID= #{mem_id} and #{m_role}='mem'<!--and이후에 삭제 -->
 		  </if>
 		ORDER BY O_REGDATE DESC) A)
-		WHERE <![CDATA[rownum = 1]]> and O_NO = #{o_no}
+		WHERE <![CDATA[rownum = 1]]>
 	</select>
 	
 	<select id="getpayOrders" parameterType="odto">

@@ -130,6 +130,8 @@ public class PayController {
 		Map<String,Object> orderResult = apiService.JsonApi(url, map);
 		mav.addObject("orderResult",orderResult); // <- 화면으로 데이터보내기
 		System.out.println(orderResult.toString());
+		System.out.println("======"+orderResult);
+		apiService.payResult(orderResult);
 		mav.setViewName("pay");
 		
 		return mav;

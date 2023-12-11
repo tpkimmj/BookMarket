@@ -277,16 +277,11 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 		//장바구니
 		List<Map<String, Object>> reSet = orderService.getpayOrders(ovo);
 		MemberDTO memberInfo = orderService.getMember(custom);
-		//Map<String, Object> oderNum = orderService.payOrders(ovo);
 		System.err.println("=========="+reSet);
 		System.err.println("=========="+memberInfo);
-		//System.err.println("=========="+oderNum);
 		if(session.getAttribute("ssKey")!=null) {
-			//List<String> pList = (List<String>) reSet.get("orderList");
 			model.addAttribute("pInfo", reSet);
-			//System.err.println("=========="+pList);
 			model.addAttribute("mInfo", memberInfo);
-			//model.addAttribute("oderNum", oderNum);
 			model.addAttribute("contentsJsp", "custom/OrderPayment");
 			page = "Main";
 		} else {

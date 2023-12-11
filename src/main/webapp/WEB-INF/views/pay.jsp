@@ -5,13 +5,32 @@
 <!DOCTYPE html>
 <html lang="ko">
 <body>
+<c:import url="./custom/Top.jsp"></c:import>
+<div class="clear"></div>
+<link type="text/css" rel="stylesheet" href="/css/payment.css">
+<div id="order">
+   <div id="orderDone">
+      <div class="headDiv">
+         BookMarket을 이용해 주셔서 감사합니다.
+      </div>
+      <div class="Completion">
+         <span>
+            고객님, <b>결제가 완료</b>되었습니다.
+         </span>
+      </div>
+      <div class="orderNotice">
+         주문내역 확인은 <br>
+         주문목록"에서 하실 수 있습니다.
+      </div>
+      <div class="orderContact">
+         기타 궁금하신 점은 문의하기를 통해<br>
+         문의해주시길 바랍니다.
+      </div>
+   </div>
+   <div id="return">
+      <a href="/" class="mainHome">메인으로</a>
+   </div>
 
-<div class="container">
-    <h3>메세지 : ${payResult.responseMsg }</h3>
-    <h3>코드 : ${payResult.responseCode }</h3>
-    <h3>시간 : ${timestamp}</h3>
-    <h3>${test}</h3>
-</div>
-
+<c:import url="./custom/Bottom.jsp"></c:import>
 </body>
 </html>

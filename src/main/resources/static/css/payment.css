@@ -157,3 +157,61 @@
 #cartPayment #payTot #t_inner span {
 	color: #1088ED;	
 }
+
+
+
+/*결제완료 페이지*/
+#orderDone{
+   text-align: center;
+   width: 650px;
+   height: 500px;
+   margin: 0 auto;
+   background-color: #eeeeee;
+   border-radius: 7px;
+}
+
+.headDiv, .orderNotice, .orderContact{
+   padding: 30px 0;
+}
+
+.checkImgBox{
+   padding-top: 45px;
+}
+
+.checkImg{
+   width: 75px;
+   height: 75px;
+}
+
+.Completion{
+   width: 600px;
+   margin: 0 auto;
+   background-color: #042958;
+   color: #fefae9;
+   height: 70px;
+   line-height: 70px;
+   font-size: 18px;
+}
+
+#return{
+   width: 1024px;
+   height: 100px;
+   margin-top : 65px;
+   margin-left: 440px;
+}
+
+#return .mainHome{
+	font-weight: bold;
+	background-color: #237AF6;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 10px;
+}
+
+#return .mainHome:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}

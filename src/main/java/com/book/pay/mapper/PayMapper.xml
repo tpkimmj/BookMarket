@@ -38,6 +38,11 @@
 		SET STATE = 2 
 		WHERE O_NO = #{orderNumber}
 	</update>
+	
+	<insert id="payResult" parameterType="map">
+     		INSERT INTO PAY(TRANSACTIONID, ORDERNUMBER, AUTHDATETIME, AMOUNT, CARDNAME, CARDNO, QUOTA)
+          	VALUES(#{transactionId}, #{orderNumber}, #{authDateTime}, #{amount}, #{cardName}, #{cardNo}, #{quota})
+  	</insert>
 </mapper>
 
 
