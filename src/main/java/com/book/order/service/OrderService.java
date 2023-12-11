@@ -2,6 +2,7 @@ package com.book.order.service;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import com.book.member.dto.MemberDTO;
@@ -30,7 +31,7 @@ public interface OrderService {
 
 	Map<String, Object> payOrders(OrderDTO ovo);
 
-	Map<String, Object> getpayOrders(OrderDTO ovo);
+	List<Map<String, Object>> getpayOrders(OrderDTO ovo);
 
 
 

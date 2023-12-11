@@ -136,7 +136,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Map<String, Object> getpayOrders(OrderDTO ovo) {
+	public List<Map<String, Object>> getpayOrders(OrderDTO ovo) {
 		return orderDao.getpayOrders(ovo);
 	}
 }
