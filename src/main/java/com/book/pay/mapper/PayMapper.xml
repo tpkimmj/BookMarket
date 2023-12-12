@@ -40,7 +40,7 @@
 	</update>
 	
 	<insert id="payResult" parameterType="map">
-     		INSERT INTO PAY(TRANSACTIONID, ORDERNUMBER, AUTHDATETIME, AMOUNT, CARDNAME, CARDNO, QUOTA)
+     		INSERT INTO PAY(TRANSACTIONID, O_NO, AUTHDATETIME, AMOUNT, CARDNAME, CARDNO, QUOTA)
           	VALUES(#{transactionId}, #{orderNumber}, #{authDateTime}, #{amount}, #{cardName}, #{cardNo}, #{quota})
   	</insert>
 </mapper>
