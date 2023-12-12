@@ -62,12 +62,6 @@ public class PayRestController {
 		Map<String,Object> orderResult = apiService.JsonApi(url, map);
 		pay.put("orderResult",orderResult); // <- 화면으로 데이터보내기
 		
-		if("0000".equals(orderResult.get("responseCode"))) {
-			//정상 JSP
-		}else {
-			//실패 JSP
-		}
-		
 		map.put("pay", "pay");
 		
 		return pay;
@@ -120,12 +114,6 @@ public class PayRestController {
 		
 		Map<String,Object> orderResult = apiService.JsonApi(url, map);
 		pay.put("orderResult",orderResult); // <- 화면으로 데이터보내기
-		
-		if("0000".equals(orderResult.get("responseCode"))) {
-			//정상 JSP
-		}else {
-			//실패 JSP
-		}
 		
 		map.put("pay", "pay");
 		
