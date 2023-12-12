@@ -9,18 +9,18 @@
 		SELECT * FROM
 			(SELECT ROWNUM AS RR, A.*
 			FROM
-		(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
-		FROM PRODUCT
-		ORDER BY P_NO DESC) A)
-		WHERE RR BETWEEN #{start} and #{end}
+				(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+				FROM PRODUCT
+				ORDER BY P_NO DESC) A)
+				WHERE RR BETWEEN #{start} and #{end}
 	</select>
 	
 	<insert id="insertProduct" parameterType="pdto">
 		<selectKey keyProperty="p_no" order="BEFORE" resultType="int">
 			SELECT NVL(MAX(p_no),0)+1 FROM PRODUCT
 		</selectKey>
-		INSERT INTO PRODUCT(P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, writer)
-		VALUES(#{p_no}, #{stock}, #{price}, #{p_name}, #{detail}, SYSDATE, #{image}, #{path}, #{state}, #{writer})
+			INSERT INTO PRODUCT(P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, writer)
+			VALUES(#{p_no}, #{stock}, #{price}, #{p_name}, #{detail}, SYSDATE, #{image}, #{path}, #{state}, #{writer})
 	</insert>
 	
 	<select id="getProduct" resultType="pdto">
@@ -53,21 +53,21 @@
 		SELECT * FROM
 			(SELECT ROWNUM AS RR, P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
 			FROM
-		(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
-		FROM PRODUCT
-		<if test='!state.equals("all")'>
-			WHERE STATE = #{state}
-		</if>
-		<choose>
-			<when test="flag==null">
-				ORDER BY P_NO) A)
-			</when>
-			<when test='flag.equals("low")'>
-				ORDER BY PRICE) A)
-			</when>
-			<when test='flag.equals("high")'>
-				ORDER BY PRICE DESC) A)
-			</when>
+				(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+				FROM PRODUCT
+				<if test='!state.equals("all")'>
+					WHERE STATE = #{state}
+				</if>
+				<choose>
+					<when test="flag==null">
+						ORDER BY P_NO) A)
+					</when>
+					<when test='flag.equals("low")'>
+						ORDER BY PRICE) A)
+					</when>
+					<when test='flag.equals("high")'>
+						ORDER BY PRICE DESC) A)
+					</when>
 		</choose>
 		WHERE RR BETWEEN #{start} and #{end}
 	</select>
@@ -75,10 +75,10 @@
 	<select id="getBestList" parameterType="map">
 		SELECT * FROM
 		(SELECT SUM(B.QUANTITY) AS COUNT, A.P_NO, A.STOCK, A.PRICE, A.P_NAME, A.DETAIL, A.PR_DATE, A.IMAGE, A.PATH, A.STATE, A.WRITER
-					FROM PRODUCT A
-					INNER JOIN ORDERT B
-					ON A.P_NO = B.P_NO
-					GROUP BY A.P_NO, A.STOCK, A.PRICE, A.P_NAME, A.DETAIL, A.PR_DATE, A.IMAGE, A.PATH, A.STATE, A.WRITER
+		FROM PRODUCT A
+		INNER JOIN ORDERT B
+		ON A.P_NO = B.P_NO
+		GROUP BY A.P_NO, A.STOCK, A.PRICE, A.P_NAME, A.DETAIL, A.PR_DATE, A.IMAGE, A.PATH, A.STATE, A.WRITER
 		<choose>
 			<when test="flag==null">
 				ORDER BY COUNT DESC)
@@ -104,20 +104,20 @@
 		SELECT * FROM
 			(SELECT ROWNUM AS RR, P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
 			FROM
-		(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
-		FROM  PRODUCT
-		WHERE
-		P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'||#{searchText}||'%'
-		<choose>
-			<when test="flag==null">
-				ORDER BY P_NO) A)
-			</when>
-			<when test='flag.equals("low")'>
-				ORDER BY PRICE) A)
-			</when>
-			<when test='flag.equals("high")'>
-				ORDER BY PRICE DESC) A)
-			</when>
+				(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+				FROM  PRODUCT
+				WHERE
+				P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'||#{searchText}||'%'
+				<choose>
+					<when test="flag==null">
+						ORDER BY P_NO) A)
+					</when>
+					<when test='flag.equals("low")'>
+						ORDER BY PRICE) A)
+					</when>
+					<when test='flag.equals("high")'>
+						ORDER BY PRICE DESC) A)
+					</when>
 		</choose>
 		WHERE RR BETWEEN #{start} AND #{end}
 	</select>
