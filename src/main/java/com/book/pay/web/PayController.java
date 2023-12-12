@@ -31,7 +31,6 @@ public class PayController {
     	String merchantId = param.get("merchantId");
 		String transactionId = param.get("transactionId");
 		String signature = "";
-		System.out.println(param.toString());
 		
 		map.put("merchantId", merchantId);
 		map.put("transactionId", transactionId);
@@ -52,13 +51,11 @@ public class PayController {
 		// 현재 날짜/시간       
 		LocalDateTime now = LocalDateTime.now();         
 		// 현재 날짜/시간 출력        
-		//System.out.println(now); 
 		// 2021-06-17T06:43:21.419878100          
 		// 포맷팅        
 		@SuppressWarnings("unused")
 		String formatedNow = now.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));         
 		// 포맷팅 현재 날짜/시간 출력        
-		//System.out.println(formatedNow);
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -106,7 +103,6 @@ public class PayController {
 		ModelAndView mav = new ModelAndView();
 		
 		//화면에서 넘어온값 확인 해보기
-		System.out.println(param.toString());
 		
 		//결제 요청 완성 하기
 		//3.3 결제요청 하기 -- 규격서 참고
@@ -130,7 +126,6 @@ public class PayController {
 		
 		Map<String,Object> orderResult = apiService.JsonApi(url, map);
 		mav.addObject("orderResult",orderResult); // <- 화면으로 데이터보내기
-//		System.out.println(orderResult.toString());
 		apiService.payResult(orderResult);
 		mav.setViewName("pay");
 		

@@ -81,7 +81,7 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.insertProduct(pdto);
 	}
 
-	@Override //상품 수정
+	@Override 
 	public int updateProduct(ProductDTO pdto, MultipartFile file) throws Exception {
 		String sourceFileName = file.getOriginalFilename();
 		File destinetionFile;

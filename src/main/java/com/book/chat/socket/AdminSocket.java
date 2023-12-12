@@ -51,7 +51,6 @@ public class AdminSocket {
 	
 	@OnClose
 	public void onClose(Session adminSession) {
-		System.out.println("session close : " + adminSession);
 		admin = null;
 	}
 	
