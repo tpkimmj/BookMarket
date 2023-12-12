@@ -60,7 +60,6 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 		model.addAttribute("url", map.get("url"));
 		session.setAttribute("ssKey", custom);
 		session.setAttribute("ovo", reSet);
-		System.out.println("카트리스트"+reSet);
 		return "MsgPage";
 	}
    
@@ -252,7 +251,6 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 			if(session.getAttribute("ssKey")!=null) {
 				@SuppressWarnings("unchecked")
 				List<String> pList = (List<String>) reSet.get("cartList");
-				System.err.println("=========="+pList);
 				model.addAttribute("pInfo", pList);
 				model.addAttribute("mInfo", memberInfo);
 				model.addAttribute("oderNum", oderNum);
@@ -278,8 +276,6 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 		//장바구니
 		List<Map<String, Object>> reSet = orderService.getpayOrders(ovo);
 		MemberDTO memberInfo = orderService.getMember(custom);
-		System.err.println("=========="+reSet);
-		System.err.println("=========="+memberInfo);
 		if(session.getAttribute("ssKey")!=null) {
 			model.addAttribute("pInfo", reSet);
 			model.addAttribute("mInfo", memberInfo);

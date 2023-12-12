@@ -213,7 +213,6 @@ public class MemberController {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				System.out.println(mdto);
 				if(id!=null) msg = "회원아이디: "+id;
 				else msg = "회원정보가 없습니다.";
 				url = "memSearch";

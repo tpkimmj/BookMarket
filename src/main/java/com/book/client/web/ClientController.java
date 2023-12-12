@@ -73,7 +73,6 @@ public class ClientController {
 	public String noticeProc(HttpServletRequest request, HttpServletResponse response,
 			ClientDTO cdto,Model model,
 			MemberDTO mdto){
-		System.out.println(111);
 		String flag = request.getParameter("flag");
 		HttpSession session = request.getSession();
 		String contentsJsp = null;
