@@ -8,7 +8,6 @@
 <link rel="stylesheet" type="text/css" href="/css/cart.css">
 <script src="/script/product.js"></script>
 </head>
-<c:import url="Top.jsp"/>
 <div class="clear"></div>
 <form  id ="cartSave" action="cartProc?flag=add" name="productForm" method="post">
 <div id="cart">
@@ -63,5 +62,4 @@
 </table>
 </div>
 </form>
-<c:import url="Bottom.jsp"/>
 

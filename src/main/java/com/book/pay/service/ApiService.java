@@ -26,6 +26,7 @@ public class ApiService {
 	@Autowired
 	private PayDAO payDao;
 	
+	@SuppressWarnings("unchecked")
 	public Map<String,Object> JsonApi(String url, Map<String,String> map) {
 		
 		

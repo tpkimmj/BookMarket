@@ -30,7 +30,7 @@ public class ProductController {
 	@Value("${resources.location}")
 	String resourcesLocation;
 	
-	@RequestMapping("/productMgt") //상품 리스트 가져오기
+	@RequestMapping("/productMgt")
 	public String productMgr(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String page = null;
 		MemberDTO ssKey = null;
@@ -44,7 +44,6 @@ public class ProductController {
 		} else {
 			page = "redirect:/";
 		}
-		// 모든 상품 리스트를 갖고 오기 
 		Map<String, Object> reSet = null;
 		try {
 			reSet = productService.getProductList(pdto,pageDto);
@@ -52,7 +51,6 @@ public class ProductController {
 			e.printStackTrace();
 		}
 		model.addAttribute("pcnt", reSet.get("pcnt"));
-		// 헤딩 리스트를 저장("productList")
 		model.addAttribute("pList", reSet.get("pList"));
 		model.addAttribute("contentsJsp", "/ProductMgt");
 		model.addAttribute("pageDto", reSet.get("pageDto"));
@@ -62,7 +60,7 @@ public class ProductController {
 		return page;
 	}
 	
-	@RequestMapping("/productInForm") //관리자 상품 등록 페이지
+	@RequestMapping("/productInForm")
 	public String productInForm(HttpServletRequest request, HttpServletResponse response, ProductDTO pdto, Model model, PageDTO pageDto) {
 		String page = null;
 		MemberDTO ssKey = null;
@@ -75,7 +73,6 @@ public class ProductController {
 		} else {
 			page = "redirect:/";
 		}
-		// 모든 상품 리스트를 갖고 오기 
 		session.setAttribute("ssKey", ssKey);
 		model.addAttribute("contentsJsp", "/ProductInForm");
 		return page;

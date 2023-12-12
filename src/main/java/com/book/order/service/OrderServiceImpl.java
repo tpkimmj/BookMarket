@@ -105,6 +105,7 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Override
 	public int insertOrders(Map<String, Object> reSet) {
+		@SuppressWarnings("unchecked")
 		List<CartDTO> cartList = (List<CartDTO>) reSet.get("cartList");
 		List<OrderDTO> list = new ArrayList<OrderDTO>(cartList.size());
 		for(CartDTO cto : cartList) {

@@ -250,6 +250,7 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 		MemberDTO memberInfo = orderService.getMember(custom);
 		Map<String, Object> oderNum = orderService.payOrders(ovo);
 			if(session.getAttribute("ssKey")!=null) {
+				@SuppressWarnings("unchecked")
 				List<String> pList = (List<String>) reSet.get("cartList");
 				System.err.println("=========="+pList);
 				model.addAttribute("pInfo", pList);

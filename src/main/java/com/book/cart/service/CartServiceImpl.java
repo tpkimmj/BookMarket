@@ -65,6 +65,7 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	public int clearCart(Map<String, Object> reSet) {
+		@SuppressWarnings("unchecked")
 		List<CartDTO> cartList = (List<CartDTO>) reSet.get("cartList");
 		List<OrderDTO> list = new ArrayList<OrderDTO>(cartList.size());
 		for(CartDTO cto : cartList) {

@@ -50,7 +50,7 @@ public class CartController {
 			page = "MsgPage"; 
 		}
     	session.setAttribute("ssKey", custom);
-		return "custom/CartList";
+		return page;
 	}
 	
 	@RequestMapping("cartProc")

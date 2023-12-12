@@ -55,6 +55,7 @@ public class PayController {
 		//System.out.println(now); 
 		// 2021-06-17T06:43:21.419878100          
 		// 포맷팅        
+		@SuppressWarnings("unused")
 		String formatedNow = now.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));         
 		// 포맷팅 현재 날짜/시간 출력        
 		//System.out.println(formatedNow);

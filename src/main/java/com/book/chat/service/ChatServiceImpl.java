@@ -1,6 +1,5 @@
 package com.book.chat.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.book.chat.dao.ChatDAO;
 import com.book.chat.dto.ChatDTO;
-import com.book.member.dto.MemberDTO;
 
 @Service
 public class ChatServiceImpl implements ChatService {

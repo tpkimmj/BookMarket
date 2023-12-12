@@ -62,7 +62,7 @@ public class ProductServiceImpl implements ProductService {
 				return reSet;
 	}
 
-	@Override //상품등록
+	@Override 
 	public int insertProduct(ProductDTO pdto, MultipartFile file) throws Exception {
 		String sourceFileName = file.getOriginalFilename();
 		File destinetionFile;
@@ -73,7 +73,6 @@ public class ProductServiceImpl implements ProductService {
 			destinetionFile = new File(pdto.getPath()+sourceFileName);
 			destinetionFile.getParentFile().mkdirs(); // 파일명으로 생성
 			try {
-				// 받은 파일 전송
 				file.transferTo(destinetionFile);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -215,6 +214,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public int updateStocks(Map<String, Object> reSet) {
+		@SuppressWarnings("unchecked")
 		List<CartDTO> cartList = (List<CartDTO>) reSet.get("cartList");
 		List<OrderDTO> list = new ArrayList<OrderDTO>(cartList.size());
 		for(CartDTO cto : cartList) {
