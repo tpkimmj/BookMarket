@@ -64,8 +64,6 @@ public class PayRestController {
 		
 		if("0000".equals(orderResult.get("responseCode"))) {
 			//정상 JSP
-			apiService.deleteCart(param);
-			apiService.updateState(param);
 		}else {
 			//실패 JSP
 		}
@@ -125,7 +123,6 @@ public class PayRestController {
 		
 		if("0000".equals(orderResult.get("responseCode"))) {
 			//정상 JSP
-			apiService.updateState(param);
 		}else {
 			//실패 JSP
 		}
