@@ -66,13 +66,11 @@ public class UserSocket {
 		user.key = UUID.randomUUID().toString().replace("-", "");
 		// WebSocket의 세션
 		user.session = userSession;
-		System.out.println("open session : " + userSession);
 		// 유저 리스트에 등록한다 
 		sessionUsers.add(user);
 		/* user.session.getBasicRemote().sendText("uuid:" + user.key); */
 		// 운영자 Client에 유저가 접속한 것을 알린다
 		AdminSocket.visit(user.key);
-		System.out.println("session open : " + user);
 	}
 	
 	
