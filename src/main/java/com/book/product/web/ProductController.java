@@ -293,8 +293,6 @@ public class ProductController {
 			page = "Main";
 			model.addAttribute("contentsJsp", "custom/BookSearch");
 		}
-		System.out.println("===>"+pdto);
-		System.out.println("===>"+pdto.getSearchText());
 		
 		// 검색 단어 저장 및 flag(high/low) 저장
 		if (pdto.getSearchText() == null) {

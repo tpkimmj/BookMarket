@@ -70,7 +70,7 @@ public class PayController {
 		String userAgent = "WP";
 		String returnUrl = "returnUrl";
 		String signature = "";
-		String timestamp = now.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+		String timestamp = formatedNow;
 		String g = "|";
 		String apiCertKey = "ac805b30517f4fd08e3e80490e559f8e";
 		
@@ -129,8 +129,7 @@ public class PayController {
 		
 		Map<String,Object> orderResult = apiService.JsonApi(url, map);
 		mav.addObject("orderResult",orderResult); // <- 화면으로 데이터보내기
-		System.out.println(orderResult.toString());
-		System.out.println("======"+orderResult);
+//		System.out.println(orderResult.toString());
 		apiService.payResult(orderResult);
 		mav.setViewName("pay");
 		

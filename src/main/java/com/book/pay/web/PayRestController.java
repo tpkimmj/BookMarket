@@ -40,7 +40,7 @@ public class PayRestController {
 		String timestamp = formatedNow;
 		String g = "|";
 		String apiCertKey = "ac805b30517f4fd08e3e80490e559f8e";
-		System.out.println(param);
+//		System.out.println(param);
 		
 		try {
 //			({merchantId}|{orderNumber}|{amount}|{apiCertKey}|{timestamp}
@@ -102,7 +102,7 @@ public class PayRestController {
 		String timestamp = formatedNow;
 		String g = "|";
 		String apiCertKey = "ac805b30517f4fd08e3e80490e559f8e";
-		System.out.println(param);
+//		System.out.println(param);
 		
 		try {
 //			({merchantId}|{orderNumber}|{amount}|{apiCertKey}|{timestamp}
