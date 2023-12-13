@@ -101,9 +101,10 @@ public class PayController {
 	public ModelAndView authPay(@RequestParam Map<String,String> param) {
 		
 		ModelAndView mav = new ModelAndView();
-		
+		System.err.println("=====>"+param);
 		//화면에서 넘어온값 확인 해보기
-		
+		Map<String, Object> getOrder = apiService.getOrder(param);
+		param.put("orderNumber", String.valueOf(getOrder.get("O_NO")));
 		//결제 요청 완성 하기
 		//3.3 결제요청 하기 -- 규격서 참고
 		String res_cd = param.get("res_cd");
