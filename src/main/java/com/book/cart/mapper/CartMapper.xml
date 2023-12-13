@@ -62,7 +62,7 @@
 	</select>
 	
 	<update id="sumQunt">
-		UPDATE CART SET
+		UPDATE CART 
 		SET QUANTITY = QUANTITY + #{quantity}
 		WHERE MEM_ID = #{mem_id}
 		AND P_NO = #{p_no}
