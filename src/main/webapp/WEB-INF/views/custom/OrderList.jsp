@@ -61,6 +61,7 @@
 			 	<input type="button" class="orderCancle" value="주문취소">
 					<input type="hidden" name="p_no" value="${order.p_no}">
 					<input type="hidden" name="o_no" value="${order.o_no}">
+					<input type="hidden" name="quantity" value="${order.quantity}">
 					<input type="hidden" name="mem_id" value="${order.mem_id}">
 					<input type="hidden" name="m_name" value="${order.m_name}">
 					<input type="hidden" name="p_name" value="${order.p_name}">
@@ -71,6 +72,7 @@
 					<input type="hidden" name="o_no" value="${order.o_no}">
 					<input type="hidden" name="mem_id" value="${order.mem_id}">
 					<input type="hidden" name="p_name" value="${order.p_name}">
+					<input type="hidden" name="quantity" value="${order.quantity}">
 				</c:if>
 				<c:if test="${order.state > 2}">
 				<input type="button" class="cancleFail" value="취소불가">
@@ -80,7 +82,7 @@
 			</c:forEach>
 		</c:when>   
 		<c:when test="${fn:length(orderList)==0}">
-			<tr><th colspan="6"> 등록된 상품이 없습니다.</th></tr>
+			<tr class=bord><th colspan="8" class="cl8"> 등록된 상품이 없습니다.</th></tr>
 		</c:when>   
 	</c:choose>
 </table>

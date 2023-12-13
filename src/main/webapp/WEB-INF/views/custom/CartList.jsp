@@ -44,6 +44,10 @@
 						<td class="co4 price">${cto.price * cto.quantity}</td>
 						<td class="co5"><input type="button" value="수정" onclick="javascript:cartUpdate('U',this)">&nbsp;/&nbsp;
 							<input type="button" value="삭제" onclick="javascript:cartUpdate('D',this)">
+							<input type="hidden" name="stock" value="${cto.stock}">
+							<input type="hidden" name="c_no" value="${cto.c_no}">
+							<input type="hidden" name="p_name" value="${cto.p_name}">
+							<input type="hidden" name="quantity" value="${cto.quantity}">
 						</td>
 						<td class="co6"> <!-- 상품 상세 조회 -->
 							<input  id="bkpno" type="hidden" value="${product.p_no}"  name="p_no"><a href="/bookDetail?p_no=${cto.p_no}">상세보기</a>

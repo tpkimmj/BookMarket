@@ -62,7 +62,7 @@
 	</select>
 	
 	<update id="sumQunt">
-		UPDATE CART
+		UPDATE CART SET
 		SET QUANTITY = QUANTITY + #{quantity}
 		WHERE MEM_ID = #{mem_id}
 		AND P_NO = #{p_no}
@@ -77,6 +77,12 @@
 	<update id ="orderCancle" parameterType="com.book.order.dto.OrderDTO" >
 		DELETE FROM ORDERT 
 		WHERE O_NO = #{o_no}
+	</update>
+	
+	<update id="cartupdateSate" parameterType="cto">
+		UPDATE PRODUCT SET
+  		STOCK = STOCK + ${quantity}
+  		WHERE P_NO = ${p_no}
 	</update>
 </mapper>
 

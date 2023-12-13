@@ -150,6 +150,11 @@
 		WHERE O_NO = #{o_no}
   	</select>
   	
+  	<update id="orderupdateSate" parameterType="odto">
+  		UPDATE PRODUCT SET
+  		STOCK = STOCK + ${quantity}
+  		WHERE P_NO = ${p_no}
+  	</update>
 </mapper>
 
 

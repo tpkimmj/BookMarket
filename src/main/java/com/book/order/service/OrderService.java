@@ -33,7 +33,7 @@ public interface OrderService {
 
 	List<Map<String, Object>> getpayOrders(OrderDTO ovo);
 
-
+	void orderupdateSate(OrderDTO odto);
 
 }
 

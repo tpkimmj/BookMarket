@@ -335,6 +335,7 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 				url="/";
 			}else if (mdto.getM_role().equals("mem")) {
 				logger.info("odto");
+				orderService.orderupdateSate(odto);
 				int r = orderService.orderCancle(odto);
 				if(r>=0) msg =  "주문이 취소되었습니다.";
 				else msg =  "주문취소가 실패하였습니다.";

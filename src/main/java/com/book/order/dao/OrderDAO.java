@@ -48,5 +48,7 @@ public interface OrderDAO {
 	List<Map<String, Object>> getpayOrders(OrderDTO ovo);
 
 	List<Map<String, Object>> payCancle(OrderDTO ovo);
+
+	void orderupdateSate(OrderDTO odto);
 		
 }

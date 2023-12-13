@@ -28,5 +28,4 @@ public interface CartDAO {
 
 	public int clearCart(List<OrderDTO> list);
 
-
 }

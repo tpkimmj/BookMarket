@@ -128,6 +128,7 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Override
 	public int orderCancle(OrderDTO odto) {
+		
 		return orderDao.orderCancle(odto);
 	}
 
@@ -139,5 +140,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Map<String, Object>> getpayOrders(OrderDTO ovo) {
 		return orderDao.getpayOrders(ovo);
+	}
+
+	@Override
+	public void orderupdateSate(OrderDTO odto) {
+		orderDao.orderupdateSate(odto);
+		
 	}
 }
