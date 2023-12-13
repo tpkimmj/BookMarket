@@ -7,7 +7,7 @@ import lombok.ToString;
 @ToString
 public class PayDTO {
 	private String transactionid;
-	private int ordernumber;
+	private int o_no;
 	private String authdatetime;
 	private int amount;
 	private String cardname;

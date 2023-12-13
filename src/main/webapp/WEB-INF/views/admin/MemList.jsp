@@ -31,10 +31,10 @@
 			</tr>
 			<c:forEach var="member" items="${members}">
 				<tr class="bor">
-					<td>${member.mem_id}</td>
-					<td>${member.m_name}</td>
-					<td>${member.m_phone}</td>
-					<td>${member.address}</td>
+					<td class="mco1">${member.mem_id}</td>
+					<td class="mco2">${member.m_name}</td>
+					<td class="mco3">${member.m_phone}</td>
+					<td class="mco4">${member.address}</td>
 				</tr>
 			</c:forEach>
 			</table>

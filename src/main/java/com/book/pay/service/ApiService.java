@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.book.pay.dao.PayDAO;
+import com.book.pay.dto.PayDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -123,4 +124,12 @@ public class ApiService {
 		payDao.payResult(orderResult);
 	}
 	
+	public void deleteState(Map<String, String> param) {
+		payDao.deleteState(param);
+		payDao.deletePay(param);
+	}
+
+	public Map<String, Object> getpay(PayDTO pto) {
+		return payDao.getpay(pto);
+	}
 }

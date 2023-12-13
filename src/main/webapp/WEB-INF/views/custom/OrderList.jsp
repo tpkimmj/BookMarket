@@ -37,7 +37,7 @@
 			<c:forEach var="order" items="${orderList}">
 				<tr class="border">
 					<td class="cl1">${order.o_no}</td>
-					<td class="cl2"><a onclick="javascript:orderDetail(this)">${order.p_name}</a>
+					<td class="cl2">${order.p_name}
 						<input type="hidden" name="p_no" value="${order.p_no}">
 						<input type="hidden" name="o_no" value="${order.o_no}">
 						<input type="hidden" name="mem_id" value="${order.mem_id}">

@@ -17,5 +17,6 @@
          <typeAlias alias="odto" type="com.book.order.dto.OrderDTO" />
          <typeAlias alias="chdto" type="com.book.chat.dto.ChatDTO" />
          <typeAlias alias="cto" type="com.book.cart.dto.CartDTO" />
+         <typeAlias alias="pto" type="com.book.pay.dto.PayDTO" />
      </typeAliases>	
 </configuration>

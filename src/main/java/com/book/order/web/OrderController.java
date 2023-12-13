@@ -19,8 +19,11 @@ import com.book.cart.service.CartService;
 import com.book.member.dto.MemberDTO;
 import com.book.order.dto.OrderDTO;
 import com.book.order.service.OrderService;
+import com.book.pay.dto.PayDTO;
+import com.book.pay.service.ApiService;
 import com.book.product.dto.ProductDTO;
 import com.book.wrapper.OrderWrapper;
+import com.oracle.wls.shaded.org.apache.xalan.xsltc.compiler.sym;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -44,6 +47,9 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
    
 	@Autowired
 	private CartService cartService;
+	
+	@Autowired
+	private ApiService apiService;
    
 	@RequestMapping("/orderProc")
 	public String orderProc(HttpServletRequest request, HttpServletResponse response, CartDTO cto, OrderDTO ovo, Model model) {
@@ -280,6 +286,33 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 			model.addAttribute("pInfo", reSet);
 			model.addAttribute("mInfo", memberInfo);
 			model.addAttribute("contentsJsp", "custom/OrderPayment");
+			page = "Main";
+		} else {
+			String msg = "로그인이 필요합니다.";
+			String url = "/login";
+			model.addAttribute("msg", msg);
+			model.addAttribute("url", url);
+			page = "MsgPage";
+		}
+		return page;
+	}
+	@RequestMapping("/payCancle")
+	public String PayCancle(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model, PayDTO pto) {
+		HttpSession session = request.getSession();
+		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		String page = null;
+		ovo.setM_role(custom.getM_role());
+		ovo.setMem_id(custom.getMem_id());
+		//장바구니
+		Map<String, Object> cancle = apiService.getpay(pto);
+		List<Map<String, Object>> reSet = orderService.getpayOrders(ovo);
+		MemberDTO memberInfo = orderService.getMember(custom);
+		if(session.getAttribute("ssKey")!=null) {
+			model.addAttribute("pInfo", reSet);
+			model.addAttribute("mInfo", memberInfo);
+			model.addAttribute("cInfo", cancle);
+			model.addAttribute("contentsJsp", "custom/PayCancle");
+			System.out.println(cancle);
 			page = "Main";
 		} else {
 			String msg = "로그인이 필요합니다.";

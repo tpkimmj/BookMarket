@@ -43,6 +43,22 @@
      		INSERT INTO PAY(TRANSACTIONID, O_NO, AUTHDATETIME, AMOUNT, CARDNAME, CARDNO, QUOTA)
           	VALUES(#{transactionId}, #{orderNumber}, #{authDateTime}, #{amount}, #{cardName}, #{cardNo}, #{quota})
   	</insert>
+  	
+  	<update id="deleteState" parameterType="map">
+  		DELETE FROM ORDERT 
+		WHERE O_NO = #{o_no}
+	</update>
+	
+  	<update id="deletePay" parameterType="map">
+  		DELETE FROM PAY 
+		WHERE O_NO = #{o_no}
+	</update>
+	
+	<select id="getpay" parameterType="map">
+		SELECT TRANSACTIONID, O_NO, AUTHDATETIME, AMOUNT, CARDNAME, CARDNO, QUOTA FROM PAY
+     	WHERE O_NO= #{o_no}
+	</select>
+	
 </mapper>
 
 

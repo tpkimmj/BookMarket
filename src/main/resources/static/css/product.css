@@ -106,8 +106,15 @@
 .border .pco4 , .border .pco5{
 	width: 180px;
 }
+.border .pco2 {
+	text-align: left;
+}
+.border .pco4 {
+	text-align: right;
+}
 .border .pco3 {
 	width: 240px;
+	text-align: left;
 }
 .border .pco6 {
 	width: 400px;

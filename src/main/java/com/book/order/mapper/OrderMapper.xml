@@ -149,7 +149,7 @@
 		  		ON O.MEM_ID = M.MEM_ID
 		WHERE O_NO = #{o_no}
   	</select>
-	
+  	
 </mapper>
 
 

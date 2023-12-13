@@ -196,8 +196,7 @@
 #return{
    width: 1024px;
    height: 100px;
-   margin-top : 65px;
-   margin-left: 440px;
+   margin: 0 auto;
 }
 
 #return .mainHome{
@@ -214,4 +213,75 @@
     text-shadow: 0 0 0 #fefae9;
     background-color : #064695;
     color : #fefae9;
+}
+/* 주문취소 페이지 */
+#payCancle {
+	width: 1000px;
+	height: auto;
+	margin: 20px auto;
+	background-color: #eeeeee;
+	padding: 5px 10px 10px 10px;
+}
+#payCancle h2{
+	text-align: center;
+	margin: 20px;
+}
+#payCancle #p_address {
+	width: 700px;
+	height: 150px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payCancle .p_title {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+#payCancle .p_inner {
+	padding: 10px;
+}
+#payCancle .p_inner span {
+	display: block;
+	height: 30px;	
+}
+#payCancle #p_info {
+	width: 700px;
+	height: auto;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payCancle #p_info .p_con .price{
+	font-size: 18px;
+	font-weight: bold;
+	color: #1088ED;
+}
+#payCancle #p_info .p_con {
+	background-color: #eeeeee;
+	margin: 10px;
+	padding: 10px;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+#payCancle #p_info .p_con .pname{
+	font-size: 18px;
+	font-weight: bold;
+}
+#payCancle #payTot {
+	width: 700px;
+	height: 40px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payCancle #payTot #t_inner {
+	padding: 8px 5px 5px 480px;	
+}
+#payCancle #payTot #t_inner span {
+	color: #1088ED;	
 }

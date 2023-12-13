@@ -1,16 +1,19 @@
 @charset "UTF-8";
 #memlist {
-	margin: 0 auto;
+	margin: 50px auto;
 	width: 1000px;
-	height: 800px;
+	height: 1000px;
 }
 #memlist #tit {
 	background-color: #00008B;
 	padding: 25px;
 	font-size: 25px;
 	color: white;
-}
+	text-align: center;
+	font-family: sans-serif;
+	}
 #memlist table {
+	margin : 0 auto;
 	width: 1000px;
 	text-align: center;
 	border-collapse: collapse;
@@ -25,6 +28,16 @@
 }
 .bor th, .bor td {
 	border: 1px solid #eeeeee;
+}
+.bor th{
+	height: 40px;
+	text-align: center;
+	background-color: #00008B;
+	color: white;
+	font-family: sans-serif;
+}
+.bor td{
+	height: 60px;
 }
 #pwcheck {
 	font-weight: bold;

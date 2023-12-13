@@ -119,4 +119,40 @@ public class PayRestController {
 		
 		return pay;
 	}
+	
+	@RequestMapping("/Canclepay")
+	public Map<String, Object> cancel(@RequestParam Map<String, String> param) {
+		Map<String, String> map = new HashMap<>();
+		Map<String, Object> pay = new HashMap<>();
+		String url = "https://api.testpayup.co.kr/v2/api/payment/himedia/cancel2";
+		
+		//http://localhost:8000/cancel?transactionId=20231129155815ST0423&merchantId=himedia
+		//화며에서 데이터 보내고 그 값을 가지고 취소하기
+		
+		//취소하는거 만들기
+    	String merchantId = "himedia";
+		String transactionId = param.get("transactionId");
+		String signature = "";
+		
+		map.put("merchantId", merchantId);
+		map.put("transactionId", transactionId);
+		try {
+			signature = apiService.getSHA256Hash(merchantId+"|"+transactionId+"|"+"ac805b30517f4fd08e3e80490e559f8e");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		map.put("signature", signature);
+		/* String url = "http://localhost:9004/cancel?"+transactionId+merchantId; */
+		Map<String,Object> orderResult = apiService.JsonApi(url, map);
+		pay.put("orderResult",orderResult); // <- 화면으로 데이터보내기
+		
+		if("0000".equals(orderResult.get("responseCode"))) {
+			//정상 JSP
+			apiService.deleteState(param);
+		}else {
+			//실패 JSP
+		}
+		map.put("pay", "pay");
+		return pay;
+	}
 }
