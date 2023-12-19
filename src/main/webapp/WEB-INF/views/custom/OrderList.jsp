@@ -41,6 +41,7 @@
 						<input type="hidden" name="p_no" value="${order.p_no}">
 						<input type="hidden" name="o_no" value="${order.o_no}">
 						<input type="hidden" name="mem_id" value="${order.mem_id}">
+						<input type="hidden" name="quantity" value="${order.quantity}">
 					</td>
 					<td class="cl3">${order.quantity}</td>
 					<td class="cl4 price">${order.price}</td>

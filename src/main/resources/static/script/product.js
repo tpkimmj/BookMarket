@@ -241,6 +241,7 @@ function count(type)  {
   if(type === 'plus') {
 	  if(parseInt(number) < parseInt(bkstock)){
 		  number = parseInt(number) + 1;
+		  resultElement.setAttribute("value" , number);
 		  bkprice = parseInt(element2) * parseInt(number);
 	  } else if (parseInt(number) >= parseInt(bkstock)){
 		  alert("재고 수량이 부족합니다.");
@@ -250,6 +251,7 @@ function count(type)  {
 	    alert("1개 이상 구매가능합니다.");
 	  } else if(number > 1) {
 		number = parseInt(number) - 1;
+		resultElement.setAttribute("value" , number);
 	    bkprice = parseInt(element2) * parseInt(number);
 	  }
   }

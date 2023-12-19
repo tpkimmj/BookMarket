@@ -8,7 +8,7 @@
 		</selectKey>
      		INSERT INTO ORDERT(O_NO,PRICE,AMOUNT,QUANTITY,O_REGDATE, STATE,MEM_ID,P_NO)
           	VALUES(#{o_no},#{amount},#{amount},
-                 1,
+                 #{quantity},
                  sysdate,
                  1,
                  #{mem_id},

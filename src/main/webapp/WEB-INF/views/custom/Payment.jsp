@@ -19,7 +19,7 @@ $().ready(function(){
 		var userName = $("input[name=userName]").val(); 
 		var p_no = $("input[name=p_no]").val(); 
 		var mem_id = $("input[name=mem_id]").val(); 
-		
+		var quantity = $("input[name=quantity]").val(); 
 		$.ajax({
 			   async:false,
 			   type:'post',
@@ -27,7 +27,8 @@ $().ready(function(){
 				   	"itemName" : itemName,
 				   	"p_no" : p_no,
 				   	"mem_id" : mem_id,
-				   	"userName" : userName
+				   	"userName" : userName,
+				   	"quantity" : quantity
 			   },
 			   url: "/directPay",
 			   dataType:"json",
@@ -142,6 +143,7 @@ function jsf__pay() {
 		<input type="hidden" name="p_no" value="${pInfo.p_no}">
 		<input type="hidden" name="itemName" value="${pInfo.p_name}">
 		<input type="hidden" name="amount" value="${pInfo.price*quantity}">
+		<input type="hidden" name="quantity" value="${quantity}">
 		<input type="hidden" name="userName" value="${mInfo.m_name}">
 		
 		<input type="hidden" name="ordr_idxx" value="">

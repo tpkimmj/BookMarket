@@ -20,6 +20,7 @@
 				<input  id="bkp_stock"type="hidden" value="${product.stock}" name="stock">
 				<input  id="bkp_name"type="hidden" value="${product.p_name}" name="p_name">
 				<input  id="bkp_price"type="hidden" value="${product.price}" name="price">
+				<input  id="bkp_price"type="hidden" value="${quantity}" name="price">
 				</th>
 			</tr>
 			<tr id="bkName1">

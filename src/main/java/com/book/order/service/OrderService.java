@@ -35,5 +35,16 @@ public interface OrderService {
 
 	void orderupdateSate(OrderDTO odto);
 
+	void minstateupdate(OrderDTO odto);
+
+	void minstockst(int quantity);
+
+	void mistateupdate(OrderDTO odto);
+
+	void ordCancleMgt(OrderDTO dList);
+	
+	List<OrderDTO> getpayOrd(OrderDTO odto);
+
+	List<OrderDTO> orderCancleList(OrderDTO odto);
 }
 

@@ -127,11 +127,10 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	@Override
-	public int orderCancle(OrderDTO odto) {
-		
+	public int orderCancle(OrderDTO odto) {		
 		return orderDao.orderCancle(odto);
 	}
-
+	
 	@Override
 	public Map<String, Object> payOrders(OrderDTO ovo) {
 		return orderDao.payOrders(ovo);
@@ -146,5 +145,37 @@ public class OrderServiceImpl implements OrderService {
 	public void orderupdateSate(OrderDTO odto) {
 		orderDao.orderupdateSate(odto);
 		
+	}
+
+	@Override
+	public void minstateupdate(OrderDTO odto) {
+		orderDao.minstateupdate(odto);
+	}
+
+	@Override
+	public void minstockst(int quantity) {
+		orderDao.minstockst(quantity);
+	}
+
+	@Override
+	public void mistateupdate(OrderDTO odto) {
+		orderDao.mistateupdate(odto);
+		
+	}
+
+	@Override
+	public void ordCancleMgt(OrderDTO dList) {
+		orderDao.ordCancleMgt(dList);
+		
+	}
+
+	@Override
+	public List<OrderDTO> getpayOrd(OrderDTO odto) {
+		return orderDao.getpayOrd(odto);
+	}
+
+	@Override
+	public List<OrderDTO> orderCancleList(OrderDTO odto) {
+		return orderDao.orderCancleList(odto);
 	}
 }

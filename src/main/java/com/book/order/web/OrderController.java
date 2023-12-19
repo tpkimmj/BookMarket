@@ -210,7 +210,7 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 	}
 	
 	@RequestMapping("/payment")
-	public String payment(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, Model model, @RequestParam Map<String, Object> param) {
+	public String payment(HttpServletRequest request, HttpServletResponse response, OrderDTO ovo, OrderDTO odto, Model model, @RequestParam Map<String, Object> param) {
 		HttpSession session = request.getSession();
 		MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
 		String page = null;
@@ -218,15 +218,17 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 			MemberDTO memberInfo = orderService.getMember(custom);
 			ProductDTO productInfo = orderService.getProduct(request.getParameter("p_no"));
 			int quantity = ovo.getQuantity();
+			orderService.minstockst(quantity);
 			if(ovo.getQuantity()!=0) {
 				model.addAttribute("quantity", quantity);
 			}
 			else {
-				if(param.get("quantity")=="0" && param.get("quantity")==null)
+				if(param.get("quantity")=="0" && param.get("quantity")==null) 
 					model.addAttribute("quantity", param.get("quantity"));
-				else
+				else 
 					model.addAttribute("quantity", 1);
-			}
+					orderService.minstateupdate(odto);
+				}
 			model.addAttribute("pInfo", productInfo);
 			model.addAttribute("mInfo", memberInfo);
 			model.addAttribute("contentsJsp", "custom/Payment");
@@ -325,31 +327,50 @@ private static final Logger logger = LoggerFactory.getLogger(OrderController.cla
 	}
 	
 	@RequestMapping("/orderCancle")
-	public String orderCancle(HttpServletRequest request, HttpServletResponse response, OrderDTO odto, Model model , ProductDTO pdto) {
-		String url= null;
-		String msg = null;
-		HttpSession session = request.getSession();
-		MemberDTO mdto =(MemberDTO) session.getAttribute("ssKey");
-		if(mdto !=null) {
-			if(mdto.getM_role().equals("admin")) {
-				url="/";
-			}else if (mdto.getM_role().equals("mem")) {
-				logger.info("odto");
-				orderService.orderupdateSate(odto);
-				int r = orderService.orderCancle(odto);
-				if(r>=0) msg =  "주문이 취소되었습니다.";
-				else msg =  "주문취소가 실패하였습니다.";
-				url="/orderList";
-			}
-			else {
-				url ="/login";
-				msg ="로그인이 필요합니다.";
-			}
-			model.addAttribute("msg", msg);
-			model.addAttribute("url", url);
-			session.setAttribute("ssKey", odto);
-			session.setAttribute("ssKey", mdto);
+	public String orderCancle(HttpServletRequest request, HttpServletResponse response, OrderDTO odto, Model model, ProductDTO pdto) {
+	    String url = null;
+	    String msg = null;
+	    HttpSession session = request.getSession();
+	    MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+
+	    if (mdto != null) {
+	        if (mdto.getM_role().equals("admin")) {
+	            url = "/";
+	        } else if (mdto.getM_role().equals("mem")) {
+	            logger.info("odto");
+
+	            // 주문 취소 후 업데이트된 주문 목록을 받아옴
+	            List<OrderDTO> updatedOrderList = new ArrayList<>();
+	            updatedOrderList = orderService.orderCancleList(odto);
+	            
+	            // 주문 취소 관리
+	            for (OrderDTO dList : updatedOrderList) {
+	                orderService.ordCancleMgt(dList);
+	            }
+
+	            // 주문 상태 업데이트
+	            orderService.orderupdateSate(odto);
+
+	            // 주문 취소
+	            int updatedRowCount = orderService.orderCancle(odto);
+
+	            if (updatedRowCount > 0) {
+	                msg = "주문취소 완료";
+	            } else {
+	                msg = "주문취소 실패";
+	            }
+
+	            url = "/orderList";
+	        } else {
+	            url = "/login";
+	            msg = "로그인이 필요합니다.";
+	        }
+
+	        model.addAttribute("msg", msg);
+	        model.addAttribute("url", url);
+	        session.setAttribute("ssKey", odto);
+	        session.setAttribute("ssKey", mdto);
+	    }
+	    return "MsgPage";
 	}
-		return "MsgPage";
-}
 }

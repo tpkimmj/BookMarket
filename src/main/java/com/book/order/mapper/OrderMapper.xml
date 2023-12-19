@@ -8,7 +8,7 @@
 		</selectKey>
 	    <foreach collection="list" item="ovo" index="index" open="INSERT ALL " close="SELECT * FROM DUAL" separator=" ">
      		INTO ORDERT(O_NO,PRICE,AMOUNT,QUANTITY,O_REGDATE, STATE,MEM_ID,P_NO)
-          	VALUES(#{o_no},#{ovo.price},#{ovo.price}*#{ovo.quantity},
+          	VALUES(#{o_no}, #{ovo.price}, #{ovo.price}*#{ovo.quantity},
                  #{ovo.quantity},
                  sysdate,
                  1,
@@ -114,10 +114,10 @@
 	</select>
 	
 	<!-- 주문취소 -->
-	<update id ="orderCancle" parameterType="com.book.order.dto.OrderDTO" >
+	<delete id ="orderCancle" parameterType="odto" >
 		DELETE FROM ORDERT 
 		WHERE O_NO = #{o_no}
-	</update>
+	</delete>
 	
 	<select id="payOrders" parameterType="odto">
 		SELECT * FROM
@@ -150,11 +150,45 @@
 		WHERE O_NO = #{o_no}
   	</select>
   	
+  		<select id="getpayOrd" parameterType="odto">
+    	SELECT  O.O_NO, O.P_NO, P.P_NAME, O.QUANTITY, O.AMOUNT,
+		       		M.MEM_ID, M.M_NAME, O_REGDATE, O.PRICE, M_ROLE,
+		       		P.STOCK, O.STATE
+			FROM ORDERT O
+			INNER JOIN PRODUCT P
+				ON O.P_NO = P.P_NO
+			INNER JOIN MEMBER M
+		  		ON O.MEM_ID = M.MEM_ID
+		WHERE O_NO = #{o_no}
+  	</select>
+  	
   	<update id="orderupdateSate" parameterType="odto">
   		UPDATE PRODUCT SET
-  		STOCK = STOCK + ${quantity}
+  		STOCK = STOCK + #{quantity}
+  		WHERE P_NO = #{p_no}
+  	</update>
+  		
+  	<update id="minstateupdate" parameterType="odto">
+  		UPDATE PRODUCT SET
+  		STOCK = STOCK - 1
+  		WHERE P_NO = #{p_no}
+  	</update>
+  	
+  	<update id="minstockst" parameterType="int">
+  		UPDATE PRODUCT SET
+  		STOCK = STOCK - #{quantity}
   		WHERE P_NO = ${p_no}
   	</update>
+  	
+	<update id="ordCancleMgt" parameterType="odto">
+  		UPDATE PRODUCT SET
+  		STOCK = STOCK + #{quantity}
+  		WHERE P_NO = #{p_no}
+  	</update>
+  	<select id="orderCancleList" parameterType="odto" resultType="odto">
+  		SELECT P_NO, QUANTITY FROM ORDERT 
+  		WHERE O_NO = #{o_no}
+  	</select>
 </mapper>
 
 

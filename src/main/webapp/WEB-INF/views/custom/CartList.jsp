@@ -35,12 +35,13 @@
 					<tr class="border">
 						<td class="co1">${cto.p_name}</td>
 						<td class="co2 price">${cto.price}</td>
-						<td class="co3" > <!-- 수량 -->
-							<input name="quantity" type="text" style="text-align: right; padding-right: 5px;" value="${cto.quantity}" size="5">
+						<td class="co3" >${cto.quantity} <!-- 수량 -->
+							<input name="quantity" type="hidden" style="text-align: right; padding-right: 5px;" value="${cto.quantity}" size="5">
 							<input type="hidden" name="stock" value="${cto.stock}">
 							<input type="hidden" name="c_no" value="${cto.c_no}">
 							<input type="hidden" name="p_name" value="${cto.p_name}">
 							<input type="hidden" name="price" value="${cto.price}">
+						</td>
 						<td class="co4 price">${cto.price * cto.quantity}</td>
 						<td class="co5"><input type="button" value="수정" onclick="javascript:cartUpdate('U',this)">&nbsp;/&nbsp;
 							<input type="button" value="삭제" onclick="javascript:cartUpdate('D',this)">
