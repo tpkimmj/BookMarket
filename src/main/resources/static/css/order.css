@@ -5,12 +5,12 @@
 #productMgt a:hover{color: black; text-decoration: none; font-weight: bold;}
 #orderMgt {
 	margin: 50px auto;
-	width: 1100px;
+	width: 1000px;
 	height: 1000px;
 }
 #orderMgt table {
 	margin: 0 auto;
-	width: 1100px;
+	width: 1000px;
 	border-collapse: collapse;
 }
 #orderMgt .title{
@@ -42,25 +42,32 @@
 	width: 130px;
 }
 .border .acl1{
-	width: 155px;
+	width: 150px;
+}
+.border .acl2{
+	width: 150px;
 }
 .border .acl3{
 	width: 200px;
+	text-align: left;
 }
 .border .acl4 {
 	width: 155px;
 }
 .border .acl5{
-	width: 100px;
+	width: 150px;
 }
 .border .acl6{
 	width: 100px;
 }
 .border .acl7{
-	width: 280px;
+	width: 160px;
 }
 .border .acl8{
 	width: 200px;
+}
+.border .acl9{
+	width: 180px;
 }
 .ordButton {
 	text-align: center;
@@ -110,12 +117,24 @@
 .border .cl1{
 	width: 250px;
 }
-.border .cl2 , .border .cl6{
+.border .cl2{
 	width: 300px;
 }
-.border .cl3, .border .cl4 {
-	width: 150px;
+.border .cl3{
+	width: 200px;
+}
+.border .cl4 {
+	width: 225px;
 }
 .border .cl5 {
+	width: 225px;
+}
+.border .cl6 {
+	width: 250px;
+}
+.border .cl7 {
+	width: 250px;
+}
+.border .cl8 {
 	width: 250px;
 }

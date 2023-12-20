@@ -56,7 +56,7 @@
 						<c:when test="${order.state==5}">구매확정</c:when>            
 					</c:choose>
 				</td>
-				<td class="cl7">
+				<td class="cl8">
 				<c:if test="${order.state == 1}">
 			 	<input type="button" class="orderPay" value="결제하기"> / 
 			 	<input type="button" class="orderCancle" value="주문취소">
