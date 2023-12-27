@@ -19,8 +19,12 @@
 	
 	
 	<select id="getClients" resultType="cdto">
-		SELECT CNO, READCOUNT, SUBJECT, CONTENT, WRITER,REGDATE
+	SELECT * FROM
+    		(SELECT ROWNUM AS RR, A.*
+      			FROM
+		(SELECT CNO, READCOUNT, SUBJECT, CONTENT, WRITER,REGDATE
 		FROM CLIENT
+		ORDER BY CNO ASC) A)
 	</select>
 	
 	<select id="getTotalCnt" resultType="int">
