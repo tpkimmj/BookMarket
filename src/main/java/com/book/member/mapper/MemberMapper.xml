@@ -70,7 +70,7 @@
 		   ,ZIPCODE = #{zipcode}
 		   ,ADDRESS = #{address}
 		   ,ADDRESS2 = #{address2}
-		   ,M_JOB = M_JOB
+		   ,M_JOB = #{m_job}
 		WHERE MEM_ID = #{mem_id}
 	</update>
 	
